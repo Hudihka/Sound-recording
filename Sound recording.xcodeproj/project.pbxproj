@@ -30,6 +30,8 @@
 		CE80E5A023F817A20084FE93 /* Vibro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59D23F817A10084FE93 /* Vibro.swift */; };
 		CE80E5A123F817A20084FE93 /* Constats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59E23F817A10084FE93 /* Constats.swift */; };
 		CE80E5A223F817A20084FE93 /* SupportNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59F23F817A20084FE93 /* SupportNotification.swift */; };
+		CE80E5A623F81C620084FE93 /* ViewAudio.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE80E5A523F81C620084FE93 /* ViewAudio.xib */; };
+		CE80E5A823F81C9F0084FE93 /* ViewAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */; };
 		CEF4477723F815270085EFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4477623F815270085EFED /* AppDelegate.swift */; };
 		CEF4477923F815270085EFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4477823F815270085EFED /* ViewController.swift */; };
 		CEF4477C23F815270085EFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4477A23F815270085EFED /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		CE80E59D23F817A10084FE93 /* Vibro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vibro.swift; sourceTree = "<group>"; };
 		CE80E59E23F817A10084FE93 /* Constats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constats.swift; sourceTree = "<group>"; };
 		CE80E59F23F817A20084FE93 /* SupportNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportNotification.swift; sourceTree = "<group>"; };
+		CE80E5A523F81C620084FE93 /* ViewAudio.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewAudio.xib; sourceTree = "<group>"; };
+		CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAudio.swift; sourceTree = "<group>"; };
 		CEF4477323F815270085EFED /* Sound recording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound recording.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF4477623F815270085EFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF4477823F815270085EFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,24 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		CE80E5A323F81AFF0084FE93 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4477823F815270085EFED /* ViewController.swift */,
+				CEF4477A23F815270085EFED /* Main.storyboard */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE80E5A423F81B420084FE93 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E5A523F81C620084FE93 /* ViewAudio.xib */,
+				CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CEF4476A23F815270085EFED = {
 			isa = PBXGroup;
 			children = (
@@ -165,8 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				CE80E59B23F816B50084FE93 /* Resourses */,
-				CEF4477823F815270085EFED /* ViewController.swift */,
-				CEF4477A23F815270085EFED /* Main.storyboard */,
+				CE80E5A323F81AFF0084FE93 /* Controllers */,
+				CE80E5A423F81B420084FE93 /* Views */,
 				CE80E59C23F8178B0084FE93 /* Support */,
 				CE80E57023F816AF0084FE93 /* Extensions */,
 			);
@@ -234,6 +256,7 @@
 				CEF4478123F815290085EFED /* LaunchScreen.storyboard in Resources */,
 				CEF4477E23F815290085EFED /* Assets.xcassets in Resources */,
 				CEF4477C23F815270085EFED /* Main.storyboard in Resources */,
+				CE80E5A623F81C620084FE93 /* ViewAudio.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +278,7 @@
 				CE80E5A223F817A20084FE93 /* SupportNotification.swift in Sources */,
 				CE80E5A123F817A20084FE93 /* Constats.swift in Sources */,
 				CE80E59023F816AF0084FE93 /* UIViewController.swift in Sources */,
+				CE80E5A823F81C9F0084FE93 /* ViewAudio.swift in Sources */,
 				CE80E59323F816AF0084FE93 /* UIAlertController.swift in Sources */,
 				CE80E59623F816AF0084FE93 /* FloatAbdDouble.swift in Sources */,
 				CE80E58923F816AF0084FE93 /* UIView.swift in Sources */,
