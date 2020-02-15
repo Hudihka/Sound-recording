@@ -41,7 +41,7 @@ class ViewAudio: UIView {
 									  scrollEnabled: false,
 									  clicableCell: false,
 									  arrayNameCell: nil)
-		collectionView.reg
+		collectionView.register(TickCell.self, forCellWithReuseIdentifier: "TickCell")
 	}
 
 	@IBAction func buttonPlay(_ sender: Any) {
@@ -61,9 +61,9 @@ extension ViewAudio: UICollectionViewDelegateFlowLayout, UICollectionViewDataSou
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-		let cell: CollectionCellDataVC = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
 		
-		cell.procent =
+		cell.procent = CGFloat(arc4random_uniform(99))
 		
 		return cell
 	}
@@ -78,7 +78,7 @@ extension ViewAudio: UICollectionViewDelegateFlowLayout, UICollectionViewDataSou
 	// MARK: - габариты ячеек
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: getWCell(index: indexPath), height: 520)
+		return CGSize(width: tickWidth, height: collectionView.frame.height)
 	}
 	
 	

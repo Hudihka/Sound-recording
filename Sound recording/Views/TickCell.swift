@@ -10,7 +10,7 @@ import UIKit
 
 class TickCell: UICollectionViewCell {
 	
-	var procent: Int = 10 {
+	var procent: CGFloat = 10 {
 		didSet{
 			addHold()
 		}
@@ -27,13 +27,13 @@ class TickCell: UICollectionViewCell {
 		let sampleMask = UIView()
         sampleMask.frame = frame
         sampleMask.backgroundColor =  UIColor.black//
-
-        self.view.addSubview(sampleMask)
+		
+        contentView.addSubview(sampleMask)
         let maskLayer = CALayer()
         maskLayer.frame = sampleMask.bounds
         let circleLayer = CAShapeLayer()
         //assume the circle's radius is 150
-        circleLayer.frame = self.view.frame
+        circleLayer.frame = self.contentView.frame
         let finalPath = UIBezierPath(roundedRect: frame, cornerRadius: 0)
 
         let holl = bezierPath(procent)

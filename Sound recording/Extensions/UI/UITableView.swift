@@ -38,7 +38,7 @@ extension UITableView {
 
     func baseSettingsTV(obj: UITableViewDelegate & UITableViewDataSource,
                         scrollEnabled: Bool = true,
-                        separatorStyle: UITableViewCell.SeparatorStyle? = .none,
+                        separatorStyle: UITableViewCell.SeparatorStyle = .none,
                         heghtCell: CGFloat?,
                         arrayNameCell: [String]?,
                         completion: (() -> Void)?){
@@ -48,9 +48,7 @@ extension UITableView {
             self.backgroundColor = UIColor.clear
             self.isScrollEnabled = scrollEnabled
 
-            if let separatorStyle = separatorStyle {
-                self.separatorStyle = separatorStyle
-            }
+            self.separatorStyle = separatorStyle
 
             if let heghtCell = heghtCell {
                 self.estimatedRowHeight = heghtCell
