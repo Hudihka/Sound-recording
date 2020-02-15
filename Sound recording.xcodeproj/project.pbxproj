@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
+		CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57323F816AF0084FE93 /* UIWindows.swift */; };
+		CE80E58923F816AF0084FE93 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57423F816AF0084FE93 /* UIView.swift */; };
+		CE80E58A23F816AF0084FE93 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57523F816AF0084FE93 /* UICollectionView.swift */; };
+		CE80E58B23F816AF0084FE93 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57623F816AF0084FE93 /* UITableView.swift */; };
+		CE80E58C23F816AF0084FE93 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57723F816AF0084FE93 /* UIDevice.swift */; };
+		CE80E58D23F816AF0084FE93 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57823F816AF0084FE93 /* UITextField.swift */; };
+		CE80E58E23F816AF0084FE93 /* UIImageViewAndUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57923F816AF0084FE93 /* UIImageViewAndUIImage.swift */; };
+		CE80E58F23F816AF0084FE93 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57A23F816AF0084FE93 /* UIButton.swift */; };
+		CE80E59023F816AF0084FE93 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57B23F816AF0084FE93 /* UIViewController.swift */; };
+		CE80E59123F816AF0084FE93 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57C23F816AF0084FE93 /* UILabel.swift */; };
+		CE80E59223F816AF0084FE93 /* UISegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57D23F816AF0084FE93 /* UISegmentedControl.swift */; };
+		CE80E59323F816AF0084FE93 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57E23F816AF0084FE93 /* UIAlertController.swift */; };
+		CE80E59423F816AF0084FE93 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58023F816AF0084FE93 /* Date.swift */; };
+		CE80E59523F816AF0084FE93 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58123F816AF0084FE93 /* Array.swift */; };
+		CE80E59623F816AF0084FE93 /* FloatAbdDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58223F816AF0084FE93 /* FloatAbdDouble.swift */; };
+		CE80E59723F816AF0084FE93 /* StringAndCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58323F816AF0084FE93 /* StringAndCrypto.swift */; };
+		CE80E59823F816AF0084FE93 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58423F816AF0084FE93 /* Timer.swift */; };
+		CE80E59923F816AF0084FE93 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58523F816AF0084FE93 /* NSObject.swift */; };
+		CE80E59A23F816AF0084FE93 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E58623F816AF0084FE93 /* Utils.swift */; };
+		CE80E5A023F817A20084FE93 /* Vibro.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59D23F817A10084FE93 /* Vibro.swift */; };
+		CE80E5A123F817A20084FE93 /* Constats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59E23F817A10084FE93 /* Constats.swift */; };
+		CE80E5A223F817A20084FE93 /* SupportNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E59F23F817A20084FE93 /* SupportNotification.swift */; };
 		CEF4477723F815270085EFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4477623F815270085EFED /* AppDelegate.swift */; };
 		CEF4477923F815270085EFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4477823F815270085EFED /* ViewController.swift */; };
 		CEF4477C23F815270085EFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF4477A23F815270085EFED /* Main.storyboard */; };
@@ -15,6 +38,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		CE80E57323F816AF0084FE93 /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
+		CE80E57423F816AF0084FE93 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		CE80E57523F816AF0084FE93 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		CE80E57623F816AF0084FE93 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		CE80E57723F816AF0084FE93 /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		CE80E57823F816AF0084FE93 /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		CE80E57923F816AF0084FE93 /* UIImageViewAndUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAndUIImage.swift; sourceTree = "<group>"; };
+		CE80E57A23F816AF0084FE93 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		CE80E57B23F816AF0084FE93 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		CE80E57C23F816AF0084FE93 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		CE80E57D23F816AF0084FE93 /* UISegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		CE80E57E23F816AF0084FE93 /* UIAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		CE80E58023F816AF0084FE93 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		CE80E58123F816AF0084FE93 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		CE80E58223F816AF0084FE93 /* FloatAbdDouble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatAbdDouble.swift; sourceTree = "<group>"; };
+		CE80E58323F816AF0084FE93 /* StringAndCrypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringAndCrypto.swift; sourceTree = "<group>"; };
+		CE80E58423F816AF0084FE93 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CE80E58523F816AF0084FE93 /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		CE80E58623F816AF0084FE93 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CE80E59D23F817A10084FE93 /* Vibro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vibro.swift; sourceTree = "<group>"; };
+		CE80E59E23F817A10084FE93 /* Constats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constats.swift; sourceTree = "<group>"; };
+		CE80E59F23F817A20084FE93 /* SupportNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportNotification.swift; sourceTree = "<group>"; };
 		CEF4477323F815270085EFED /* Sound recording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound recording.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF4477623F815270085EFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF4477823F815270085EFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +81,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE80E57023F816AF0084FE93 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E57123F816AF0084FE93 /* UI */,
+				CE80E57F23F816AF0084FE93 /* Foundation */,
+				CE80E58623F816AF0084FE93 /* Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE80E57123F816AF0084FE93 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E57223F816AF0084FE93 /* UIScrollView.swift */,
+				CE80E57323F816AF0084FE93 /* UIWindows.swift */,
+				CE80E57423F816AF0084FE93 /* UIView.swift */,
+				CE80E57523F816AF0084FE93 /* UICollectionView.swift */,
+				CE80E57623F816AF0084FE93 /* UITableView.swift */,
+				CE80E57723F816AF0084FE93 /* UIDevice.swift */,
+				CE80E57823F816AF0084FE93 /* UITextField.swift */,
+				CE80E57923F816AF0084FE93 /* UIImageViewAndUIImage.swift */,
+				CE80E57A23F816AF0084FE93 /* UIButton.swift */,
+				CE80E57B23F816AF0084FE93 /* UIViewController.swift */,
+				CE80E57C23F816AF0084FE93 /* UILabel.swift */,
+				CE80E57D23F816AF0084FE93 /* UISegmentedControl.swift */,
+				CE80E57E23F816AF0084FE93 /* UIAlertController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CE80E57F23F816AF0084FE93 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E58023F816AF0084FE93 /* Date.swift */,
+				CE80E58123F816AF0084FE93 /* Array.swift */,
+				CE80E58223F816AF0084FE93 /* FloatAbdDouble.swift */,
+				CE80E58323F816AF0084FE93 /* StringAndCrypto.swift */,
+				CE80E58423F816AF0084FE93 /* Timer.swift */,
+				CE80E58523F816AF0084FE93 /* NSObject.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		CE80E59B23F816B50084FE93 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4477623F815270085EFED /* AppDelegate.swift */,
+				CEF4477D23F815290085EFED /* Assets.xcassets */,
+				CEF4477F23F815290085EFED /* LaunchScreen.storyboard */,
+				CEF4478223F815290085EFED /* Info.plist */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		CE80E59C23F8178B0084FE93 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E59E23F817A10084FE93 /* Constats.swift */,
+				CE80E59F23F817A20084FE93 /* SupportNotification.swift */,
+				CE80E59D23F817A10084FE93 /* Vibro.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		CEF4476A23F815270085EFED = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +164,11 @@
 		CEF4477523F815270085EFED /* Sound recording */ = {
 			isa = PBXGroup;
 			children = (
-				CEF4477623F815270085EFED /* AppDelegate.swift */,
+				CE80E59B23F816B50084FE93 /* Resourses */,
 				CEF4477823F815270085EFED /* ViewController.swift */,
 				CEF4477A23F815270085EFED /* Main.storyboard */,
-				CEF4477D23F815290085EFED /* Assets.xcassets */,
-				CEF4477F23F815290085EFED /* LaunchScreen.storyboard */,
-				CEF4478223F815290085EFED /* Info.plist */,
+				CE80E59C23F8178B0084FE93 /* Support */,
+				CE80E57023F816AF0084FE93 /* Extensions */,
 			);
 			path = "Sound recording";
 			sourceTree = "<group>";
@@ -135,8 +244,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE80E58E23F816AF0084FE93 /* UIImageViewAndUIImage.swift in Sources */,
+				CE80E59123F816AF0084FE93 /* UILabel.swift in Sources */,
+				CE80E58A23F816AF0084FE93 /* UICollectionView.swift in Sources */,
+				CE80E59923F816AF0084FE93 /* NSObject.swift in Sources */,
+				CE80E59823F816AF0084FE93 /* Timer.swift in Sources */,
+				CE80E59523F816AF0084FE93 /* Array.swift in Sources */,
+				CE80E59423F816AF0084FE93 /* Date.swift in Sources */,
+				CE80E59A23F816AF0084FE93 /* Utils.swift in Sources */,
+				CE80E5A223F817A20084FE93 /* SupportNotification.swift in Sources */,
+				CE80E5A123F817A20084FE93 /* Constats.swift in Sources */,
+				CE80E59023F816AF0084FE93 /* UIViewController.swift in Sources */,
+				CE80E59323F816AF0084FE93 /* UIAlertController.swift in Sources */,
+				CE80E59623F816AF0084FE93 /* FloatAbdDouble.swift in Sources */,
+				CE80E58923F816AF0084FE93 /* UIView.swift in Sources */,
+				CE80E58D23F816AF0084FE93 /* UITextField.swift in Sources */,
+				CE80E59223F816AF0084FE93 /* UISegmentedControl.swift in Sources */,
+				CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */,
 				CEF4477923F815270085EFED /* ViewController.swift in Sources */,
+				CE80E59723F816AF0084FE93 /* StringAndCrypto.swift in Sources */,
 				CEF4477723F815270085EFED /* AppDelegate.swift in Sources */,
+				CE80E5A023F817A20084FE93 /* Vibro.swift in Sources */,
+				CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */,
+				CE80E58F23F816AF0084FE93 /* UIButton.swift in Sources */,
+				CE80E58B23F816AF0084FE93 /* UITableView.swift in Sources */,
+				CE80E58C23F816AF0084FE93 /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +416,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z96TS9T74Z;
-				INFOPLIST_FILE = "Sound recording/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sound recording/Resourses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -292,7 +425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "itMS.Sound-recording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -302,7 +435,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z96TS9T74Z;
-				INFOPLIST_FILE = "Sound recording/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sound recording/Resourses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "itMS.Sound-recording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
