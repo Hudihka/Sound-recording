@@ -61,37 +61,25 @@ extension ViewAudio: UICollectionViewDelegateFlowLayout, UICollectionViewDataSou
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		
-			let cell: CollectionCellDataVC = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
+		let cell: CollectionCellDataVC = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
 		
-		cell.procent = arc4ra
-
-			return cell
-		}
-
-		func collectionView(_ collectionView: UICollectionView,
-							layout collectionViewLayout: UICollectionViewLayout,
-							minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-			return 0
-		}
-
-	//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-	//        if let cell = self.collectionView.cellForItem(at: indexPath) {
-	//            cell.contentView.backgroundColor = UIColor.clear
-	//        }
-	//
-	//        self.dataTransferDelegate(indexPath)
-	//    }
-
-
-		// MARK: - габариты ячеек
-
-		func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-			return CGSize(width: getWCell(index: indexPath), height: 520)
-		}
+		cell.procent =
+		
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 0
+	}
 	
 	
+	// MARK: - габариты ячеек
 	
-	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: getWCell(index: indexPath), height: 520)
+	}
 	
 	
 }

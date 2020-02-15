@@ -10,7 +10,6 @@
 		528C5B1823F863EC00E0EF99 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1723F863EC00E0EF99 /* Int.swift */; };
 		528C5B1A23F86BB500E0EF99 /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1923F86BB500E0EF99 /* TickCell.swift */; };
 		528C5B1D23F86E4F00E0EF99 /* HollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1B23F86E4F00E0EF99 /* HollVC.swift */; };
-		528C5B1E23F86E4F00E0EF99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1C23F86E4F00E0EF99 /* ViewController.swift */; };
 		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
 		CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57323F816AF0084FE93 /* UIWindows.swift */; };
 		CE80E58923F816AF0084FE93 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57423F816AF0084FE93 /* UIView.swift */; };
@@ -47,7 +46,6 @@
 		528C5B1723F863EC00E0EF99 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		528C5B1923F86BB500E0EF99 /* TickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		528C5B1B23F86E4F00E0EF99 /* HollVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HollVC.swift; sourceTree = "<group>"; };
-		528C5B1C23F86E4F00E0EF99 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE80E57323F816AF0084FE93 /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
 		CE80E57423F816AF0084FE93 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */,
 				528C5B1923F86BB500E0EF99 /* TickCell.swift */,
 				528C5B1B23F86E4F00E0EF99 /* HollVC.swift */,
-				528C5B1C23F86E4F00E0EF99 /* ViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				528C5B1E23F86E4F00E0EF99 /* ViewController.swift in Sources */,
 				CE80E58E23F816AF0084FE93 /* UIImageViewAndUIImage.swift in Sources */,
 				CE80E59123F816AF0084FE93 /* UILabel.swift in Sources */,
 				CE80E58A23F816AF0084FE93 /* UICollectionView.swift in Sources */,
@@ -465,7 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "itMS.Sound-recording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -484,7 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "itMS.Sound-recording";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
