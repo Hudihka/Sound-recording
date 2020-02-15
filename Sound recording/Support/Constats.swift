@@ -62,31 +62,6 @@ var heightTabBar: CGFloat {
     return isIPhoneXorXmax ? 84 : 58
 }
 
-//MARK: - Colors
-
-let colorTabBar           = UIColor(red: 17/255, green: 41/255, blue: 87/255, alpha: 1)
-
-let colorBacground        = UIColor(red: 34/255, green: 34/255, blue: 34/255, alpha: 1)
-
-let colorGrienButton      = UIColor(red: 108/255, green: 169/255, blue: 75/255, alpha: 1)
-let colorGrienBlockButton = UIColor(red: 68/255, green: 133/255, blue: 31/255, alpha: 1)
-
-let whiteBlock            = UIColor(red: 139/255, green: 141/255, blue: 144/255, alpha: 1)
-
-let graySwitch            = UIColor(red: 128/255, green: 130/255, blue: 133/255, alpha: 1)
-let grayTabBar            = UIColor(red: 47/255, green: 47/255, blue: 47/255, alpha: 1)
-let grayBlock             = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
-let gray                  = UIColor(red: 63/255, green: 63/255, blue: 63/255, alpha: 1)
+let tickWidth: CGFloat = 10
 
 
-let red                   = UIColor(red: 235/255, green: 0/255, blue: 41/255, alpha: 1)
-let gold                  = UIColor(red: 255/255, green: 173/255, blue: 38/255, alpha: 1)
-
-let separator             = UIColor(red: 63/255, green: 63/255, blue: 63/255, alpha: 1)
-
-
-
-//CALENDAR
-
-
-let selectedView = colorGrienButton.withAlphaComponent(0.3)
