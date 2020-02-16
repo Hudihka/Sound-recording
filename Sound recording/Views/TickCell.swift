@@ -16,25 +16,26 @@ class TickCell: UICollectionViewCell {
 		}
 	}
 	
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-		self.backgroundColor = UIColor.clear
+    private var myFrame: CGRect {
+        return contentView.frame
     }
+	
 	
 	private func addHold(){
 		
-		let sampleMask = UIView()
-        sampleMask.frame = frame
-        sampleMask.backgroundColor =  UIColor.black//
+		self.backgroundColor = UIColor.clear
 		
+		let sampleMask = UIView()
+        sampleMask.frame = myFrame
+        sampleMask.backgroundColor =  UIColor.black//
+
         contentView.addSubview(sampleMask)
         let maskLayer = CALayer()
         maskLayer.frame = sampleMask.bounds
         let circleLayer = CAShapeLayer()
         //assume the circle's radius is 150
         circleLayer.frame = self.contentView.frame
-        let finalPath = UIBezierPath(roundedRect: frame, cornerRadius: 0)
+        let finalPath = UIBezierPath(roundedRect: myFrame, cornerRadius: 0)
 
         let holl = bezierPath(procent)
         finalPath.append(holl.reversing())
@@ -47,8 +48,8 @@ class TickCell: UICollectionViewCell {
 
     private func bezierPath(_ procent: CGFloat) -> UIBezierPath {
 
-        let startX: CGFloat = 10
-        let height = frame.height * procent / 100
+        let startX: CGFloat = 1
+        let height = myFrame.height * procent / 100
 
         let rect = CGRect(x: startX,
                           y: frame.height - height,
@@ -56,7 +57,5 @@ class TickCell: UICollectionViewCell {
                           height: height)
         return UIBezierPath(roundedRect: rect, cornerRadius: 0)
     }
-	
-	
     
 }
