@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewAudio" customModule="Sound_recording" customModuleProvider="target">
             <connections>
+                <outlet property="buttonPlayAndPause" destination="9bO-eW-1AX" id="dBw-gf-csg"/>
                 <outlet property="collectionView" destination="enX-cr-w04" id="ave-aw-yEU"/>
                 <outlet property="counteinerView" destination="iN0-l3-epB" id="T8s-Qc-sde"/>
                 <outlet property="labelTimer" destination="bEc-jy-oIz" id="Z9c-N3-doA"/>
@@ -28,7 +29,7 @@
                     </constraints>
                     <state key="normal" image="play"/>
                     <connections>
-                        <action selector="buttonPlay:" destination="-1" eventType="touchUpInside" id="f2D-hu-DBK"/>
+                        <action selector="buttonPlay:" destination="-1" eventType="touchUpInside" id="GHh-bW-JhE"/>
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="enX-cr-w04">

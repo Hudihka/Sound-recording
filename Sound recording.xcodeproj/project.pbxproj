@@ -10,6 +10,7 @@
 		528C5B1823F863EC00E0EF99 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1723F863EC00E0EF99 /* Int.swift */; };
 		528C5B1A23F86BB500E0EF99 /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1923F86BB500E0EF99 /* TickCell.swift */; };
 		528C5B1D23F86E4F00E0EF99 /* HollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1B23F86E4F00E0EF99 /* HollVC.swift */; };
+		5292169223F96B2C00A96092 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292169123F96B2C00A96092 /* CALayer.swift */; };
 		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
 		CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57323F816AF0084FE93 /* UIWindows.swift */; };
 		CE80E58923F816AF0084FE93 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57423F816AF0084FE93 /* UIView.swift */; };
@@ -45,6 +46,7 @@
 		528C5B1723F863EC00E0EF99 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		528C5B1923F86BB500E0EF99 /* TickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		528C5B1B23F86E4F00E0EF99 /* HollVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HollVC.swift; sourceTree = "<group>"; };
+		5292169123F96B2C00A96092 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE80E57323F816AF0084FE93 /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
 		CE80E57423F816AF0084FE93 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				CE80E57223F816AF0084FE93 /* UIScrollView.swift */,
 				CE80E57323F816AF0084FE93 /* UIWindows.swift */,
+				5292169123F96B2C00A96092 /* CALayer.swift */,
 				CE80E57423F816AF0084FE93 /* UIView.swift */,
 				CE80E57523F816AF0084FE93 /* UICollectionView.swift */,
 				CE80E57623F816AF0084FE93 /* UITableView.swift */,
@@ -280,6 +283,7 @@
 				528C5B1A23F86BB500E0EF99 /* TickCell.swift in Sources */,
 				CE80E59823F816AF0084FE93 /* Timer.swift in Sources */,
 				CE80E59523F816AF0084FE93 /* Array.swift in Sources */,
+				5292169223F96B2C00A96092 /* CALayer.swift in Sources */,
 				528C5B1823F863EC00E0EF99 /* Int.swift in Sources */,
 				CE80E59423F816AF0084FE93 /* Date.swift in Sources */,
 				CE80E59A23F816AF0084FE93 /* Utils.swift in Sources */,

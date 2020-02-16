@@ -10,7 +10,7 @@ import UIKit
 
 class TickCell: UICollectionViewCell {
 	
-	var procent: CGFloat = 10 {
+	var procent: CGFloat = 2 {
 		didSet{
 			addHold()
 		}
