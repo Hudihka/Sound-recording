@@ -143,6 +143,7 @@ class ViewAudio: UIView {
 }
 
 extension ViewAudio: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return Int(collectionView.frame.width / tickWidth)
 	}

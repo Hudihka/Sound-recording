@@ -33,7 +33,7 @@ class TickCell: UICollectionViewCell {
         let maskLayer = CALayer()
         maskLayer.frame = sampleMask.bounds
         let circleLayer = CAShapeLayer()
-        //assume the circle's radius is 150
+		
         circleLayer.frame = self.contentView.frame
         let finalPath = UIBezierPath(roundedRect: myFrame, cornerRadius: 0)
 

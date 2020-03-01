@@ -38,6 +38,7 @@ extension UITableView {
 
     func baseSettingsTV(obj: UITableViewDelegate & UITableViewDataSource,
                         scrollEnabled: Bool = true,
+						cellEnabled: Bool = true,
                         separatorStyle: UITableViewCell.SeparatorStyle = .none,
                         heghtCell: CGFloat?,
                         arrayNameCell: [String]?,
@@ -47,6 +48,7 @@ extension UITableView {
             self.dataSource = obj
             self.backgroundColor = UIColor.clear
             self.isScrollEnabled = scrollEnabled
+			self.allowsSelection = cellEnabled
 
             self.separatorStyle = separatorStyle
 

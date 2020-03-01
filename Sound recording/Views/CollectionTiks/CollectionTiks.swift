@@ -15,18 +15,19 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
 
-        showsHorizontalScrollIndicator = false
-        showsVerticalScrollIndicator = false
+//        showsHorizontalScrollIndicator = false
+//        showsVerticalScrollIndicator = false
 
-        backgroundColor = UIColor.clear
-        delegate = self
-        dataSource = self
+//        backgroundColor = UIColor.clear
+//        delegate = self
+//        dataSource = self
 
 
         self.baseSettingsCV(obj: self,
                                       scrollEnabled: false,
                                       clicableCell: false,
                                       arrayNameCell: nil)
+		
         self.register(TickCell.self, forCellWithReuseIdentifier: "TickCell")
 
 

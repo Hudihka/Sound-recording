@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5265AEED240C2D0D004FBA16 /* CellAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5265AEEB240C2D0D004FBA16 /* CellAudio.swift */; };
+		5265AEEE240C2D0D004FBA16 /* CellAudio.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5265AEEC240C2D0D004FBA16 /* CellAudio.xib */; };
 		528C5B1823F863EC00E0EF99 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1723F863EC00E0EF99 /* Int.swift */; };
 		528C5B1A23F86BB500E0EF99 /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1923F86BB500E0EF99 /* TickCell.swift */; };
 		5292169223F96B2C00A96092 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292169123F96B2C00A96092 /* CALayer.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5265AEEB240C2D0D004FBA16 /* CellAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAudio.swift; sourceTree = "<group>"; };
+		5265AEEC240C2D0D004FBA16 /* CellAudio.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellAudio.xib; sourceTree = "<group>"; };
 		528C5B1723F863EC00E0EF99 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		528C5B1923F86BB500E0EF99 /* TickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		5292169123F96B2C00A96092 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
@@ -91,6 +95,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5265AEE2240C266B004FBA16 /* На удаление */ = {
+			isa = PBXGroup;
+			children = (
+				CE80E5A523F81C620084FE93 /* ViewAudio.xib */,
+				CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */,
+			);
+			path = "На удаление";
+			sourceTree = "<group>";
+		};
+		5265AEE3240C26AC004FBA16 /* CollectionTiks */ = {
+			isa = PBXGroup;
+			children = (
+				CEA51BF423FAC47800B307FF /* CollectionTiks.swift */,
+				528C5B1923F86BB500E0EF99 /* TickCell.swift */,
+			);
+			path = CollectionTiks;
+			sourceTree = "<group>";
+		};
+		5265AEE8240C2735004FBA16 /* CellAudio */ = {
+			isa = PBXGroup;
+			children = (
+				5265AEEB240C2D0D004FBA16 /* CellAudio.swift */,
+				5265AEEC240C2D0D004FBA16 /* CellAudio.xib */,
+			);
+			path = CellAudio;
+			sourceTree = "<group>";
+		};
 		CE80E57023F816AF0084FE93 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,10 +199,9 @@
 		CE80E5A423F81B420084FE93 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CE80E5A523F81C620084FE93 /* ViewAudio.xib */,
-				CE80E5A723F81C9F0084FE93 /* ViewAudio.swift */,
-				CEA51BF423FAC47800B307FF /* CollectionTiks.swift */,
-				528C5B1923F86BB500E0EF99 /* TickCell.swift */,
+				5265AEE3240C26AC004FBA16 /* CollectionTiks */,
+				5265AEE8240C2735004FBA16 /* CellAudio */,
+				5265AEE2240C266B004FBA16 /* На удаление */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +295,7 @@
 				CEF4478123F815290085EFED /* LaunchScreen.storyboard in Resources */,
 				CEF4477E23F815290085EFED /* Assets.xcassets in Resources */,
 				CEF4477C23F815270085EFED /* Main.storyboard in Resources */,
+				5265AEEE240C2D0D004FBA16 /* CellAudio.xib in Resources */,
 				CE80E5A623F81C620084FE93 /* ViewAudio.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +323,7 @@
 				CE80E5A123F817A20084FE93 /* Constats.swift in Sources */,
 				CE80E59023F816AF0084FE93 /* UIViewController.swift in Sources */,
 				CE80E5A823F81C9F0084FE93 /* ViewAudio.swift in Sources */,
+				5265AEED240C2D0D004FBA16 /* CellAudio.swift in Sources */,
 				CE80E59623F816AF0084FE93 /* FloatAbdDouble.swift in Sources */,
 				CE80E58923F816AF0084FE93 /* UIView.swift in Sources */,
 				CE80E58D23F816AF0084FE93 /* UITextField.swift in Sources */,
