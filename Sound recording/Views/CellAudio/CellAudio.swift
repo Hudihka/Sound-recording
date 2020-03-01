@@ -29,7 +29,9 @@ class CellAudio: UITableViewCell {
 		butonPlay.cirkleView()
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
 		
+		let CV = CollectionTiks(frame: progressView.frame)
 		
+		contentView.addSubview(CV)
     }
 
 	
@@ -40,5 +42,8 @@ class CellAudio: UITableViewCell {
 		dateLabel.text = file.date.printDate(format: "d.MM.yyyy")
 	}
 	
-    
+	@IBAction func playButton(_ sender: Any) {
+		self.progressView.setProgress(1, animated: true)
+	}
+	
 }

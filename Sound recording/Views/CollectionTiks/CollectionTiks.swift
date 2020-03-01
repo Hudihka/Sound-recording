@@ -10,10 +10,10 @@ import UIKit
 
 class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    init() {
+	init(frame: CGRect) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        super.init(frame: .zero, collectionViewLayout: layout)
+        super.init(frame: frame, collectionViewLayout: layout)
 
 //        showsHorizontalScrollIndicator = false
 //        showsVerticalScrollIndicator = false
@@ -53,7 +53,7 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
 
-        cell.procent = CGFloat(arc4random_uniform(99))
+        cell.procent = CGFloat(arc4random_uniform(79)) + 20
 
         return cell
     }

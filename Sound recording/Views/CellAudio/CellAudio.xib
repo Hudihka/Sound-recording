@@ -24,6 +24,9 @@
                             <constraint firstAttribute="height" constant="50" id="wNN-tx-AkD"/>
                         </constraints>
                         <state key="normal" image="play"/>
+                        <connections>
+                            <action selector="playButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rU7-fx-87k"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-IQ-cq8">
                         <rect key="frame" x="68" y="48" width="42" height="12"/>
