@@ -11,8 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 	
 	@IBOutlet weak var tableView: UITableView!
-	
 	var dataArray = [AudioFile]()
+	
+	@IBOutlet var recordingTimeLabel: UILabel!
+	@IBOutlet var recordBtnRef: UIButton!
+	@IBOutlet var playBtnRef: UIButton!
 	
 
     override func viewDidLoad() {
@@ -24,6 +27,16 @@ class ViewController: UIViewController {
 		
 		dataArray = dataArray.sorted(by: {$0.date < $1.date})
 
+		desingTV()
+    }
+	
+	
+
+
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+	func desingTV(){
 		tableView.baseSettingsTV(obj: self,
 								 cellEnabled: false,
 								 heghtCell: nil,
@@ -31,12 +44,9 @@ class ViewController: UIViewController {
 								 completion: nil)
 		
 		tableView.rowHeight = 70.0
-    }
-
-
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
+	}
+	
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return dataArray.count
 	}
@@ -47,9 +57,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 		cell.file = dataArray[indexPath.row]
 		return cell
 	}
-	
-	
-	
 }
 
 

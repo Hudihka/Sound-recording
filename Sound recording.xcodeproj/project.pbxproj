@@ -12,6 +12,7 @@
 		528C5B1823F863EC00E0EF99 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1723F863EC00E0EF99 /* Int.swift */; };
 		528F2D9524101D4600ED220C /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F2D9324101D4600ED220C /* TickCell.swift */; };
 		528F2D9624101D4600ED220C /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F2D9424101D4600ED220C /* TickCell.xib */; };
+		528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F2D982410235D00ED220C /* ManagerRecord.swift */; };
 		5292169223F96B2C00A96092 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292169123F96B2C00A96092 /* CALayer.swift */; };
 		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
 		CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57323F816AF0084FE93 /* UIWindows.swift */; };
@@ -49,6 +50,7 @@
 		528C5B1723F863EC00E0EF99 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		528F2D9324101D4600ED220C /* TickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		528F2D9424101D4600ED220C /* TickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
+		528F2D982410235D00ED220C /* ManagerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerRecord.swift; sourceTree = "<group>"; };
 		5292169123F96B2C00A96092 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE80E57323F816AF0084FE93 /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 				5265AEEC240C2D0D004FBA16 /* CellAudio.xib */,
 			);
 			path = CellAudio;
+			sourceTree = "<group>";
+		};
+		528F2D972410232100ED220C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				528F2D982410235D00ED220C /* ManagerRecord.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		CE80E57023F816AF0084FE93 /* Extensions */ = {
@@ -217,6 +227,7 @@
 				CE80E59B23F816B50084FE93 /* Resourses */,
 				CE80E5A323F81AFF0084FE93 /* Controllers */,
 				CE80E5A423F81B420084FE93 /* Views */,
+				528F2D972410232100ED220C /* Managers */,
 				CE80E59C23F8178B0084FE93 /* Support */,
 				CE80E57023F816AF0084FE93 /* Extensions */,
 			);
@@ -318,6 +329,7 @@
 				528F2D9524101D4600ED220C /* TickCell.swift in Sources */,
 				CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */,
 				CEF4477923F815270085EFED /* ViewController.swift in Sources */,
+				528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */,
 				CE80E59723F816AF0084FE93 /* StringAndCrypto.swift in Sources */,
 				CEF4477723F815270085EFED /* AppDelegate.swift in Sources */,
 				CE80E5A023F817A20084FE93 /* Vibro.swift in Sources */,
