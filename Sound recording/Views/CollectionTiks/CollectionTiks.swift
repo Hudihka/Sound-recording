@@ -18,9 +18,7 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
         self.baseSettingsCV(obj: self,
                                       scrollEnabled: false,
                                       clicableCell: false,
-                                      arrayNameCell: nil)
-		
-        self.register(TickCell.self, forCellWithReuseIdentifier: "TickCell")
+                                      arrayNameCell: ["TickCell"])
 
 
         translatesAutoresizingMaskIntoConstraints = false
