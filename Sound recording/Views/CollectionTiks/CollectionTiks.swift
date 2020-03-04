@@ -15,14 +15,6 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
         layout.scrollDirection = .horizontal
         super.init(frame: frame, collectionViewLayout: layout)
 
-//        showsHorizontalScrollIndicator = false
-//        showsVerticalScrollIndicator = false
-
-//        backgroundColor = UIColor.clear
-//        delegate = self
-//        dataSource = self
-
-
         self.baseSettingsCV(obj: self,
                                       scrollEnabled: false,
                                       clicableCell: false,
@@ -47,7 +39,7 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return Int(self.frame.width - 2 / tickWidth)
+       return Int(self.frame.width / tickWidth)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

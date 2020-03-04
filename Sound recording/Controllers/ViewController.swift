@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		for _ in 0...10{
+		for _ in 0...25{
 			dataArray.append(AudioFile())
 		}
 		

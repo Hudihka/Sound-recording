@@ -29,7 +29,9 @@ class CellAudio: UITableViewCell {
 		butonPlay.cirkleView()
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
 		
-		let CV = CollectionTiks(frame: progressView.frame)
+		let customRect = CGRect(x: 68, y: 17, width: wDdevice - 88, height: 20)
+		
+		let CV = CollectionTiks(frame: customRect)
 		
 		contentView.addSubview(CV)
     }
