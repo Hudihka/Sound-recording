@@ -46,6 +46,16 @@ extension UICollectionView{
                       withReuseIdentifier: headerName);
     }
 
+    func customSize(spacing: CGFloat = 0, interval: CGFloat = 0, size: CGSize){
+
+        if let layout = self.collectionViewLayout as? UICollectionViewFlowLayout{
+            layout.minimumLineSpacing = spacing
+            layout.minimumInteritemSpacing = interval
+
+            layout.estimatedItemSize = size
+        }
+    }
+
 
 }
 
