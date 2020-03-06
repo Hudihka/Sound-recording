@@ -9,28 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    let manager = ManagerRecord.shared
 	
 	@IBOutlet weak var tableView: UITableView!
 	var dataArray = [AudioFile]()
 	
-	@IBOutlet var recordingTimeLabel: UILabel!
+	@IBOutlet var labelTimer: UILabel!
 	@IBOutlet var recordBtnRef: UIButton!
-	@IBOutlet var playBtnRef: UIButton!
+
+	@IBOutlet var butRecord: UIButton!
 	
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        butRecord.cirkleView()
+        manager.delegate = self
+
 		
-		for _ in 0...25{
-			dataArray.append(AudioFile())
-		}
-		
-		dataArray = dataArray.sorted(by: {$0.date < $1.date})
+//        for _ in 0...25{
+//            dataArray.append(AudioFile())
+//        }
+//
+//        dataArray = dataArray.sorted(by: {$0.date < $1.date})
+
+
+        
 
 		desingTV()
+
     }
 	
-	
+    private func desingButtonRecord(){
+
+    }
 
 
 }
@@ -57,6 +70,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 		cell.file = dataArray[indexPath.row]
 		return cell
 	}
+}
+
+extension ViewController: AudioRecordProtocol {
+
+    func updateLabelTimer(text: String) {
+        labelTimer.text = text
+    }
+
+    func buttonRecord() {
+        self.butRecord.backgroundColor = UIColor.red
+    }
+
 }
 
 
