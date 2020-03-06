@@ -51,7 +51,10 @@ class ViewController: UIViewController {
     }
 
     @objc func finishRecord(_ button: UIButton) {
-        manager.finishAudioRecording()
+        if manager.audioRecorder != nil {
+           manager.finishAudioRecording()
+        }
+
         self.labelTimer.text = nil
         self.butRecord.backgroundColor = UIColor.black
     }
@@ -87,6 +90,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 extension ViewController: AudioRecordProtocol {
 
     func updateLabelTimer(text: String) {
+        print(text)
         labelTimer.text = text
     }
 

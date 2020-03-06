@@ -52,13 +52,19 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     //получение доступа к микрофону
     private func checkRecordPermission(completion: @escaping(Bool) -> Void){
 
-        if AVAudioSession.sharedInstance().recordPermission == AVAudioSession.RecordPermission.undetermined {
+        switch AVAudioSession.sharedInstance().recordPermission {
+        case AVAudioSession.RecordPermission.granted:
+            completion(true)
+        case AVAudioSession.RecordPermission.denied:
+            completion(false)
+        case AVAudioSession.RecordPermission.undetermined:
             AVAudioSession.sharedInstance().requestRecordPermission({ (allowed) in
                 completion(allowed)
             })
-        } else {
-            completion(false)
+        default:
+            break
         }
+
     }
 
     //запись
@@ -89,10 +95,12 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             isRecording = true
             startTime = Date().timeIntervalSinceReferenceDate
 
-            meterTimer = Timer.scheduledTimer(timeInterval: 0.5, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
+            print("пишем")
+            meterTimer = Timer.scheduledTimer(timeInterval: 0.05, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
             delegate?.buttonRecord()
 
         } catch let error {
+            print("косяк")
             print(error.localizedDescription)
         }
     }
@@ -110,13 +118,13 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 
     @objc func updateAudioMeter(timer: Timer) {
-        if audioRecorder.isRecording {
+//        if audioRecorder.isRecording {
 
             let time = Int(audioRecorder.currentTime).timerValue
 
             delegate?.updateLabelTimer(text: "\(time):\(startTime.countMS)")
             audioRecorder.updateMeters()
-        }
+//        }
 
     }
 
