@@ -11,7 +11,6 @@ import AVFoundation
 
 protocol AudioRecordProtocol: class {
     func updateLabelTimer(text: String)
-    func buttonRecord()
 }
 
 
@@ -27,7 +26,6 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     private var startTime: Double = 0
 
 	var isRecording = false
-	var isPlaying = false
 
     weak var delegate: AudioRecordProtocol?
 
@@ -98,7 +96,6 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
             print("пишем")
             meterTimer = Timer.scheduledTimer(timeInterval: 0.05, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
-            delegate?.buttonRecord()
 
         } catch let error {
             print("косяк")

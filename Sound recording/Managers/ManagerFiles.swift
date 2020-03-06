@@ -27,8 +27,13 @@ class ManagerFiles: NSObject{
 
     func initData(){
 
-        print("----------------------------")
         print(FileManager.default.linksAudio)
+
+        for link in FileManager.default.linksAudio {
+            arraySrtuct.append(AudioFile(url: link))
+        }
+
+        arraySrtuct = arraySrtuct.sorted(by: {$0.name < $1.name})
 
     }
 

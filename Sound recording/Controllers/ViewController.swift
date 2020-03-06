@@ -27,6 +27,11 @@ class ViewController: UIViewController {
         butRecord.cirkleView()
         manager.delegate = self
 
+
+        managerAudio.initData()
+        dataArray = managerAudio.arraySrtuct
+
+
 //        managerAudio.initData()
 
 //        for _ in 0...25{
@@ -96,26 +101,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 extension ViewController: AudioRecordProtocol {
 
     func updateLabelTimer(text: String) {
-        print(text)
         labelTimer.text = text
-    }
-
-    func buttonRecord() {
-        self.butRecord.backgroundColor = UIColor.red
+        if manager.isRecording {
+            self.butRecord.backgroundColor = UIColor.red
+        }
     }
 
 }
 
-
-struct AudioFile {
-	var date: Date = Date()
-	var time: Int = 0
-	
-	init() {
-		let month = Int(1 + arc4random_uniform(11))
-		let day = Int(1 + arc4random_uniform(27))
-		self.date = Date(day: day, month: month, year: 2019)
-		
-		self.time = Int(1 + arc4random_uniform(300))
-	}
-}
