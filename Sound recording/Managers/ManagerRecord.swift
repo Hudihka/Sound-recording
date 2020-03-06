@@ -22,7 +22,6 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     static let shared = ManagerRecord()
 	
 	var audioRecorder: AVAudioRecorder!
-	var audioPlayer : AVAudioPlayer!
 
 	private var meterTimer:Timer!
     private var startTime: Double = 0
@@ -34,7 +33,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 	//сохранение запииси
 	
-	func getDocumentsDirectory() -> URL {
+	private func getDocumentsDirectory() -> URL {
 		
 		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		let documentsDirectory = paths[0]
