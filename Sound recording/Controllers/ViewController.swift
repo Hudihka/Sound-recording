@@ -35,15 +35,27 @@ class ViewController: UIViewController {
 //        dataArray = dataArray.sorted(by: {$0.date < $1.date})
 
 
-        
+
+
+        butRecord.addTarget(self, action: #selector(playRecord(_:)), for: .touchDown)
+        butRecord.addTarget(self, action: #selector(finishRecord(_:)), for: .touchUpInside)
+
 
 		desingTV()
 
     }
 	
-    private func desingButtonRecord(){
+    @objc func playRecord(_ button: UIButton) {
 
+        manager.setupRecorder()
     }
+
+    @objc func finishRecord(_ button: UIButton) {
+        manager.finishAudioRecording()
+        self.labelTimer.text = nil
+        self.butRecord.backgroundColor = UIColor.black
+    }
+
 
 
 }
