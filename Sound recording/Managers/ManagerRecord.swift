@@ -92,6 +92,8 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             audioRecorder.isMeteringEnabled = true
             audioRecorder.prepareToRecord()
 
+            audioRecorder.record()
+
             isRecording = true
             startTime = Date().timeIntervalSinceReferenceDate
 
@@ -118,13 +120,14 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 
     @objc func updateAudioMeter(timer: Timer) {
-//        if audioRecorder.isRecording {
+        if audioRecorder.isRecording {
 
-            let time = Int(audioRecorder.currentTime).timerValue
+            //если нужны только секунды
+//            let time = Int(audioRecorder.currentTime).timerValue
 
-            delegate?.updateLabelTimer(text: "\(time):\(startTime.countMS)")
+            delegate?.updateLabelTimer(text: startTime.countMS)
             audioRecorder.updateMeters()
-//        }
+        }
 
     }
 
@@ -147,8 +150,11 @@ extension Double{
     var countMS: String {
 
         let time = Date().timeIntervalSinceReferenceDate - self
+        let sec = Int(time).timerValue
+        let timeMS = Int(time.truncatingRemainder(dividingBy: 1) * 100)
 
-        return String(format: "%.2f", time)
+
+        return "\(sec).\(timeMS)"
     }
 
 }
