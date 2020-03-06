@@ -12,6 +12,8 @@ import UIKit
 let hDdevice = UIScreen.main.bounds.size.height
 let wDdevice = UIScreen.main.bounds.size.width
 
+let expansionAudio = "itMS.Sound-recording.m4a"
+
 
 var getHKey: Int {
 

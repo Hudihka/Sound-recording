@@ -14,6 +14,7 @@
 		528F2D9624101D4600ED220C /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F2D9424101D4600ED220C /* TickCell.xib */; };
 		528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F2D982410235D00ED220C /* ManagerRecord.swift */; };
 		5292169223F96B2C00A96092 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292169123F96B2C00A96092 /* CALayer.swift */; };
+		CE1A6981241279D6000737F9 /* ManagerFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A6980241279D5000737F9 /* ManagerFiles.swift */; };
 		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
 		CE80E58823F816AF0084FE93 /* UIWindows.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57323F816AF0084FE93 /* UIWindows.swift */; };
 		CE80E58923F816AF0084FE93 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57423F816AF0084FE93 /* UIView.swift */; };
@@ -52,6 +53,7 @@
 		528F2D9424101D4600ED220C /* TickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
 		528F2D982410235D00ED220C /* ManagerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerRecord.swift; sourceTree = "<group>"; };
 		5292169123F96B2C00A96092 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		CE1A6980241279D5000737F9 /* ManagerFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerFiles.swift; sourceTree = "<group>"; };
 		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		CE80E57323F816AF0084FE93 /* UIWindows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindows.swift; sourceTree = "<group>"; };
 		CE80E57423F816AF0084FE93 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				528F2D982410235D00ED220C /* ManagerRecord.swift */,
+				CE1A6980241279D5000737F9 /* ManagerFiles.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				CE80E58D23F816AF0084FE93 /* UITextField.swift in Sources */,
 				CE80E59223F816AF0084FE93 /* UISegmentedControl.swift in Sources */,
 				528F2D9524101D4600ED220C /* TickCell.swift in Sources */,
+				CE1A6981241279D6000737F9 /* ManagerFiles.swift in Sources */,
 				CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */,
 				CEF4477923F815270085EFED /* ViewController.swift in Sources */,
 				528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */,

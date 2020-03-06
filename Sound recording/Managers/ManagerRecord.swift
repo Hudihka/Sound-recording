@@ -42,8 +42,8 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 	func getFileUrl() -> URL {
 	
-		let date = Date().printDate(format: "dd MMMM yyy HH:mm:ss")
-		let filename = "\(date).m4a"
+		let date = Date().timeIntervalSince1970
+		let filename = "\(date)\(expansionAudio)"
 		let filePath = getDocumentsDirectory().appendingPathComponent(filename)
 		return filePath
 	}

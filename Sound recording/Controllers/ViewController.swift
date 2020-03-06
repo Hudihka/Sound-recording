@@ -11,12 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     let manager = ManagerRecord.shared
+    let managerAudio = ManagerFiles.shared
 	
 	@IBOutlet weak var tableView: UITableView!
 	var dataArray = [AudioFile]()
 	
 	@IBOutlet var labelTimer: UILabel!
-	@IBOutlet var recordBtnRef: UIButton!
 
 	@IBOutlet var butRecord: UIButton!
 	
@@ -27,7 +27,8 @@ class ViewController: UIViewController {
         butRecord.cirkleView()
         manager.delegate = self
 
-		
+//        managerAudio.initData()
+
 //        for _ in 0...25{
 //            dataArray.append(AudioFile())
 //        }
@@ -57,6 +58,11 @@ class ViewController: UIViewController {
 
         self.labelTimer.text = nil
         self.butRecord.backgroundColor = UIColor.black
+    }
+
+
+    @IBAction func test(_ sender: Any) {
+        managerAudio.initData()
     }
 
 
