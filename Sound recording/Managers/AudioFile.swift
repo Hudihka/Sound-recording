@@ -24,17 +24,13 @@ struct AudioFile {
     }
 
 
-    var duration: String{
-		return Int(progressViewDuration).timerValue
-    }
-
-    var progressViewDuration: Double {
+    var duration: String {
 
         if let duration = audioPlayerStruct?.duration{
-			return Double(duration)
+			return Int(duration).timerValue
         }
 
-        return 0
+        return "--:--"
     }
 
     

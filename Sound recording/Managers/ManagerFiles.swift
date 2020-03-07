@@ -10,27 +10,16 @@ import Foundation
 import AVFoundation
 
 
-protocol PlayPauseCellProtocol: class{
-	func playFile(file: AudioFile)
-	func stopedFile(file: AudioFile)
-}
-
-
-//@objc protocol ProtocolMusic: class {
-//    func nextTrack()
-//    @objc optional func timeText(muchIsPlaying: String, muchIsLeft: String)
-//}
-
 class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
     static let shared = ManagerFiles()
     var audioPlayer: AVAudioPlayer?
 
-    var arraySrtuct: [AudioFile] = []
-	
-	weak var delegateCell: PlayPauseCellProtocol?
+    private var arraySrtuct: [AudioFile] = []
 
-    func initData(){
+    func initData() -> [AudioFile]{
+		
+		arraySrtuct = []
 
         for link in FileManager.default.linksAudio {
 			if let file = AudioFile(url: link){
@@ -40,12 +29,9 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
         arraySrtuct = arraySrtuct.sorted(by: {$0.name < $1.name})
 
+		return arraySrtuct
     }
 
-
-    var activePlayer: Bool {
-        return self.audioPlayer?.isPlaying ?? false
-    }
 	
 	private func index(file: AudioFile) -> Int?{
 		return arraySrtuct.firstIndex(where: {$0 == file})
@@ -61,16 +47,13 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 			
 			if isPlay(file: file){ //если сейчас воспроизводится новый трек то ставим на паузу
 				self.audioPlayer?.pause()
-				self.delegateCell?.playFile(file: file)
+				SupportNotification.playFile.audioFile(file)
 			} else { //иначе выключаем выключаем звук и воспроизводим новый
 				
-				if audioPlayer != nil, let file = activeAudioFile {
-					self.audioPlayer?.stop()
-					self.delegateCell?.stopedFile(file: file)
-				}
+				stoped()
 	
 				playFor(index)
-				self.delegateCell?.playFile(file: file)
+				SupportNotification.playFile.audioFile(file)
 			}
 		}
 	}
@@ -90,41 +73,34 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 			self.audioPlayer = player
 			self.audioPlayer?.delegate = self
 			audioPlayer?.play()
-			//			                self.playIndex = index
-			
 		}
     }
+	
+	func stoped() {
+		if audioPlayer != nil, let file = activeAudioFile {
+			self.audioPlayer?.stop()
+			SupportNotification.stopedFile.audioFile(file)
+		}
+	}
+	
+	//MARK- delegate
+	
+	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
+//		stoped() //если хочешь просто остановить
+		
+		nextTrack() //если хочешь автоматически воспроизвести следующий
+	}
 
-    func nextTrack(){
+    private func nextTrack(){
+		guard let activeAudioFile = activeAudioFile, let index = index(file: activeAudioFile) else {return}
+		
+		if let newFile = arraySrtuct[safe: index + 1]{
+			playForName(file: newFile)
+		} else {
+			stoped()
+		}
 
     }
-
-
-//    func prevTrack(){
-//
-//        guard var index = playIndex else {return}
-//
-//        index -= 1
-//
-//        if index == -1 {
-//            index = arrayName.count - 1
-//        }
-//
-//        playFor(index)
-//        playIndex = index
-//    }
-//
-//    var getActiveStruct: AudioFile? {
-//        guard let index = playIndex else {return nil}
-//
-//        return arraySrtuct[index]
-//
-//    }
-
-
-
-
-
 
 }
 

@@ -26,7 +26,7 @@ extension Array where Element == WeakRef<AnyObject> {
     }
 }
 
-extension Collection { //,tpjgfcyjt
+extension Collection { 
     subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
     }

@@ -27,11 +27,7 @@ class ViewController: UIViewController {
         butRecord.cirkleView()
         managerRecord.delegate = self
 
-
-        managerAudio.initData()
-        dataArray = managerAudio.arraySrtuct
-		
-		managerAudio.delegateCell = self
+        dataArray = managerAudio.initData()
 
 
         butRecord.addTarget(self, action: #selector(playRecord(_:)), for: .touchDown)
@@ -42,14 +38,17 @@ class ViewController: UIViewController {
 
     }
 	
+	
     @objc func playRecord(_ button: UIButton) {
-
+		managerAudio.stoped()
         managerRecord.setupRecorder()
     }
 
     @objc func finishRecord(_ button: UIButton) {
         if managerRecord.audioRecorder != nil {
            managerRecord.finishAudioRecording()
+		   dataArray = managerAudio.initData()
+		   tableView.reloadData()
         }
 
         self.labelTimer.text = nil
@@ -94,31 +93,6 @@ extension ViewController: AudioRecordProtocol {
     }
 }
 
-extension ViewController: PlayPauseCellProtocol{
-	
-	func playFile(file: AudioFile) {
-		if let cell = activeCell(audioFile: file) {
-			cell.desingButton()
-		}
-	}
-
-	func stopedFile(file: AudioFile) {
-		if let cell = activeCell(audioFile: file) {
-			print(file.name)
-			cell.butonPlay.setImage(UIImage(named: "play"), for: .normal)
-		}
-	}
-
-	private func activeCell(audioFile: AudioFile) -> CellAudio?{
-		
-		if let cells = self.tableView.visibleCells as? [CellAudio],
-			let first = cells.first(where: {$0.file == audioFile}) {
-			return first
-		}
-		
-		return nil
-	}
-}
 
 
 

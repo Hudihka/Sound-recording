@@ -34,6 +34,9 @@ class CellAudio: UITableViewCell {
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
 		
 		addCollection()
+		
+		SupportNotification.playFile.subscribeNotific(observer: self, selector: #selector(play))
+		SupportNotification.stopedFile.subscribeNotific(observer: self, selector: #selector(stoped))
     }
 
 	//MARK desing
@@ -65,6 +68,25 @@ class CellAudio: UITableViewCell {
 	@IBAction func playButton(_ sender: Any) {
 		
 		manager.playForName(file: file)
+	}
+	
+	//MARK: Notification
+	
+	@objc func play(notfication: Notification) {
+		if notfication.thisIsDesiredCell(file){
+			desingButton()
+		}
+	}
+	
+	@objc func stoped(notfication: Notification) {
+		if notfication.thisIsDesiredCell(file){
+			butonPlay.setImage(UIImage(named: "play"), for: .normal)
+		}
+	}
+
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
 	}
 	
 }
