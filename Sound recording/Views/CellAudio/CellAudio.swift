@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CellAudio: UITableViewCell {
 	
 	@IBOutlet weak var butonPlay: UIButton!
@@ -16,6 +17,7 @@ class CellAudio: UITableViewCell {
 	@IBOutlet weak var dateLabel: UILabel!
 	
 	@IBOutlet weak var progressView: UIProgressView!
+	
 	
 	var file: AudioFile?{
 		didSet{
@@ -40,12 +42,16 @@ class CellAudio: UITableViewCell {
 	private func desingView(){
 		guard let file = file else {return}
 		
-		progressLabel.text = file.time.timerValue
-		dateLabel.text = file.date.printDate(format: "d.MM.yyyy")
+		progressLabel.text = file.duration
+		dateLabel.text = file.name
 	}
 	
 	@IBAction func playButton(_ sender: Any) {
-		self.progressView.setProgress(1, animated: true)
+		guard let audioFileName = file?.name else {return}
+		
+		ManagerFiles.shared.playForName(name: audioFileName)
 	}
 	
 }
+
+

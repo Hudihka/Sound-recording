@@ -7,35 +7,31 @@
 //
 
 import Foundation
-import MediaPlayer
+import AVFoundation
 
 
 struct AudioFile {
 
-    private var asset: AVAsset?
-
+	var audioPlayerStruct: AVAudioPlayer?
     var name: String = ""
-    var time: Int = 0
 
-    init(url: URL) {
-        self.asset = AVPlayerItem(url: url).asset
-        self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
+    init?(url: URL) {
+		
+		if let audioPlayer = try? AVAudioPlayer(contentsOf: url){
+			self.audioPlayerStruct = audioPlayer
+			self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
+		}
     }
 
 
     var duration: String{
-
-        if let duration = asset?.duration{
-            return duration.stringFormat
-        }
-
-        return "--:--"
+		return Int(progressViewDuration).timerValue
     }
 
     var progressViewDuration: Double {
 
-        if let duration = asset?.duration{
-            return Double(CMTimeGetSeconds(duration))
+        if let duration = audioPlayerStruct?.duration{
+			return Double(duration)
         }
 
         return 0

@@ -32,17 +32,6 @@ class ViewController: UIViewController {
         dataArray = managerAudio.arraySrtuct
 
 
-//        managerAudio.initData()
-
-//        for _ in 0...25{
-//            dataArray.append(AudioFile())
-//        }
-//
-//        dataArray = dataArray.sorted(by: {$0.date < $1.date})
-
-
-
-
         butRecord.addTarget(self, action: #selector(playRecord(_:)), for: .touchDown)
         butRecord.addTarget(self, action: #selector(finishRecord(_:)), for: .touchUpInside)
 
@@ -108,4 +97,6 @@ extension ViewController: AudioRecordProtocol {
     }
 
 }
+
+
 

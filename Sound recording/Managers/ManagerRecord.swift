@@ -47,7 +47,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 	}
 
     //получение доступа к микрофону
-    private func checkRecordPermission(completion: @escaping(Bool) -> Void){
+    private func checkRecordPermission(completion: @escaping(Bool?) -> Void){
 
         switch AVAudioSession.sharedInstance().recordPermission {
         case AVAudioSession.RecordPermission.granted:
@@ -56,7 +56,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             completion(false)
         case AVAudioSession.RecordPermission.undetermined:
             AVAudioSession.sharedInstance().requestRecordPermission({ (allowed) in
-                completion(allowed)
+                completion(nil)
             })
         default:
             break
@@ -106,6 +106,9 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 	
 	func setupRecorder(){
         checkRecordPermission {(value) in
+			
+			guard let value = value else {return}
+			
             if value {
                 self.record()
             } else {
