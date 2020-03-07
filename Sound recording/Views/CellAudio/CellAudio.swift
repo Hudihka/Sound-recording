@@ -30,8 +30,6 @@ class CellAudio: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		
-		manager.delegateCell = self
-		
 		butonPlay.cirkleView()
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
 		
@@ -57,7 +55,7 @@ class CellAudio: UITableViewCell {
 		desingButton()
 	}
 	
-	private func desingButton(){
+	func desingButton(){
 		guard let file = file else {return}
 		
 		let imageName = manager.isPlay(file: file) ? "pauseButton" : "play"
@@ -71,25 +69,4 @@ class CellAudio: UITableViewCell {
 	
 }
 
-extension CellAudio: PlayPauseCellProtocol{
-	func playFile(file: AudioFile) {
-		if isActive(audioFile: file) {
-			desingButton()
-		}
-	}
-	
-	func stopedFile(file: AudioFile) {
-		if isActive(audioFile: file) {
-			butonPlay.setImage(UIImage(named: "pauseButton"), for: .normal)
-		}
-	}
-	
-	private func isActive(audioFile: AudioFile) -> Bool{		
-		
-		if let selfFile = self.file {
-			return selfFile == audioFile
-		}
-		
-		return false
-	}
-}
+

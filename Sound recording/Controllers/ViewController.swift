@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let manager = ManagerRecord.shared
+    let managerRecord = ManagerRecord.shared
     let managerAudio = ManagerFiles.shared
 	
 	@IBOutlet weak var tableView: UITableView!
@@ -25,11 +25,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         butRecord.cirkleView()
-        manager.delegate = self
+        managerRecord.delegate = self
 
 
         managerAudio.initData()
         dataArray = managerAudio.arraySrtuct
+		
+		managerAudio.delegateCell = self
 
 
         butRecord.addTarget(self, action: #selector(playRecord(_:)), for: .touchDown)
@@ -42,21 +44,16 @@ class ViewController: UIViewController {
 	
     @objc func playRecord(_ button: UIButton) {
 
-        manager.setupRecorder()
+        managerRecord.setupRecorder()
     }
 
     @objc func finishRecord(_ button: UIButton) {
-        if manager.audioRecorder != nil {
-           manager.finishAudioRecording()
+        if managerRecord.audioRecorder != nil {
+           managerRecord.finishAudioRecording()
         }
 
         self.labelTimer.text = nil
         self.butRecord.backgroundColor = UIColor.black
-    }
-
-
-    @IBAction func test(_ sender: Any) {
-        managerAudio.initData()
     }
 
 
@@ -91,11 +88,36 @@ extension ViewController: AudioRecordProtocol {
 
     func updateLabelTimer(text: String) {
         labelTimer.text = text
-        if manager.isRecording {
+        if managerRecord.isRecording {
             self.butRecord.backgroundColor = UIColor.red
         }
     }
+}
 
+extension ViewController: PlayPauseCellProtocol{
+	
+	func playFile(file: AudioFile) {
+		if let cell = activeCell(audioFile: file) {
+			cell.desingButton()
+		}
+	}
+
+	func stopedFile(file: AudioFile) {
+		if let cell = activeCell(audioFile: file) {
+			print(file.name)
+			cell.butonPlay.setImage(UIImage(named: "play"), for: .normal)
+		}
+	}
+
+	private func activeCell(audioFile: AudioFile) -> CellAudio?{
+		
+		if let cells = self.tableView.visibleCells as? [CellAudio],
+			let first = cells.first(where: {$0.file == audioFile}) {
+			return first
+		}
+		
+		return nil
+	}
 }
 
 

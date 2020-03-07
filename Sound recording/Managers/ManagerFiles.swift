@@ -48,8 +48,12 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
     }
 	
 	private func index(file: AudioFile) -> Int?{
-		
 		return arraySrtuct.firstIndex(where: {$0 == file})
+	}
+	
+	/*активный аудиофайл*/
+	private var activeAudioFile: AudioFile?{
+		return arraySrtuct.first(where: {$0.audioPlayerStruct == self.audioPlayer})
 	}
 	
 	func playForName(file: AudioFile?){
@@ -60,7 +64,7 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 				self.delegateCell?.playFile(file: file)
 			} else { //иначе выключаем выключаем звук и воспроизводим новый
 				
-				if audioPlayer != nil {
+				if audioPlayer != nil, let file = activeAudioFile {
 					self.audioPlayer?.stop()
 					self.delegateCell?.stopedFile(file: file)
 				}
