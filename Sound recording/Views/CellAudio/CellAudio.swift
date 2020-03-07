@@ -52,7 +52,12 @@ class CellAudio: UITableViewCell {
 	private func desingView(){
 		guard let file = file else {return}
 		
-		progressLabel.text = file.duration
+		let tuplData = manager.baseDesingCell(file: file)
+		
+		progressLabel.text = tuplData.labelTime
+		progressView.setProgress(tuplData.progressValue, animated: false)
+		
+		
 		dateLabel.text = file.name
 		
 		desingButton()

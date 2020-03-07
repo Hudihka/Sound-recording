@@ -17,6 +17,8 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
     private var arraySrtuct: [AudioFile] = []
 
+	var timer: Timer?
+	
     func initData() -> [AudioFile]{
 		
 		arraySrtuct = []
@@ -31,22 +33,35 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
 		return arraySrtuct
     }
-
 	
-	private func index(file: AudioFile) -> Int?{
-		return arraySrtuct.firstIndex(where: {$0 == file})
+	//функция которые необходимы при отрисовке ячейки
+	
+	func baseDesingCell(file: AudioFile) -> (labelTime: String, progressValue: Float){
+		let isPl = isPlay(file: file)
+		
+		let time     = isPl ? audioPlayer?.currentTime : file.audioPlayerStruct?.duration
+		let progerss = isPl ? audioPlayer?.currentTime : 0
+		
+		let progressValue = Float(progerss ?? 0)/Float(audioPlayer?.duration ?? 1)
+		
+		return (labelTime: Int(time ?? 0).timerValue, progressValue: progressValue)
 	}
 	
-	/*активный аудиофайл*/
-	private var activeAudioFile: AudioFile?{
-		return arraySrtuct.first(where: {$0.audioPlayerStruct == self.audioPlayer})
+	func isPlay(file: AudioFile) -> Bool{
+		if let index = index(file: file), let player = arraySrtuct[index].audioPlayerStruct{
+			return player.isPlaying
+		}
+		
+		return false
 	}
+	
 	
 	func playForName(file: AudioFile?){
 		if let file = file, let index = index(file: file){
 			
 			if isPlay(file: file){ //если сейчас воспроизводится новый трек то ставим на паузу
 				self.audioPlayer?.pause()
+				self.timer?.invalidate()
 				SupportNotification.playFile.audioFile(file)
 			} else { //иначе выключаем выключаем звук и воспроизводим новый
 				
@@ -58,12 +73,13 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 		}
 	}
 	
-	func isPlay(file: AudioFile) -> Bool{
-		if let index = index(file: file), let player = arraySrtuct[index].audioPlayerStruct{
-			return player.isPlaying
+	
+	func stoped() {
+		if audioPlayer != nil, let file = activeAudioFile {
+			self.audioPlayer?.stop()
+			self.timer?.invalidate()
+			SupportNotification.stopedFile.audioFile(file)
 		}
-		
-		return false
 	}
 
 
@@ -75,19 +91,22 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 			audioPlayer?.play()
 		}
     }
+
 	
-	func stoped() {
-		if audioPlayer != nil, let file = activeAudioFile {
-			self.audioPlayer?.stop()
-			SupportNotification.stopedFile.audioFile(file)
-		}
+	private func index(file: AudioFile) -> Int?{
+		return arraySrtuct.firstIndex(where: {$0 == file})
 	}
+	
+	/*активный аудиофайл*/
+	private var activeAudioFile: AudioFile?{
+		return arraySrtuct.first(where: {$0.audioPlayerStruct == self.audioPlayer})
+	}
+	
 	
 	//MARK- delegate
 	
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
 //		stoped() //если хочешь просто остановить
-		
 		nextTrack() //если хочешь автоматически воспроизвести следующий
 	}
 

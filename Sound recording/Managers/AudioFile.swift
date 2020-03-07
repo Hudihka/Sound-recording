@@ -23,16 +23,6 @@ struct AudioFile {
 		}
     }
 
-
-    var duration: String {
-
-        if let duration = audioPlayerStruct?.duration{
-			return Int(duration).timerValue
-        }
-
-        return "--:--"
-    }
-
     
 }
 
