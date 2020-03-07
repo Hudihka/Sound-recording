@@ -19,6 +19,9 @@ class CellAudio: UITableViewCell {
 	@IBOutlet weak var progressView: UIProgressView!
 	
 	
+	let manager = ManagerFiles.shared
+	
+	
 	var file: AudioFile?{
 		didSet{
 			desingView()
@@ -31,25 +34,38 @@ class CellAudio: UITableViewCell {
 		butonPlay.cirkleView()
         progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
 		
-		let customRect = CGRect(x: 68, y: 17, width: wDdevice - 88, height: 20)
-		
-		let CV = CollectionTiks(frame: customRect)
-		
-		contentView.addSubview(CV)
+		addCollection()
     }
 
+	//MARK desing
+	
+	private func addCollection(){
+		let customRect = CGRect(x: 68, y: 17, width: wDdevice - 88, height: 20)
+			
+			let CV = CollectionTiks(frame: customRect)
+			
+			contentView.addSubview(CV)
+	}
 	
 	private func desingView(){
 		guard let file = file else {return}
 		
 		progressLabel.text = file.duration
 		dateLabel.text = file.name
+		
+		desingButton()
+	}
+	
+	private func desingButton(){
+		let imageName = manager.isPlay(file: file) ? "pauseButton" : "play"
+		butonPlay.setImage(UIImage(named: imageName), for: .normal)
 	}
 	
 	@IBAction func playButton(_ sender: Any) {
-		guard let audioFileName = file?.name else {return}
 		
-		ManagerFiles.shared.playForName(name: audioFileName)
+		manager.playForName(file: file)
+		desingButton()
+		
 	}
 	
 }

@@ -24,8 +24,6 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
     func initData(){
 
-        print(FileManager.default.linksAudio)
-
         for link in FileManager.default.linksAudio {
 			if let file = AudioFile(url: link){
 				arraySrtuct.append(file)
@@ -41,10 +39,27 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
         return self.audioPlayer?.isPlaying ?? false
     }
 	
-	func playForName(name: String){
-		if let index = arraySrtuct.firstIndex(where: {$0.name == name}){
+	private func activeIndex(file: AudioFile?) -> Int?{
+		
+		if let file = file{
+			return arraySrtuct.firstIndex(where: {$0.name == file.name})
+		}
+		
+		return nil
+	}
+	
+	func playForName(file: AudioFile?){
+		if let index = activeIndex(file: file){
 			playFor(index)
 		}
+	}
+	
+	func isPlay(file: AudioFile?) -> Bool{
+		if let index = activeIndex(file: file), let player = arraySrtuct[index].audioPlayerStruct{
+			return player.isPlaying
+		}
+		
+		return false
 	}
 
 
