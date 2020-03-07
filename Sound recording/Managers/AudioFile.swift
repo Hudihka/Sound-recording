@@ -40,6 +40,12 @@ struct AudioFile {
     
 }
 
+extension AudioFile: Hashable{
+	static func == (lhs: AudioFile, rhs: AudioFile) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
 
 
 extension CMTime{

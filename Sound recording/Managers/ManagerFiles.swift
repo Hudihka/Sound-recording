@@ -10,6 +10,12 @@ import Foundation
 import AVFoundation
 
 
+protocol PlayPauseCellProtocol: class{
+	func playFile(file: AudioFile)
+	func stopedFile(file: AudioFile)
+}
+
+
 //@objc protocol ProtocolMusic: class {
 //    func nextTrack()
 //    @objc optional func timeText(muchIsPlaying: String, muchIsLeft: String)
@@ -21,6 +27,8 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
     var audioPlayer: AVAudioPlayer?
 
     var arraySrtuct: [AudioFile] = []
+	
+	weak var delegateCell: PlayPauseCellProtocol?
 
     func initData(){
 
@@ -39,23 +47,32 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
         return self.audioPlayer?.isPlaying ?? false
     }
 	
-	private func activeIndex(file: AudioFile?) -> Int?{
+	private func index(file: AudioFile) -> Int?{
 		
-		if let file = file{
-			return arraySrtuct.firstIndex(where: {$0.name == file.name})
-		}
-		
-		return nil
+		return arraySrtuct.firstIndex(where: {$0 == file})
 	}
 	
 	func playForName(file: AudioFile?){
-		if let index = activeIndex(file: file){
-			playFor(index)
+		if let file = file, let index = index(file: file){
+			
+			if isPlay(file: file){ //если сейчас воспроизводится новый трек то ставим на паузу
+				self.audioPlayer?.pause()
+				self.delegateCell?.playFile(file: file)
+			} else { //иначе выключаем выключаем звук и воспроизводим новый
+				
+				if audioPlayer != nil {
+					self.audioPlayer?.stop()
+					self.delegateCell?.stopedFile(file: file)
+				}
+	
+				playFor(index)
+				self.delegateCell?.playFile(file: file)
+			}
 		}
 	}
 	
-	func isPlay(file: AudioFile?) -> Bool{
-		if let index = activeIndex(file: file), let player = arraySrtuct[index].audioPlayerStruct{
+	func isPlay(file: AudioFile) -> Bool{
+		if let index = index(file: file), let player = arraySrtuct[index].audioPlayerStruct{
 			return player.isPlaying
 		}
 		
@@ -63,7 +80,7 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 	}
 
 
-    func playFor(_ index: Int){
+    private func playFor(_ index: Int){
 		
 		if let player = arraySrtuct[index].audioPlayerStruct {
 			self.audioPlayer = player
