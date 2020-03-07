@@ -13,6 +13,7 @@ enum SupportNotification: String{
 
     case playFile           = "playFile"
 	case stopedFile			= "stopedFile"
+	case reloadDataCell	    = "reloadDataCell"
 
     var nameNotific: NSNotification.Name {
         return NSNotification.Name(self.rawValue)
@@ -29,8 +30,15 @@ enum SupportNotification: String{
         NotificationCenter.default.post(name: self.nameNotific, object: nil)
     }
 	
-	func audioFile(_ file: AudioFile){
-		self.notific(userInfo: ["AudioFile" : file])
+	func audioFile(_ file: AudioFile, dataCell: TulpDataCell? = nil){
+		
+		var userInfo: [String: Any] = ["AudioFile" : file]
+		
+		if let dataCell = dataCell {
+			userInfo["dataCell"] = dataCell
+		}
+		
+		self.notific(userInfo: userInfo)
 	}
 
 

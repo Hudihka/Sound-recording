@@ -9,6 +9,8 @@
 import Foundation
 import AVFoundation
 
+typealias TulpDataCell = (labelTime: String, progressValue: Float)
+
 
 class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
@@ -36,15 +38,17 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 	
 	//функция которые необходимы при отрисовке ячейки
 	
-	func baseDesingCell(file: AudioFile) -> (labelTime: String, progressValue: Float){
-		let isPl = isPlay(file: file)
+	func baseDesingCell(file: AudioFile) -> TulpDataCell{
 		
-		let time     = isPl ? audioPlayer?.currentTime : file.audioPlayerStruct?.duration
-		let progerss = isPl ? audioPlayer?.currentTime : 0
-		
-		let progressValue = Float(progerss ?? 0)/Float(audioPlayer?.duration ?? 1)
-		
-		return (labelTime: Int(time ?? 0).timerValue, progressValue: progressValue)
+		if let index = index(file: file),
+			let player = arraySrtuct[index].audioPlayerStruct,
+			player == self.audioPlayer {
+			return valueActiveTimer
+		} else {
+			
+			let time = file.audioPlayerStruct?.duration ?? 0
+			return (labelTime: Int(time).timerValue, progressValue: 0)
+		}
 	}
 	
 	func isPlay(file: AudioFile) -> Bool{
@@ -89,6 +93,13 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 			self.audioPlayer = player
 			self.audioPlayer?.delegate = self
 			audioPlayer?.play()
+			
+			self.timer = Timer.scheduledTimer(timeInterval: 0.1,
+											  target: self,
+											  selector: #selector(actionTimer),
+											  userInfo: nil,
+											  repeats: true)
+			
 		}
     }
 
@@ -120,7 +131,24 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 		}
 
     }
+	
+	
+	//MARK - timer
 
+	@objc private func actionTimer() {
+		if let file = activeAudioFile{
+			SupportNotification.reloadDataCell.audioFile(file, dataCell: valueActiveTimer)
+		}
+	}
+	
+	private var valueActiveTimer: TulpDataCell{
+		
+		let time = audioPlayer?.currentTime ?? 0
+
+		let progressValue = Float(time)/Float(audioPlayer?.duration ?? 1)
+		
+		return (labelTime: Int(time).timerValue, progressValue: progressValue)
+	}
 }
 
 

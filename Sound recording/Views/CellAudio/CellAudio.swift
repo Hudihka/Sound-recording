@@ -37,6 +37,7 @@ class CellAudio: UITableViewCell {
 		
 		SupportNotification.playFile.subscribeNotific(observer: self, selector: #selector(play))
 		SupportNotification.stopedFile.subscribeNotific(observer: self, selector: #selector(stoped))
+		SupportNotification.reloadDataCell.subscribeNotific(observer: self, selector: #selector(reloadDataCell))
     }
 
 	//MARK desing
@@ -86,6 +87,14 @@ class CellAudio: UITableViewCell {
 	@objc func stoped(notfication: Notification) {
 		if notfication.thisIsDesiredCell(file){
 			butonPlay.setImage(UIImage(named: "play"), for: .normal)
+			progressView.setProgress(0, animated: false)
+		}
+	}
+	
+	@objc func reloadDataCell(notfication: Notification) {
+		if notfication.thisIsDesiredCell(file), let tupl = notfication.userInfo?["dataCell"] as? TulpDataCell{
+			progressLabel.text = tupl.labelTime
+			progressView.setProgress(tupl.progressValue, animated: true)
 		}
 	}
 
