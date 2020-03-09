@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5265AEED240C2D0D004FBA16 /* CellAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5265AEEB240C2D0D004FBA16 /* CellAudio.swift */; };
 		5265AEEE240C2D0D004FBA16 /* CellAudio.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5265AEEC240C2D0D004FBA16 /* CellAudio.xib */; };
+		526CE87E24164CED00B8C130 /* ViewButtonRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526CE87D24164CED00B8C130 /* ViewButtonRecord.swift */; };
 		528C5B1823F863EC00E0EF99 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C5B1723F863EC00E0EF99 /* Int.swift */; };
 		528F2D9524101D4600ED220C /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F2D9324101D4600ED220C /* TickCell.swift */; };
 		528F2D9624101D4600ED220C /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F2D9424101D4600ED220C /* TickCell.xib */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		5265AEEB240C2D0D004FBA16 /* CellAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAudio.swift; sourceTree = "<group>"; };
 		5265AEEC240C2D0D004FBA16 /* CellAudio.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellAudio.xib; sourceTree = "<group>"; };
+		526CE87D24164CED00B8C130 /* ViewButtonRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewButtonRecord.swift; sourceTree = "<group>"; };
 		528C5B1723F863EC00E0EF99 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		528F2D9324101D4600ED220C /* TickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		528F2D9424101D4600ED220C /* TickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		CE80E5A423F81B420084FE93 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				526CE87D24164CED00B8C130 /* ViewButtonRecord.swift */,
 				5265AEE3240C26AC004FBA16 /* CollectionTiks */,
 				5265AEE8240C2735004FBA16 /* CellAudio */,
 			);
@@ -337,6 +340,7 @@
 				CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */,
 				CEF4477923F815270085EFED /* ViewController.swift in Sources */,
 				528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */,
+				526CE87E24164CED00B8C130 /* ViewButtonRecord.swift in Sources */,
 				CE80E59723F816AF0084FE93 /* StringAndCrypto.swift in Sources */,
 				CEF4477723F815270085EFED /* AppDelegate.swift in Sources */,
 				CE80E5A023F817A20084FE93 /* Vibro.swift in Sources */,
