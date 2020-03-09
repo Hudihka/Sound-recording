@@ -11,6 +11,9 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 	private let finishColor = UIColor.red
 	
 	private var flagTouchInSide: Bool = false
+	
+	var blokStartRecord: ()->() = { }
+	var blokFinishRecord: ()->() = { }
 
     override init (frame: CGRect) {
         super.init(frame: frame)
@@ -85,9 +88,11 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 		}) { (compl) in
 					if compl{
 					if self.flagTouchInSide == false {
-						print("говорим заканчивай писать")
+						self.blokFinishRecord()
 					} else {
-						print("говорим начинай запись")
+						Vibro.weak()
+						self.blokStartRecord()
+						
 					}
 					
 					self.flagTouchInSide = !self.flagTouchInSide

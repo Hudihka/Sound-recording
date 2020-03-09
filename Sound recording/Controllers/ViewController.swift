@@ -18,33 +18,35 @@ class ViewController: UIViewController {
 	
 	@IBOutlet var labelTimer: UILabel!
 
-	@IBOutlet var butRecord: UIButton!
+	@IBOutlet weak var viewButRecord: ViewButtonRecord!
 	
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        butRecord.cirkleView()
         managerRecord.delegate = self
 
         dataArray = managerAudio.initData()
 
-
-        butRecord.addTarget(self, action: #selector(playRecord(_:)), for: .touchDown)
-        butRecord.addTarget(self, action: #selector(finishRecord(_:)), for: .touchUpInside)
-
+		viewButRecord.blokStartRecord = {
+			self.playRecord()
+		}
+		
+		viewButRecord.blokFinishRecord = {
+			self.finishRecord()
+		}
 
 		desingTV()
 
     }
 	
 	
-    @objc func playRecord(_ button: UIButton) {
+    private func playRecord() {
 		managerAudio.stoped()
         managerRecord.setupRecorder()
     }
 
-    @objc func finishRecord(_ button: UIButton) {
+    private func finishRecord() {
         if managerRecord.audioRecorder != nil {
            managerRecord.finishAudioRecording()
 		   dataArray = managerAudio.initData()
@@ -52,7 +54,6 @@ class ViewController: UIViewController {
         }
 
         self.labelTimer.text = nil
-        self.butRecord.backgroundColor = UIColor.black
     }
 
 
@@ -87,9 +88,9 @@ extension ViewController: AudioRecordProtocol {
 
     func updateLabelTimer(text: String) {
         labelTimer.text = text
-        if managerRecord.isRecording {
-            self.butRecord.backgroundColor = UIColor.red
-        }
+//        if managerRecord.isRecording {
+//            self.butRecord.backgroundColor = UIColor.red
+//        }
     }
 }
 
