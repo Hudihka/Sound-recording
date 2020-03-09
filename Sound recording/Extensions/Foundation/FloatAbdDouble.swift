@@ -17,4 +17,17 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
+
+	
+	var timerValue: String {
+		
+		let intSelf = Int(self)
+		
+		let countSeconds = intSelf % 60
+		let countMinut = intSelf / 60
+		
+		return "\(countMinut.textCount):\(countSeconds.textCount)"
+	}
+	
+	
 }

@@ -86,8 +86,14 @@ class CellAudio: UITableViewCell {
 	
 	@objc func stoped(notfication: Notification) {
 		if notfication.thisIsDesiredCell(file){
+			desingView()
+			
 			butonPlay.setImage(UIImage(named: "play"), for: .normal)
 			progressView.setProgress(0, animated: false)
+			
+			if let duration = file?.durationStruct {
+				progressLabel.text = duration
+			}
 		}
 	}
 	

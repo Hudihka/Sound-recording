@@ -46,8 +46,7 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 			return valueActiveTimer
 		} else {
 			
-			let time = file.audioPlayerStruct?.duration ?? 0
-			return (labelTime: Int(time).timerValue, progressValue: 0)
+			return (labelTime: file.durationStruct, progressValue: 0)
 		}
 	}
 	

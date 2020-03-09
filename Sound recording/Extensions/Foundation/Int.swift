@@ -19,7 +19,7 @@ extension Int {
 		return "\(countMinut.textCount):\(countSeconds.textCount)"
 	}
 	
-	private var textCount: String{
+	var textCount: String{
 		return self > 9 ? "\(self)" : "0\(self)"
 	}
 	

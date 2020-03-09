@@ -149,7 +149,7 @@ extension Double{
     var countMS: String {
 
         let time = Date().timeIntervalSinceReferenceDate - self
-        let sec = Int(time).timerValue
+        let sec = time.timerValue
         let timeMS = Int(time.truncatingRemainder(dividingBy: 1) * 100)
 
 

@@ -22,7 +22,11 @@ struct AudioFile {
 			self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
 		}
     }
-
+	
+	var durationStruct: String {
+		return audioPlayerStruct?.duration.timerValue ?? "--:--"
+	}
+	
     
 }
 
