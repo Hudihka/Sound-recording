@@ -79,8 +79,9 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 	
 	func stoped() {
 		if audioPlayer != nil, let file = activeAudioFile {
-			self.audioPlayer?.stop()
 			self.timer?.invalidate()
+			self.timer = nil
+			self.audioPlayer?.stop()
 			SupportNotification.stopedFile.audioFile(file)
 		}
 	}
