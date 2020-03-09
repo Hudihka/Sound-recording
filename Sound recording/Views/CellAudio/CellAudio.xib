@@ -52,14 +52,24 @@
                         <color key="progressTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="trackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </progressView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMA-Ta-veP">
+                        <rect key="frame" x="354" y="18" width="10" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="6dr-VO-BHs"/>
+                            <constraint firstAttribute="width" constant="10" id="z2Z-WR-ddP"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="vMA-Ta-veP" firstAttribute="bottom" secondItem="mfu-dW-Bzn" secondAttribute="bottom" constant="10" id="Gk0-PG-TEn"/>
                     <constraint firstAttribute="trailing" secondItem="BUT-Ii-lFU" secondAttribute="trailing" constant="20" id="IxB-V2-Rxc"/>
                     <constraint firstItem="9L9-Xj-6kj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="W6o-IT-Jhk"/>
                     <constraint firstItem="BUT-Ii-lFU" firstAttribute="leading" secondItem="0N3-IQ-cq8" secondAttribute="trailing" constant="10" id="gnU-fQ-3uo"/>
                     <constraint firstItem="0N3-IQ-cq8" firstAttribute="leading" secondItem="9L9-Xj-6kj" secondAttribute="trailing" constant="8" id="grn-PT-iHa"/>
                     <constraint firstItem="mfu-dW-Bzn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="68" id="lvk-Zy-69P"/>
+                    <constraint firstAttribute="trailing" secondItem="vMA-Ta-veP" secondAttribute="trailing" constant="11" id="mbE-e9-hWY"/>
                     <constraint firstAttribute="trailing" secondItem="mfu-dW-Bzn" secondAttribute="trailing" constant="20" id="pjB-rU-jFV"/>
                     <constraint firstAttribute="bottom" secondItem="0N3-IQ-cq8" secondAttribute="bottom" constant="10" id="rje-qO-r56"/>
                     <constraint firstAttribute="bottom" secondItem="BUT-Ii-lFU" secondAttribute="bottom" constant="10" id="tuD-wm-lrj"/>
