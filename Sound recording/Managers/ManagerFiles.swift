@@ -15,7 +15,7 @@ typealias TulpDataCell = (labelTime: String, progressValue: Float)
 class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
     static let shared = ManagerFiles()
-    var audioPlayer: AVAudioPlayer?
+    var audioPlayer: AVAudioEngine?
 
     private var arraySrtuct: [AudioFile] = []
 

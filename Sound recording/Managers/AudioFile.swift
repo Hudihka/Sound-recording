@@ -12,15 +12,17 @@ import AVFoundation
 
 struct AudioFile {
 
-	var audioPlayerStruct: AVAudioPlayer?
+	var audioPlayerStruct: AVAudioEngine?
     var name: String = ""
 
     init?(url: URL) {
 		
-		if let audioPlayer = try? AVAudioPlayer(contentsOf: url){
-			self.audioPlayerStruct = audioPlayer
-			self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
-		}
+		self.audioPlayerStruct = AVAudioEngine()
+		
+//		if let audioPlayer = try? AVAudioPlayer(contentsOf: url){
+//			self.audioPlayerStruct = audioPlayer
+//			self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
+//		}
     }
 	
 	var durationStruct: String {
