@@ -15,7 +15,6 @@
 		528F2D9624101D4600ED220C /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528F2D9424101D4600ED220C /* TickCell.xib */; };
 		528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F2D982410235D00ED220C /* ManagerRecord.swift */; };
 		5292169223F96B2C00A96092 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292169123F96B2C00A96092 /* CALayer.swift */; };
-		52F010DA2416790E00F839A4 /* VolumeAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F010D92416790E00F839A4 /* VolumeAudio.swift */; };
 		CE1A6981241279D6000737F9 /* ManagerFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A6980241279D5000737F9 /* ManagerFiles.swift */; };
 		CE1A698324128957000737F9 /* AudioFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A698224128957000737F9 /* AudioFile.swift */; };
 		CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE80E57223F816AF0084FE93 /* UIScrollView.swift */; };
@@ -57,7 +56,6 @@
 		528F2D9424101D4600ED220C /* TickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
 		528F2D982410235D00ED220C /* ManagerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerRecord.swift; sourceTree = "<group>"; };
 		5292169123F96B2C00A96092 /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
-		52F010D92416790E00F839A4 /* VolumeAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeAudio.swift; sourceTree = "<group>"; };
 		CE1A6980241279D5000737F9 /* ManagerFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerFiles.swift; sourceTree = "<group>"; };
 		CE1A698224128957000737F9 /* AudioFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFile.swift; sourceTree = "<group>"; };
 		CE80E57223F816AF0084FE93 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				CE80E59E23F817A10084FE93 /* Constats.swift */,
 				CE80E59F23F817A20084FE93 /* SupportNotification.swift */,
 				CE80E59D23F817A10084FE93 /* Vibro.swift */,
-				52F010D92416790E00F839A4 /* VolumeAudio.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 				CE80E58723F816AF0084FE93 /* UIScrollView.swift in Sources */,
 				CEF4477923F815270085EFED /* ViewController.swift in Sources */,
 				528F2D992410235D00ED220C /* ManagerRecord.swift in Sources */,
-				52F010DA2416790E00F839A4 /* VolumeAudio.swift in Sources */,
 				526CE87E24164CED00B8C130 /* ViewButtonRecord.swift in Sources */,
 				CE80E59723F816AF0084FE93 /* StringAndCrypto.swift in Sources */,
 				CEF4477723F815270085EFED /* AppDelegate.swift in Sources */,
