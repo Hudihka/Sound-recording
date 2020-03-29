@@ -62,18 +62,28 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 	func playForName(file: AudioFile?){
 		if let file = file, let index = index(file: file){
 			
-			if isPlay(file: file){ //если сейчас воспроизводится новый трек то ставим на паузу
+			if isPlay(file: file){
 				self.audioPlayer?.pause()
 				self.timer?.invalidate()
 				SupportNotification.playFile.audioFile(file)
 			} else { //иначе выключаем выключаем звук и воспроизводим новый
 				
-				stoped()
+//				stoped()
 	
 				playFor(index)
 				SupportNotification.playFile.audioFile(file)
 			}
 		}
+	}
+	
+	//функция нужна для ситуаций когда мы воспроизводим новый файл,
+	// что бы старый файл сделать не активным
+	
+	func stopedActiveFileFolPlayNew(file: AudioFile?){
+		guard let file = file, let active = activeAudioFile, active != file else {return}
+		
+		stoped()
+		
 	}
 	
 	
@@ -124,10 +134,10 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
     private func nextTrack(){
 		guard let activeAudioFile = activeAudioFile, let index = index(file: activeAudioFile) else {return}
 		
+		stoped()
+		
 		if let newFile = arraySrtuct[safe: index + 1]{
 			playForName(file: newFile)
-		} else {
-			stoped()
 		}
 
     }

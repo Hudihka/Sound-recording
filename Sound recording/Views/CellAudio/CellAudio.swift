@@ -73,6 +73,7 @@ class CellAudio: UITableViewCell {
 	
 	@IBAction func playButton(_ sender: Any) {
 		
+		manager.stopedActiveFileFolPlayNew(file: file)
 		manager.playForName(file: file)
 	}
 	
@@ -98,7 +99,9 @@ class CellAudio: UITableViewCell {
 	}
 	
 	@objc func reloadDataCell(notfication: Notification) {
-		if notfication.thisIsDesiredCell(file), let tupl = notfication.userInfo?["dataCell"] as? TulpDataCell{
+		if notfication.thisIsDesiredCell(file),
+			let tupl = notfication.userInfo?["dataCell"] as? TulpDataCell{
+			
 			progressLabel.text = tupl.labelTime
 			progressView.setProgress(tupl.progressValue, animated: true)
 		}
