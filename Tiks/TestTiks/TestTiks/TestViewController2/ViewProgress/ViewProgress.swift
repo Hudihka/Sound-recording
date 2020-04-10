@@ -15,8 +15,8 @@ class ViewProgress: UIView {
 	var dataArray: [Float] = [] {
 		didSet{
 			let rect = CGRect(origin: .zero, size: self.frame.size)
-//			let collection = CollectionTiks(frame: rect, dataArray: dataArray)
-//			self.counteinerView.addSubview(collection)
+			let collection = CollectionTiks(frame: rect, dataArray: dataArray)
+			self.counteinerView.addSubview(collection)
 		}
 	}
 

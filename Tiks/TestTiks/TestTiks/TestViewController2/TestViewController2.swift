@@ -18,7 +18,7 @@ class TestViewController2: UIViewController {
 		
 		
 		
-		
+		desingProgressView()
 		
 		
 		
@@ -62,11 +62,13 @@ class TestViewController2: UIViewController {
 		
 		let count = Int(self.viewProgress.frame.size.width / tickWidth)
 		let randomArray = (0..<count).map{ _ in Float.random(in: 1 ... 100) }
-		
+		viewProgress.clipsToBounds = true
 		viewProgress.dataArray = randomArray
 		
 		
-		DispatchQ
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+			self.viewProgress.progressView.setProgress(1, animated: true)
+		}
 	}
     
 
