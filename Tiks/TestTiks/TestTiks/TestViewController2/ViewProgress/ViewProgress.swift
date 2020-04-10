@@ -10,7 +10,9 @@ import UIKit
 
 class ViewProgress: UIView {
     @IBOutlet var counteinerView: UIView!
-	@IBOutlet weak var progressView: UIProgressView!
+	var progressView = UIProgressView()
+//
+//	@IBOutlet weak var progressView: UIProgressView!
 	
 	var dataArray: [Float] = [] {
 		didSet{
@@ -41,11 +43,22 @@ class ViewProgress: UIView {
     }
 
 	private func settingsView(){
+		
+		let y = self.frame.height / 2
+		
+		self.progressView.frame = CGRect(x: 0,
+										 y: y,
+										 width: CGFloat(counteinerView.countFullTiks) * tickWidth,
+										 height: 1)
+		
 		progressView.trackTintColor = UIColor.yellow
 		progressView.progressTintColor = UIColor.red
 		progressView.progress = 0
 		
-		progressView.transform = progressView.transform.scaledBy(x: 1, y: self.frame.height)
+		self.counteinerView.addSubview(progressView)
+		
+		
+		progressView.transform = progressView.transform.scaledBy(x: 1, y: y)
 	}
 	
 	

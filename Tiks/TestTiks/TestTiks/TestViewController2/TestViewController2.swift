@@ -60,7 +60,7 @@ class TestViewController2: UIViewController {
 	
 	private func desingProgressView(){
 		
-		let count = Int(self.viewProgress.frame.size.width / tickWidth)
+		let count = viewProgress.countFullTiks
 		let randomArray = (0..<count).map{ _ in Float.random(in: 1 ... 100) }
 		viewProgress.clipsToBounds = true
 		viewProgress.dataArray = randomArray
@@ -89,4 +89,13 @@ extension Array where Element == Float {
 	}
 }
 
+
+extension UIView{
+	
+	var countFullTiks: Int{
+		return Int(self.frame.size.width / tickWidth)
+	}
+	
+	
+}
 
