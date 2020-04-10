@@ -16,7 +16,7 @@ class TestViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let path = Bundle.main.path(forResource: "test2", ofType:"mp3") else {
+        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
 			fatalError("Couldn't find the file path")
 		}
 		
@@ -32,13 +32,16 @@ class TestViewController2: UIViewController {
 				fatalError("Couldn't create the audioContext")
 			}
 			outputArray = render.render(audioContext: audioContext, targetSamples: 300)
-			outputArray = outputArray.map({20 * log10(abs($0))})
+			print(outputArray)
 			
-			self.dataArray = outputArray.reloadProcent
 			
-			DispatchQueue.main.async {
-				self.tableView.reloadData()
-			}
+//			outputArray = outputArray.map({20 * log10(abs($0))})
+//			
+//			self.dataArray = outputArray.reloadProcent
+//			
+//			DispatchQueue.main.async {
+//				self.tableView.reloadData()
+//			}
 			
 			
 		})

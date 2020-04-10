@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803902440EF3C00D68A4A /* CollectionTiks.swift */; };
+		52D803942440EF3C00D68A4A /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D803912440EF3C00D68A4A /* TickCell.xib */; };
+		52D803952440EF3C00D68A4A /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803922440EF3C00D68A4A /* TickCell.swift */; };
 		52FC94222440E6D800993D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94212440E6D800993D5C /* AppDelegate.swift */; };
 		52FC94262440E6D800993D5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94252440E6D800993D5C /* ViewController.swift */; };
 		52FC94292440E6D800993D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC94272440E6D800993D5C /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52D803902440EF3C00D68A4A /* CollectionTiks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTiks.swift; sourceTree = "<group>"; };
+		52D803912440EF3C00D68A4A /* TickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
+		52D803922440EF3C00D68A4A /* TickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		52FC941E2440E6D800993D5C /* TestTiks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTiks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC94212440E6D800993D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC94252440E6D800993D5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +55,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52D8038F2440EF3C00D68A4A /* CollectionTiks */ = {
+			isa = PBXGroup;
+			children = (
+				52D803902440EF3C00D68A4A /* CollectionTiks.swift */,
+				52D803912440EF3C00D68A4A /* TickCell.xib */,
+				52D803922440EF3C00D68A4A /* TickCell.swift */,
+			);
+			name = CollectionTiks;
+			path = ../../../CollectionTiks;
+			sourceTree = "<group>";
+		};
 		52FC94152440E6D800993D5C = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +106,7 @@
 				52FC94372440E79F00993D5C /* CellTest.swift */,
 				52FC94382440E79F00993D5C /* TestViewController2.swift */,
 				52FC94392440E79F00993D5C /* AudioContext.swift */,
+				52D8038F2440EF3C00D68A4A /* CollectionTiks */,
 			);
 			path = TestViewController2;
 			sourceTree = "<group>";
@@ -152,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FC942E2440E6D900993D5C /* LaunchScreen.storyboard in Resources */,
+				52D803942440EF3C00D68A4A /* TickCell.xib in Resources */,
 				52FC94402440E83F00993D5C /* test2.mp3 in Resources */,
 				52FC94412440E83F00993D5C /* test.mp3 in Resources */,
 				52FC943A2440E79F00993D5C /* CellTest.xib in Resources */,
@@ -169,7 +188,9 @@
 			files = (
 				52FC943D2440E79F00993D5C /* AudioContext.swift in Sources */,
 				52FC943B2440E79F00993D5C /* CellTest.swift in Sources */,
+				52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */,
 				52FC943C2440E79F00993D5C /* TestViewController2.swift in Sources */,
+				52D803952440EF3C00D68A4A /* TickCell.swift in Sources */,
 				52FC94262440E6D800993D5C /* ViewController.swift in Sources */,
 				52FC94222440E6D800993D5C /* AppDelegate.swift in Sources */,
 				52FC94432440E87C00993D5C /* Constant.swift in Sources */,

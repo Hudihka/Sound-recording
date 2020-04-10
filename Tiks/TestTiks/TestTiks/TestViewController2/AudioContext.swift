@@ -122,11 +122,16 @@ final class Render{
 			// Append audio sample buffer into our current sample buffer
 			var readBufferLength = 0
 			var readBufferPointer: UnsafeMutablePointer<Int8>?
+			
+			
 			CMBlockBufferGetDataPointer(readBuffer,
-										0,
-										&readBufferLength,
-										nil,
-										&readBufferPointer)
+										atOffset: 0,
+										lengthAtOffsetOut: &readBufferLength,
+										totalLengthOut: nil,
+										dataPointerOut: &readBufferPointer)
+			
+			
+			
 			sampleBuffer.append(UnsafeBufferPointer(start: readBufferPointer, count: readBufferLength))
 			CMSampleBufferInvalidate(readSampleBuffer)
 			
