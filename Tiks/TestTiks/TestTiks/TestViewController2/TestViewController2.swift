@@ -10,78 +10,69 @@ import UIKit
 
 class TestViewController2: UIViewController {
 	
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var viewProgress: ViewProgress!
 	var dataArray = [Float]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
-			fatalError("Couldn't find the file path")
-		}
-		
-		desinTableview()
-		
-		let render = Render()
-		
-		let url = URL(fileURLWithPath: path)
-		var outputArray : [Float] = []
-		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
-			
-			guard let audioContext = audioContext else {
-				fatalError("Couldn't create the audioContext")
-			}
-			outputArray = render.render(audioContext: audioContext, targetSamples: 300)
-			print(outputArray)
-			
-			
-//			outputArray = outputArray.map({20 * log10(abs($0))})
-//			
-//			self.dataArray = outputArray.reloadProcent
-//			
-//			DispatchQueue.main.async {
-//				self.tableView.reloadData()
+//        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
+//			fatalError("Couldn't find the file path")
+//		}
+//
+//
+//
+//
+//		let render = Render()
+//
+//		let url = URL(fileURLWithPath: path)
+//		var outputArray : [Float] = []
+//		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
+//
+//			guard let audioContext = audioContext else {
+//				fatalError("Couldn't create the audioContext")
 //			}
-			
-			
-		})
+//			outputArray = render.render(audioContext: audioContext, targetSamples: 300)
+//			print(outputArray)
+//
+//
+////			outputArray = outputArray.map({20 * log10(abs($0))})
+////
+////			self.dataArray = outputArray.reloadProcent
+////
+////			DispatchQueue.main.async {
+////				self.tableView.reloadData()
+////			}
+//
+//
+//		})
     }
+	
+	
+	private func desingProgressView(){
+		
+		let count = Int(self.viewProgress.frame.size.width / tickWidth)
+		let randomArray = (0..<count).map{ _ in Float.random(in: 1 ... 100) }
+		
+		viewProgress.dataArray = randomArray
+		
+		
+		DispatchQ
+	}
     
 
 
 }
 
-
-extension TestViewController2: UITableViewDelegate, UITableViewDataSource{
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return dataArray.count
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "CellTest", for: indexPath) as! CellTest
-		
-		cell.procent = dataArray[indexPath.row]
-		
-		return cell
-	}
-	
-	
-	func desinTableview(){
-		
-		self.tableView.delegate = self
-		self.tableView.dataSource = self
-		
-		self.tableView.register(UINib(nibName: "CellTest", bundle: nil), forCellReuseIdentifier: "CellTest")
-	}
-	
-	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 5
-	}
-	
-	
-	
-}
 
 
 extension Array where Element == Float {

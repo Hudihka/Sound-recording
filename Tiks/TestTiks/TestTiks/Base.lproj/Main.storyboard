@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l2Q-Ub-CbP">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestTiks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WL8-FC-RoU">
-                                <rect key="frame" x="140" y="320" width="134" height="96"/>
+                                <rect key="frame" x="301" y="159" width="134" height="96"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="134" id="Zro-eh-tXX"/>
@@ -44,31 +44,33 @@
             <objects>
                 <viewController id="l2Q-Ub-CbP" customClass="TestViewController2" customModule="TestTiks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MaP-tt-bYz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vGi-up-mf5">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eko-uh-dsV" customClass="ViewProgress" customModule="TestTiks" customModuleProvider="target">
+                                <rect key="frame" x="20" y="143" width="696" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gGz-D6-U7X"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="vGi-up-mf5" firstAttribute="trailing" secondItem="yOd-Je-8H1" secondAttribute="trailing" id="6QE-gE-xRd"/>
-                            <constraint firstItem="vGi-up-mf5" firstAttribute="leading" secondItem="yOd-Je-8H1" secondAttribute="leading" id="VxV-ze-YmT"/>
-                            <constraint firstItem="vGi-up-mf5" firstAttribute="bottom" secondItem="yOd-Je-8H1" secondAttribute="bottom" id="XBE-ka-vhr"/>
-                            <constraint firstItem="vGi-up-mf5" firstAttribute="top" secondItem="yOd-Je-8H1" secondAttribute="top" constant="20" id="ncg-7s-a5E"/>
+                            <constraint firstItem="eko-uh-dsV" firstAttribute="leading" secondItem="yOd-Je-8H1" secondAttribute="leading" constant="20" id="PDz-Ky-1M7"/>
+                            <constraint firstItem="yOd-Je-8H1" firstAttribute="trailing" secondItem="eko-uh-dsV" secondAttribute="trailing" constant="20" id="UQS-b7-hcR"/>
+                            <constraint firstItem="eko-uh-dsV" firstAttribute="centerY" secondItem="yOd-Je-8H1" secondAttribute="centerY" id="Wjg-Xy-1rH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yOd-Je-8H1"/>
                     </view>
                     <navigationItem key="navigationItem" id="KRG-QU-H5S"/>
                     <connections>
-                        <outlet property="tableView" destination="vGi-up-mf5" id="o6t-3D-xj2"/>
+                        <outlet property="viewProgress" destination="eko-uh-dsV" id="7ie-Zq-zAz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLH-0y-01o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="100"/>
+            <point key="canvasLocation" x="1258.6956521739132" y="100.00000000000001"/>
         </scene>
     </scenes>
 </document>
