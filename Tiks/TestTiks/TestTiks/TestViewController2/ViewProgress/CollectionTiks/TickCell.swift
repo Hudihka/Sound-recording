@@ -21,7 +21,9 @@ class TickCell: UICollectionViewCell {
 	private func addHold(){
 		self.backgroundColor = UIColor.clear
 		
-		constreint.constant = self.frame.height * procent / 100
+		let value = procent <= 5 ? 5 : procent
+		
+		constreint.constant = self.frame.height * value / 100
 	}
 	
     

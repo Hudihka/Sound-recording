@@ -10,6 +10,12 @@
 		52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803902440EF3C00D68A4A /* CollectionTiks.swift */; };
 		52D803942440EF3C00D68A4A /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D803912440EF3C00D68A4A /* TickCell.xib */; };
 		52D803952440EF3C00D68A4A /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803922440EF3C00D68A4A /* TickCell.swift */; };
+		52D8039A2440F0AD00D68A4A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803972440F0AD00D68A4A /* UILabel.swift */; };
+		52D8039B2440F0AD00D68A4A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803982440F0AD00D68A4A /* UICollectionView.swift */; };
+		52D8039C2440F0AD00D68A4A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803992440F0AD00D68A4A /* UITableView.swift */; };
+		52D8039E2440F0DD00D68A4A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8039D2440F0DD00D68A4A /* UIView.swift */; };
+		52D803A12440F30D00D68A4A /* ViewProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D803A02440F30D00D68A4A /* ViewProgress.xib */; };
+		52D803A32440F35900D68A4A /* ViewProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803A22440F35900D68A4A /* ViewProgress.swift */; };
 		52FC94222440E6D800993D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94212440E6D800993D5C /* AppDelegate.swift */; };
 		52FC94262440E6D800993D5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94252440E6D800993D5C /* ViewController.swift */; };
 		52FC94292440E6D800993D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC94272440E6D800993D5C /* Main.storyboard */; };
@@ -28,6 +34,12 @@
 		52D803902440EF3C00D68A4A /* CollectionTiks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTiks.swift; sourceTree = "<group>"; };
 		52D803912440EF3C00D68A4A /* TickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
 		52D803922440EF3C00D68A4A /* TickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
+		52D803972440F0AD00D68A4A /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = "../../../../Sound recording/Extensions/UI/UILabel.swift"; sourceTree = "<group>"; };
+		52D803982440F0AD00D68A4A /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionView.swift; path = "../../../../Sound recording/Extensions/UI/UICollectionView.swift"; sourceTree = "<group>"; };
+		52D803992440F0AD00D68A4A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = "../../../../Sound recording/Extensions/UI/UITableView.swift"; sourceTree = "<group>"; };
+		52D8039D2440F0DD00D68A4A /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = "../../../../Sound recording/Extensions/UI/UIView.swift"; sourceTree = "<group>"; };
+		52D803A02440F30D00D68A4A /* ViewProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewProgress.xib; sourceTree = "<group>"; };
+		52D803A22440F35900D68A4A /* ViewProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgress.swift; sourceTree = "<group>"; };
 		52FC941E2440E6D800993D5C /* TestTiks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTiks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC94212440E6D800993D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52FC94252440E6D800993D5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,8 +74,28 @@
 				52D803912440EF3C00D68A4A /* TickCell.xib */,
 				52D803922440EF3C00D68A4A /* TickCell.swift */,
 			);
-			name = CollectionTiks;
-			path = ../../../CollectionTiks;
+			path = CollectionTiks;
+			sourceTree = "<group>";
+		};
+		52D803962440F06300D68A4A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52D803982440F0AD00D68A4A /* UICollectionView.swift */,
+				52D803972440F0AD00D68A4A /* UILabel.swift */,
+				52D8039D2440F0DD00D68A4A /* UIView.swift */,
+				52D803992440F0AD00D68A4A /* UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52D8039F2440F24F00D68A4A /* ViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				52D803A02440F30D00D68A4A /* ViewProgress.xib */,
+				52D803A22440F35900D68A4A /* ViewProgress.swift */,
+				52D8038F2440EF3C00D68A4A /* CollectionTiks */,
+			);
+			path = ViewProgress;
 			sourceTree = "<group>";
 		};
 		52FC94152440E6D800993D5C = {
@@ -94,6 +126,7 @@
 				52FC942F2440E6D900993D5C /* Info.plist */,
 				52FC943F2440E83F00993D5C /* test.mp3 */,
 				52FC943E2440E83F00993D5C /* test2.mp3 */,
+				52D803962440F06300D68A4A /* Extensions */,
 				52FC94352440E79F00993D5C /* TestViewController2 */,
 			);
 			path = TestTiks;
@@ -106,7 +139,7 @@
 				52FC94372440E79F00993D5C /* CellTest.swift */,
 				52FC94382440E79F00993D5C /* TestViewController2.swift */,
 				52FC94392440E79F00993D5C /* AudioContext.swift */,
-				52D8038F2440EF3C00D68A4A /* CollectionTiks */,
+				52D8039F2440F24F00D68A4A /* ViewProgress */,
 			);
 			path = TestViewController2;
 			sourceTree = "<group>";
@@ -170,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FC942E2440E6D900993D5C /* LaunchScreen.storyboard in Resources */,
+				52D803A12440F30D00D68A4A /* ViewProgress.xib in Resources */,
 				52D803942440EF3C00D68A4A /* TickCell.xib in Resources */,
 				52FC94402440E83F00993D5C /* test2.mp3 in Resources */,
 				52FC94412440E83F00993D5C /* test.mp3 in Resources */,
@@ -186,11 +220,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D8039B2440F0AD00D68A4A /* UICollectionView.swift in Sources */,
 				52FC943D2440E79F00993D5C /* AudioContext.swift in Sources */,
 				52FC943B2440E79F00993D5C /* CellTest.swift in Sources */,
 				52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */,
+				52D8039E2440F0DD00D68A4A /* UIView.swift in Sources */,
 				52FC943C2440E79F00993D5C /* TestViewController2.swift in Sources */,
+				52D8039A2440F0AD00D68A4A /* UILabel.swift in Sources */,
 				52D803952440EF3C00D68A4A /* TickCell.swift in Sources */,
+				52D8039C2440F0AD00D68A4A /* UITableView.swift in Sources */,
+				52D803A32440F35900D68A4A /* ViewProgress.swift in Sources */,
 				52FC94262440E6D800993D5C /* ViewController.swift in Sources */,
 				52FC94222440E6D800993D5C /* AppDelegate.swift in Sources */,
 				52FC94432440E87C00993D5C /* Constant.swift in Sources */,

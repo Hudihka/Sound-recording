@@ -9,11 +9,15 @@
 import UIKit
 
 class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	
+	private var dataArray = [Float]()
 
-	init(frame: CGRect) {
+	init(frame: CGRect, dataArray: [Float]) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: frame, collectionViewLayout: layout)
+		
+		self.dataArray = dataArray
 
         self.baseSettingsCV(obj: self,
                                       scrollEnabled: false,
@@ -37,13 +41,14 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return Int(self.frame.width / tickWidth)
+		return self.dataArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
-
-        cell.procent = CGFloat(arc4random_uniform(79)) + 20
+		
+		let value = CGFloat(dataArray[indexPath.row])
+		cell.procent = value
 
         return cell
     }
