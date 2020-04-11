@@ -64,7 +64,7 @@ var heightTabBar: CGFloat {
     return isIPhoneXorXmax ? 84 : 58
 }
 
-let tickWidth: CGFloat = 5
+let tickWidth: CGFloat = 4
 
 
 
