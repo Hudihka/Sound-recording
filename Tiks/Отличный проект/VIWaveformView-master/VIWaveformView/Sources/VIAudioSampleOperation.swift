@@ -229,7 +229,9 @@ public class AssetTrackSampleLoader {
             
             let downSampledDataCG = downSampledData.map { (value: Float) -> CGFloat in
                 let element = CGFloat(value)
-                if element > sampleMax { sampleMax = element }
+                if element > sampleMax {
+					sampleMax = element
+				}
                 return element
             }
             
@@ -237,6 +239,7 @@ public class AssetTrackSampleLoader {
             sampleBuffer.removeFirst(samplesToProcess * MemoryLayout<Int16>.size)
             
             outputSamples += downSampledDataCG
+			print(outputSamples.count)
         }
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 
 public typealias NodePresentation = UIView & VIWaveformPresentation
 
-
 public protocol VIWaveformPresentation {
     func updateWaveformPoint(_ data: [Float])
 }
@@ -21,9 +20,11 @@ public protocol VIWaveformNodeViewProvider: class {
 
 public class BasicWaveFormNodeProvider: VIWaveformNodeViewProvider {
     public var generator: () -> NodePresentation
+	
     public init(generator: @escaping @autoclosure () -> NodePresentation) {
         self.generator = generator
     }
+	
     public func generateWaveformNodeView() -> NodePresentation {
         return generator()
     }

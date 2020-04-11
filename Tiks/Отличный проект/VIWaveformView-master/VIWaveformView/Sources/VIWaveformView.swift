@@ -23,7 +23,10 @@ public class VIWaveformView: UIView {
     public var operationQueue: DispatchQueue?
     
     fileprivate(set) var actualWidthPerSecond: CGFloat = 0
+	
+	/*минимальная ширина в секунду*/
     public var minWidthPerSecond: CGFloat = 5
+	
     /// TimeLine Min width
     public var minWidth: CGFloat = 100
     
@@ -69,7 +72,8 @@ public class VIWaveformView: UIView {
 }
 
 public extension VIWaveformView {
-    public func loadVoice(from asset: AVAsset, completion: @escaping ((Error?) -> Void)) -> Cancellable {
+	func loadVoice(from asset: AVAsset, completion: @escaping ((Error?) -> Void)) -> Cancellable {
+		
         let width = frame.width + 300
         let cancellable = Cancellable()
         asset.loadValuesAsynchronously(forKeys: ["duration", "tracks"], completionHandler: { [weak self] in
@@ -176,6 +180,8 @@ extension VIWaveformView: UICollectionViewDataSource, UICollectionViewDelegateFl
     
 }
 
+//
+
 class WaveformCell: UICollectionViewCell {
     
     var waveformView: NodePresentation!
@@ -184,6 +190,7 @@ class WaveformCell: UICollectionViewCell {
             if let newValue = newValue {
                 if newValue !== waveformNodeViewProvider {
                     waveformView = newValue.generateWaveformNodeView()
+					print("waveformView \(waveformView.frame.height)")
                     contentView.addSubview(waveformView)
                     
                     waveformView.translatesAutoresizingMaskIntoConstraints = false

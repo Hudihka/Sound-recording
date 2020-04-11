@@ -9,7 +9,11 @@
 import UIKit
 import AVFoundation
 
+//это один маленький тик
+
 class VIWaveformNodeView: UIView {
+	
+	static var counter = 0
     
     override open class var layerClass: Swift.AnyClass {
         return CAShapeLayer.self
@@ -65,6 +69,7 @@ class VIWaveformNodeView: UIView {
         
         path.move(to: CGPoint(x: 0, y: 0))
         let minValue = 1 / (rect.height / 2)
+		
         for index in 0..<(pointCount / 2) {
             var point = points[index * 2]
             path.move(to: point)
