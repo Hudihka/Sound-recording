@@ -23,43 +23,45 @@ class TestViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
 		
+		self.view.backgroundColor = UIColor.blue
 		
 		let count = viewProgress.countFullTiks
 		viewProgress.clipsToBounds = true
 		
 		
-        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
+        guard let path = Bundle.main.path(forResource: "test2", ofType:"mp3"), let url = URL(string: path) else {
 			fatalError("Couldn't find the file path")
 		}
 		
 		
-		let render = Render()
-
-		let url = URL(fileURLWithPath: path)
-		var outputArray : [Float] = []
 		
-		
-		
-		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
-
-			guard let audioContext = audioContext else {
-				fatalError("Couldn't create the audioContext")
-			}
-			
-			outputArray = render.render(audioContext: audioContext, targetSamples: count).invertProcent
-			
-			DispatchQueue.main.async {
-				self.viewProgress.dataArray = outputArray
-				self.playFile(url: url)
-			}
-		})
     }
 	
 	
-	private func desingProgressView(){
-		
-	}
+//	private func oldRender(path: URL){
+//		let render = Render()
+//
+//		let url = URL(fileURLWithPath: path)
+//		var outputArray : [Float] = []
+//
+//
+//		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
+//
+//			guard let audioContext = audioContext else {
+//				fatalError("Couldn't create the audioContext")
+//			}
+//
+//			outputArray = render.render(audioContext: audioContext, targetSamples: count).invertProcent
+//
+//			DispatchQueue.main.async {
+//				self.viewProgress.dataArray = outputArray
+//				self.playFile(url: url)
+//			}
+//		})
+//
+//	}
     
 	private func playFile(url: URL){
 		
