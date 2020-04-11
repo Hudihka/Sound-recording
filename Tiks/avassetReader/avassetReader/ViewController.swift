@@ -19,20 +19,41 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		// ...
 		
-		let url = Bundle.main.url(forResource: "sample2", withExtension: "m4a")
-		let file = try! AVAudioFile(forReading: url!)
-		let format = AVAudioFormat(commonFormat: .pcmFormatFloat32,
-								   sampleRate: file.fileFormat.sampleRate,
-								   channels: file.fileFormat.channelCount,
-								   interleaved: false)!
-		let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length))!
-		try! file.read(into: buf)
 		
-		// this makes a copy, you might not want that
-		readFile.arrayFloatValues = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
+		if let buf = createBuffer(name: "piano", extensionName: "caf"){
+			let array = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0],
+												  count:Int(buf.frameLength)))
+			
+			readFile.arrayFloatValues = array
+		}
 		
-		//     print("floatArray \(readFile.arrayFloatValues)\n")
-		//self.waveFormView.setNeedsDisplay()
+		
+	}
+	
+	
+	private func createBuffer(name: String, extensionName: String) -> AVAudioPCMBuffer? {
+		
+		if let url = Bundle.main.url(forResource: name, withExtension: extensionName),
+			let file = try? AVAudioFile(forReading: url){
+			
+			guard let format = AVAudioFormat(commonFormat: .pcmFormatFloat32,
+									   sampleRate: file.fileFormat.sampleRate,
+									   channels: file.fileFormat.channelCount,
+									   interleaved: false),
+			      let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length)) else {
+					return nil
+			}
+			
+			
+			if ((try? file.read(into: buf)) != nil) {
+				return buf
+			}
+			
+			
+		}
+		
+		return nil
+		
 	}
     
  

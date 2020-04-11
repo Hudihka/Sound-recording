@@ -15,26 +15,24 @@ class DrawWaveform: UIView {
     override func draw(_ rect: CGRect) {
         self.convertToPoints()
         var f = 0
-        print("draw")
         
         let aPath = UIBezierPath()
-        let aPath2 = UIBezierPath()
-        
         aPath.lineWidth = 2.0
-        aPath2.lineWidth = 2.0
-        
-        aPath.move(to: CGPoint(x:0.0 , y:rect.height/2 ))
-        aPath2.move(to: CGPoint(x:0.0 , y:rect.height ))
+        aPath.move(to: CGPoint(x:0.0 , y:rect.height ))
         
         
         // print(readFile.points)
         for _ in readFile.points{
                 //separation of points
-                var x:CGFloat = 2.5
+			
+                var x:CGFloat = 2
                 aPath.move(to: CGPoint(x:aPath.currentPoint.x + x , y:aPath.currentPoint.y ))
                 
                 //Y is the amplitude
-                aPath.addLine(to: CGPoint(x:aPath.currentPoint.x  , y:aPath.currentPoint.y - (readFile.points[f] * 70) - 1.0))
+			
+				let newY = aPath.currentPoint.y - (readFile.points[f] * 70) - 1.0
+				print("newY \(newY)")
+                aPath.addLine(to: CGPoint(x:aPath.currentPoint.x  , y:newY))
                 
                 aPath.close()
                 
@@ -48,34 +46,8 @@ class DrawWaveform: UIView {
         aPath.stroke()
         //If you want to fill it as well
         aPath.fill()
-        
-//
-//        f = 0
-//        aPath2.move(to: CGPoint(x:0.0 , y:rect.height/2 ))
-//
-//        //Reflection of waveform
-//        for _ in readFile.points{
-//            var x:CGFloat = 2.5
-//            aPath2.move(to: CGPoint(x:aPath2.currentPoint.x + x , y:aPath2.currentPoint.y ))
-//
-//            //Y is the amplitude
-//            aPath2.addLine(to: CGPoint(x:aPath2.currentPoint.x  , y:aPath2.currentPoint.y - ((-1.0 * readFile.points[f]) * 50)))
-//
-//            // aPath.close()
-//            aPath2.close()
-//
-//            //print(aPath.currentPoint.x)
-//            x += 1
-//            f += 1
-//        }
-//
-//        //If you want to stroke it with a Orange color with alpha2
-//        UIColor.orange.set()
-//        aPath2.stroke(with: CGBlendMode.normal, alpha: 0.5)
-//        //   aPath.stroke()
-//
-//        //If you want to fill it as well
-//        aPath2.fill()
+		
+		print("f = \(f)")
     }
     
     
