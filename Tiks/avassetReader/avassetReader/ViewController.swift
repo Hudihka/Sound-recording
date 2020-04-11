@@ -20,12 +20,10 @@ class ViewController: UIViewController {
 		// ...
 		
 		
-		if let buf = createBuffer(name: "piano", extensionName: "caf"){
-			let array = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0],
-												  count:Int(buf.frameLength)))
+		if let file = createBuffer(name: "piano", extensionName: "caf"){
 			
 			let rect = CGRect(x: 0, y: 20, width: 667, height: 100)
-			let viewDraw = DrawWaveform(frame: rect, arrayFloatValues: array)
+			let viewDraw = DrawWaveform(frame: rect, file: file)
 			viewDraw.backgroundColor = UIColor.brown
 			
 			self.view.addSubview(viewDraw)
@@ -35,29 +33,18 @@ class ViewController: UIViewController {
 	}
 	
 	
-	private func createBuffer(name: String, extensionName: String) -> AVAudioPCMBuffer? {
+	
+	
+	
+	private func createBuffer(name: String, extensionName: String) -> AVAudioFile? {
 		
 		if let url = Bundle.main.url(forResource: name, withExtension: extensionName),
 			let file = try? AVAudioFile(forReading: url){
 			
-			guard let format = AVAudioFormat(commonFormat: .pcmFormatFloat32,
-									   sampleRate: file.fileFormat.sampleRate,
-									   channels: file.fileFormat.channelCount,
-									   interleaved: false),
-			      let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length)) else {
-					return nil
-			}
-			
-			
-			if ((try? file.read(into: buf)) != nil) {
-				return buf
-			}
-			
-			
+			return file
 		}
 		
 		return nil
-		
 	}
     
  

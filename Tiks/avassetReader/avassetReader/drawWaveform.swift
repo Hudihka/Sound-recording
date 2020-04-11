@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Accelerate
+import AVFoundation
 
 
 class DrawWaveform: UIView {
@@ -16,9 +17,11 @@ class DrawWaveform: UIView {
     private var arrayFloatValues:[Float] = []
 	private var points:[CGFloat] = []
 	
-	convenience init(frame: CGRect, arrayFloatValues: [Float]) {
+	convenience init(frame: CGRect, file: AVAudioFile?) {
 		self.init(frame: frame)
-		self.arrayFloatValues = arrayFloatValues
+		
+		self.arrayFloatValues = createArray(file: file)
+		
 	}
 	
 	override init(frame: CGRect) {
@@ -27,6 +30,31 @@ class DrawWaveform: UIView {
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	
+	
+	
+	private func createArray(file: AVAudioFile?) -> [Float]{
+		
+		guard let file = file,
+			  let format = AVAudioFormat(commonFormat: .pcmFormatFloat32,
+								   sampleRate: file.fileFormat.sampleRate,
+								   channels: file.fileFormat.channelCount,
+								   interleaved: false),
+			  let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length)) else {
+				return []
+		}
+		
+		
+		if ((try? file.read(into: buf)) != nil) {
+			
+			return Array(UnsafeBufferPointer(start: buf.floatChannelData?[0],
+											 count:Int(buf.frameLength)))
+		}
+		
+		return []
+		
 	}
 	
     override func draw(_ rect: CGRect) {
