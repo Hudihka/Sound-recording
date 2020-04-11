@@ -9,20 +9,37 @@
 import Foundation
 import UIKit
 import Accelerate
+
+
 class DrawWaveform: UIView {
-    
-    
+	
+    private var arrayFloatValues:[Float] = []
+	private var points:[CGFloat] = []
+	
+	convenience init(frame: CGRect, arrayFloatValues: [Float]) {
+		self.init(frame: frame)
+		self.arrayFloatValues = arrayFloatValues
+	}
+	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     override func draw(_ rect: CGRect) {
         self.convertToPoints()
         var f = 0
         
         let aPath = UIBezierPath()
         aPath.lineWidth = 2.0
-        aPath.move(to: CGPoint(x:0.0 , y:rect.height ))
+        aPath.move(to: CGPoint(x:0.0 , y:rect.height/2 ))
         
         
         // print(readFile.points)
-        for _ in readFile.points{
+        for _ in points{
                 //separation of points
 			
                 var x:CGFloat = 2
@@ -30,7 +47,7 @@ class DrawWaveform: UIView {
                 
                 //Y is the amplitude
 			
-				let newY = aPath.currentPoint.y - (readFile.points[f] * 70) - 1.0
+				let newY = aPath.currentPoint.y - (points[f] * 70) - 1.0
 				print("newY \(newY)")
                 aPath.addLine(to: CGPoint(x:aPath.currentPoint.x  , y:newY))
                 
@@ -54,15 +71,15 @@ class DrawWaveform: UIView {
     
     
     func readArray( array:[Float]){
-        readFile.arrayFloatValues = array
+        arrayFloatValues = array
     }
     
     func convertToPoints() {
         var processingBuffer = [Float](repeating: 0.0,
-                                       count: Int(readFile.arrayFloatValues.count))
-        let sampleCount = vDSP_Length(readFile.arrayFloatValues.count)
+                                       count: Int(arrayFloatValues.count))
+        let sampleCount = vDSP_Length(arrayFloatValues.count)
         //print(sampleCount)
-        vDSP_vabs(readFile.arrayFloatValues, 1, &processingBuffer, 1, sampleCount);
+        vDSP_vabs(arrayFloatValues, 1, &processingBuffer, 1, sampleCount);
         // print(processingBuffer)
         
         
@@ -93,7 +110,7 @@ class DrawWaveform: UIView {
         let samplesPerPixel = Int(150 * multiplier)
         let filter = [Float](repeating: 1.0 / Float(samplesPerPixel),
                              count: Int(samplesPerPixel))
-        let downSampledLength = Int(readFile.arrayFloatValues.count / samplesPerPixel)
+        let downSampledLength = Int(arrayFloatValues.count / samplesPerPixel)
         var downSampledData = [Float](repeating:0.0,
                                       count:downSampledLength)
         vDSP_desamp(processingBuffer,
@@ -105,7 +122,7 @@ class DrawWaveform: UIView {
         // print(" DOWNSAMPLEDDATA: \(downSampledData.count)")
         
         //convert [Float] to [CGFloat] array
-        readFile.points = downSampledData.map{CGFloat($0)}
+        points = downSampledData.map{CGFloat($0)}
         
         
     }
@@ -113,8 +130,3 @@ class DrawWaveform: UIView {
 }
 
 
-struct readFile {
-    static var arrayFloatValues:[Float] = []
-    static var points:[CGFloat] = []
-    
-}

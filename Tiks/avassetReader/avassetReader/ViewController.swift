@@ -24,7 +24,11 @@ class ViewController: UIViewController {
 			let array = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0],
 												  count:Int(buf.frameLength)))
 			
-			readFile.arrayFloatValues = array
+			let rect = CGRect(x: 0, y: 20, width: 667, height: 100)
+			let viewDraw = DrawWaveform(frame: rect, arrayFloatValues: array)
+			viewDraw.backgroundColor = UIColor.brown
+			
+			self.view.addSubview(viewDraw)
 		}
 		
 		
