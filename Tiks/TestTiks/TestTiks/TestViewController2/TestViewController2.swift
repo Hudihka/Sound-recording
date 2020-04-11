@@ -18,57 +18,39 @@ class TestViewController2: UIViewController {
 		
 		
 		
-		desingProgressView()
+		let count = viewProgress.countFullTiks
+		viewProgress.clipsToBounds = true
 		
 		
-		
-		
-		
+        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
+			fatalError("Couldn't find the file path")
+		}
 
-//        guard let path = Bundle.main.path(forResource: "test", ofType:"mp3") else {
-//			fatalError("Couldn't find the file path")
-//		}
-//
-//
-//
-//
-//		let render = Render()
-//
-//		let url = URL(fileURLWithPath: path)
-//		var outputArray : [Float] = []
-//		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
-//
-//			guard let audioContext = audioContext else {
-//				fatalError("Couldn't create the audioContext")
-//			}
-//			outputArray = render.render(audioContext: audioContext, targetSamples: 300)
-//			print(outputArray)
-//
-//
-////			outputArray = outputArray.map({20 * log10(abs($0))})
-////
-////			self.dataArray = outputArray.reloadProcent
-////
-////			DispatchQueue.main.async {
-////				self.tableView.reloadData()
-////			}
-//
-//
-//		})
+
+
+
+		let render = Render()
+
+		let url = URL(fileURLWithPath: path)
+		var outputArray : [Float] = []
+		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
+
+			guard let audioContext = audioContext else {
+				fatalError("Couldn't create the audioContext")
+			}
+			
+			outputArray = render.render(audioContext: audioContext, targetSamples: count).invertProcent
+			print(outputArray)
+			
+			DispatchQueue.main.async {
+				self.viewProgress.dataArray = outputArray
+			}
+		})
     }
 	
 	
 	private func desingProgressView(){
 		
-		let count = viewProgress.countFullTiks
-		let randomArray = (0..<count).map{ _ in Float.random(in: 1 ... 100) }
-		viewProgress.clipsToBounds = true
-		viewProgress.dataArray = randomArray
-		
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-			self.viewProgress.progressView.setProgress(1, animated: true)
-		}
 	}
     
 
@@ -87,6 +69,20 @@ extension Array where Element == Float {
 		return []
 		
 	}
+	
+	
+	var invertProcent: [Float]{
+		
+		if let max = self.max(by: {abs($0) < abs($1)}) {
+			let hunder = abs(max/100)
+			return self.map({abs($0) / hunder})
+		}
+		
+		return []
+		
+	}
+	
+	
 }
 
 
