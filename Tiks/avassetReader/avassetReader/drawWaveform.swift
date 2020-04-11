@@ -42,15 +42,16 @@ class DrawWaveform: UIView {
 								   sampleRate: file.fileFormat.sampleRate,
 								   channels: file.fileFormat.channelCount,
 								   interleaved: false),
+			
 			  let buf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(file.length)) else {
 				return []
 		}
 		
-		
+			//читать весь буффер
 		if ((try? file.read(into: buf)) != nil) {
 			
 			return Array(UnsafeBufferPointer(start: buf.floatChannelData?[0],
-											 count:Int(buf.frameLength)))
+											 count:Int(buf.frameLength)))//Текущее количество допустимых выборочных кадров в буфере.
 		}
 		
 		return []
@@ -59,23 +60,24 @@ class DrawWaveform: UIView {
 	
     override func draw(_ rect: CGRect) {
         self.convertToPoints()
-        var f = 0
         
         let aPath = UIBezierPath()
         aPath.lineWidth = 2.0
-        aPath.move(to: CGPoint(x:0.0 , y:rect.height/2 ))
+        aPath.move(to: CGPoint(x:0.0 , y:rect.height ))
         
         
-        // print(readFile.points)
-        for _ in points{
-                //separation of points
+//		points это количество столбов
+        for point in points{
 			
-                var x:CGFloat = 2
+			
+				//x это ширина тика
+                var x:CGFloat = 4
                 aPath.move(to: CGPoint(x:aPath.currentPoint.x + x , y:aPath.currentPoint.y ))
                 
-                //Y is the amplitude
+                //newY это отступ с верху
+				//чем он меньше, тем громче
 			
-				let newY = aPath.currentPoint.y - (points[f] * 70) - 1.0
+				let newY = aPath.currentPoint.y - (point * 250) - 1.0
 				print("newY \(newY)")
                 aPath.addLine(to: CGPoint(x:aPath.currentPoint.x  , y:newY))
                 
@@ -83,7 +85,6 @@ class DrawWaveform: UIView {
                 
                 //print(aPath.currentPoint.x)
                 x += 1
-                f += 1
         }
        
         //If you want to stroke it with a Orange color
@@ -92,7 +93,6 @@ class DrawWaveform: UIView {
         //If you want to fill it as well
         aPath.fill()
 		
-		print("f = \(f)")
     }
     
     
@@ -105,30 +105,14 @@ class DrawWaveform: UIView {
     func convertToPoints() {
         var processingBuffer = [Float](repeating: 0.0,
                                        count: Int(arrayFloatValues.count))
+		
         let sampleCount = vDSP_Length(arrayFloatValues.count)
         //print(sampleCount)
         vDSP_vabs(arrayFloatValues, 1, &processingBuffer, 1, sampleCount);
-        // print(processingBuffer)
-        
-        
-        
-        
-        // convert do dB
-        //    var zero:Float = 1;
-        //    vDSP_vdbcon(floatArrPtr, 1, &zero, floatArrPtr, 1, sampleCount, 1);
-        //    //print(floatArr)
-        //
-        //    // clip to [noiseFloor, 0]
-        //    var noiseFloor:Float = -50.0
-        //    var ceil:Float = 0.0
-        //    vDSP_vclip(floatArrPtr, 1, &noiseFloor, &ceil,
-        //                   floatArrPtr, 1, sampleCount);
-        //print(floatArr)
-        
-        
-        
+
+	
         var multiplier = 1.0
-        print(multiplier)
+		
         if multiplier < 1{
             multiplier = 1.0
             
@@ -150,6 +134,7 @@ class DrawWaveform: UIView {
         // print(" DOWNSAMPLEDDATA: \(downSampledData.count)")
         
         //convert [Float] to [CGFloat] array
+//		изменить число элементов в points
         points = downSampledData.map{CGFloat($0)}
         
         
