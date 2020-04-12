@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5236AF8A244305C2007DBE96 /* Тони Раут & Иван Рейс - Шот.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5236AF89244305C2007DBE96 /* Тони Раут & Иван Рейс - Шот.mp3 */; };
+		52D57B402443814B001C2186 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D57B3E2443814B001C2186 /* TempiFFT.swift */; };
+		52D57B412443814B001C2186 /* WaveformAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D57B3F2443814B001C2186 /* WaveformAnalyzer.swift */; };
 		52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803902440EF3C00D68A4A /* CollectionTiks.swift */; };
 		52D803942440EF3C00D68A4A /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D803912440EF3C00D68A4A /* TickCell.xib */; };
 		52D803952440EF3C00D68A4A /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803922440EF3C00D68A4A /* TickCell.swift */; };
@@ -15,7 +17,6 @@
 		52D8039B2440F0AD00D68A4A /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803982440F0AD00D68A4A /* UICollectionView.swift */; };
 		52D8039C2440F0AD00D68A4A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803992440F0AD00D68A4A /* UITableView.swift */; };
 		52D8039E2440F0DD00D68A4A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8039D2440F0DD00D68A4A /* UIView.swift */; };
-		52D803A12440F30D00D68A4A /* ViewProgress.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D803A02440F30D00D68A4A /* ViewProgress.xib */; };
 		52D803A32440F35900D68A4A /* ViewProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D803A22440F35900D68A4A /* ViewProgress.swift */; };
 		52FC94222440E6D800993D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94212440E6D800993D5C /* AppDelegate.swift */; };
 		52FC94262440E6D800993D5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94252440E6D800993D5C /* ViewController.swift */; };
@@ -28,12 +29,12 @@
 		52FC94402440E83F00993D5C /* test2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52FC943E2440E83F00993D5C /* test2.mp3 */; };
 		52FC94412440E83F00993D5C /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52FC943F2440E83F00993D5C /* test.mp3 */; };
 		52FC94432440E87C00993D5C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94422440E87C00993D5C /* Constant.swift */; };
-		B2C32C2BE499475F1BAB10F2 /* Pods_TestTiks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF2AED49DDCE57A9B8E2977 /* Pods_TestTiks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		15E55F93E1B42545F4945921 /* Pods-TestTiks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTiks.debug.xcconfig"; path = "Target Support Files/Pods-TestTiks/Pods-TestTiks.debug.xcconfig"; sourceTree = "<group>"; };
 		5236AF89244305C2007DBE96 /* Тони Раут & Иван Рейс - Шот.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Тони Раут & Иван Рейс - Шот.mp3"; sourceTree = "<group>"; };
+		52D57B3E2443814B001C2186 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
+		52D57B3F2443814B001C2186 /* WaveformAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveformAnalyzer.swift; sourceTree = "<group>"; };
 		52D803902440EF3C00D68A4A /* CollectionTiks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTiks.swift; sourceTree = "<group>"; };
 		52D803912440EF3C00D68A4A /* TickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
 		52D803922440EF3C00D68A4A /* TickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		52D803982440F0AD00D68A4A /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionView.swift; path = "../../../../Sound recording/Extensions/UI/UICollectionView.swift"; sourceTree = "<group>"; };
 		52D803992440F0AD00D68A4A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = "../../../../Sound recording/Extensions/UI/UITableView.swift"; sourceTree = "<group>"; };
 		52D8039D2440F0DD00D68A4A /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = "../../../../Sound recording/Extensions/UI/UIView.swift"; sourceTree = "<group>"; };
-		52D803A02440F30D00D68A4A /* ViewProgress.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewProgress.xib; sourceTree = "<group>"; };
 		52D803A22440F35900D68A4A /* ViewProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgress.swift; sourceTree = "<group>"; };
 		52FC941E2440E6D800993D5C /* TestTiks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTiks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FC94212440E6D800993D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +56,6 @@
 		52FC943E2440E83F00993D5C /* test2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test2.mp3; sourceTree = "<group>"; };
 		52FC943F2440E83F00993D5C /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		52FC94422440E87C00993D5C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		B7CF8B71DB27DCC5F1DE25C5 /* Pods-TestTiks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTiks.release.xcconfig"; path = "Target Support Files/Pods-TestTiks/Pods-TestTiks.release.xcconfig"; sourceTree = "<group>"; };
-		EBF2AED49DDCE57A9B8E2977 /* Pods_TestTiks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTiks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +63,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2C32C2BE499475F1BAB10F2 /* Pods_TestTiks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		521D4E3924437FDA0029A632 /* LibTick */ = {
+			isa = PBXGroup;
+			children = (
+				52D57B3E2443814B001C2186 /* TempiFFT.swift */,
+				52D57B3F2443814B001C2186 /* WaveformAnalyzer.swift */,
+			);
+			path = LibTick;
+			sourceTree = "<group>";
+		};
 		52D8038F2440EF3C00D68A4A /* CollectionTiks */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +102,8 @@
 		52D8039F2440F24F00D68A4A /* ViewProgress */ = {
 			isa = PBXGroup;
 			children = (
-				52D803A02440F30D00D68A4A /* ViewProgress.xib */,
 				52D803A22440F35900D68A4A /* ViewProgress.swift */,
+				521D4E3924437FDA0029A632 /* LibTick */,
 				52D8038F2440EF3C00D68A4A /* CollectionTiks */,
 			);
 			path = ViewProgress;
@@ -109,7 +115,6 @@
 				52FC94202440E6D800993D5C /* TestTiks */,
 				52FC941F2440E6D800993D5C /* Products */,
 				9DB538CA3E5E5996A5110F58 /* Pods */,
-				DC1D99673277BE0BB931D6FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,18 +159,8 @@
 		9DB538CA3E5E5996A5110F58 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				15E55F93E1B42545F4945921 /* Pods-TestTiks.debug.xcconfig */,
-				B7CF8B71DB27DCC5F1DE25C5 /* Pods-TestTiks.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		DC1D99673277BE0BB931D6FF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EBF2AED49DDCE57A9B8E2977 /* Pods_TestTiks.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +170,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52FC94322440E6D900993D5C /* Build configuration list for PBXNativeTarget "TestTiks" */;
 			buildPhases = (
-				F5CA93B6E8A4CAE685F87F9B /* [CP] Check Pods Manifest.lock */,
 				52FC941A2440E6D800993D5C /* Sources */,
 				52FC941B2440E6D800993D5C /* Frameworks */,
 				52FC941C2440E6D800993D5C /* Resources */,
-				89C6EDF1FEDB4B7D1C055C09 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FC942E2440E6D900993D5C /* LaunchScreen.storyboard in Resources */,
-				52D803A12440F30D00D68A4A /* ViewProgress.xib in Resources */,
 				52D803942440EF3C00D68A4A /* TickCell.xib in Resources */,
 				52FC94402440E83F00993D5C /* test2.mp3 in Resources */,
 				52FC94412440E83F00993D5C /* test.mp3 in Resources */,
@@ -242,58 +234,18 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		89C6EDF1FEDB4B7D1C055C09 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestTiks/Pods-TestTiks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestTiks/Pods-TestTiks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestTiks/Pods-TestTiks-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5CA93B6E8A4CAE685F87F9B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TestTiks-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		52FC941A2440E6D800993D5C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D57B402443814B001C2186 /* TempiFFT.swift in Sources */,
 				52D8039B2440F0AD00D68A4A /* UICollectionView.swift in Sources */,
 				52FC943B2440E79F00993D5C /* CellTest.swift in Sources */,
 				52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */,
 				52D8039E2440F0DD00D68A4A /* UIView.swift in Sources */,
 				52FC943C2440E79F00993D5C /* TestViewController2.swift in Sources */,
+				52D57B412443814B001C2186 /* WaveformAnalyzer.swift in Sources */,
 				52D8039A2440F0AD00D68A4A /* UILabel.swift in Sources */,
 				52D803952440EF3C00D68A4A /* TickCell.swift in Sources */,
 				52D8039C2440F0AD00D68A4A /* UITableView.swift in Sources */,
@@ -442,7 +394,6 @@
 		};
 		52FC94332440E6D900993D5C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15E55F93E1B42545F4945921 /* Pods-TestTiks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,7 +412,6 @@
 		};
 		52FC94342440E6D900993D5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7CF8B71DB27DCC5F1DE25C5 /* Pods-TestTiks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

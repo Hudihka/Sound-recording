@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import DSWaveformImage
 
 class TestViewController2: UIViewController {
 	
@@ -24,8 +23,6 @@ class TestViewController2: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
-		
 		self.view.backgroundColor = UIColor.blue
 		
 		let count = viewProgress.countFullTiks
@@ -40,15 +37,13 @@ class TestViewController2: UIViewController {
 		//ТО ЧТО ИСКАЛ!!!!
 		waveformAnalyzer.samples(count: count) { samples in
 			if let samples = samples?.invertProcent {
-				DispatchQueue.main.async {
+				
 					self.viewProgress.dataArray = samples
-					print("sampled down to 10, results are \(samples)")
 					
 					DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 						self.playFile(url: audioURL)
 					}
 					
-				}
 			}
 		}
 		

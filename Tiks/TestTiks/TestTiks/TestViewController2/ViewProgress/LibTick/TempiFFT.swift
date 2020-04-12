@@ -1,47 +1,15 @@
-//
-//  TempiFFT.swift
-//  TempiBeatDetection
-//
-//  Created by John Scalo on 1/12/16.
-//  Copyright © 2016 John Scalo. See accompanying License.txt for terms.
 
-/*  A functional FFT built atop Apple's Accelerate framework for optimum performance on any device. In addition to simply performing the FFT and providing access to the resulting data, TempiFFT provides the ability to map the FFT spectrum data into logical bands, either linear or logarithmic, for further analysis.
-
- E.g.
-
- let fft = TempiFFT(withSize: frameSize, sampleRate: 44100)
-
- // Setting a window type reduces errors
- fft.windowType = TempiFFTWindowType.hanning
-
- // Perform the FFT
- fft.fftForward(samples)
-
- // Map FFT data to logical bands. This gives 4 bands per octave across 7 octaves = 28 bands.
- fft.calculateLogarithmicBands(minFrequency: 100, maxFrequency: 11025, bandsPerOctave: 4)
-
- // Process some data
- for i in 0..<fft.numberOfBands {
- let f = fft.frequencyAtBand(i)
- let m = fft.magnitudeAtBand(i)
- }
-
- Note that TempiFFT expects a mono signal (i.e. numChannels == 1) which is ideal for performance.
- */
 
 
 import Foundation
 import Accelerate
 
-@objc enum TempiFFTWindowType: NSInteger {
-    case none
-    case hanning
-    case hamming
-}
 
 @objc class TempiFFT : NSObject {
+	
+	let color = 0
 
-    /// The length of the sample buffer we'll be analyzing.
+//    /// The length of the sample buffer we'll be analyzing.
     private(set) var size: Int
 
     /// The sample rate provided at init time.
@@ -77,7 +45,7 @@ import Accelerate
     private(set) var bandMinFreq, bandMaxFreq: Float!
 
     /// Supplying a window type (hanning or hamming) smooths the edges of the incoming waveform and reduces output errors from the FFT function (aka "spectral leakage" - ewww).
-    var windowType = TempiFFTWindowType.none
+    var windowType = 0
 
     private var halfSize:Int
     private var log2Size:Int
@@ -121,27 +89,7 @@ import Accelerate
     /// - Parameter inMonoBuffer: Audio data in mono format
     func fftForward(_ inMonoBuffer:[Float]) {
 
-        var analysisBuffer = inMonoBuffer
-
-        // If we have a window, apply it now. Since 99.9% of the time the window array will be exactly the same, an optimization would be to create it once and cache it, possibly caching it by size.
-        if self.windowType != .none {
-
-            if self.window.isEmpty {
-                self.window = [Float](repeating: 0.0, count: size)
-
-                switch self.windowType {
-                case .hamming:
-                    vDSP_hamm_window(&self.window, UInt(size), 0)
-                case .hanning:
-                    vDSP_hann_window(&self.window, UInt(size), Int32(vDSP_HANN_NORM))
-                default:
-                    break
-                }
-            }
-
-            // Apply the window
-            vDSP_vmul(inMonoBuffer, 1, self.window, 1, &analysisBuffer, 1, UInt(inMonoBuffer.count))
-        }
+		let analysisBuffer = inMonoBuffer
 
 
         // vDSP_ctoz converts an interleaved vector into a complex split vector. i.e. moves the even indexed samples into frame.buffer.realp and the odd indexed samples into frame.buffer.imagp.

@@ -6,6 +6,9 @@
 //
 // FFT done using: https://github.com/jscalo/tempi-fft
 //
+//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
+
+
 
 import Foundation
 import Accelerate
@@ -38,7 +41,9 @@ public class WaveformAnalyzer {
     /// Returns the calculated waveform of the initialized asset URL.
     public func samples(count: Int, qos: DispatchQoS.QoSClass = .userInitiated, completionHandler: @escaping (_ amplitudes: [Float]?) -> ()) {
         waveformSamples(count: count, qos: qos, fftBands: nil) { analysis in
-            completionHandler(analysis?.amplitudes)
+			DispatchQueue.main.async {
+				completionHandler(analysis?.amplitudes)
+			}
         }
     }
 }
@@ -53,6 +58,7 @@ fileprivate extension WaveformAnalyzer {
             qos: DispatchQoS.QoSClass,
             fftBands: Int?,
             completionHandler: @escaping (_ analysis: WaveformAnalysis?) -> ()) {
+		
         let trackOutput = AVAssetReaderTrackOutput(track: audioAssetTrack, outputSettings: outputSettings())
         assetReader.add(trackOutput)
 
@@ -192,7 +198,7 @@ fileprivate extension WaveformAnalyzer {
             repeat {
                 let fftBuffer = processingBuffer[0..<samplesPerFFT]
                 let fft = TempiFFT(withSize: samplesPerFFT, sampleRate: 44100.0)
-                fft.windowType = TempiFFTWindowType.hanning
+                fft.windowType = 1
                 fft.fftForward(Array(fftBuffer))
                 fft.calculateLinearBands(minFrequency: 0, maxFrequency: fft.nyquistFrequency, numberOfBands: fftBands)
                 ffts.append(fft)
@@ -229,7 +235,7 @@ fileprivate extension WaveformAnalyzer {
     // swiftlint:enable force_cast
 }
 
-// MARK: - Configuration
+//// MARK: - Configuration
 
 private extension WaveformAnalyzer {
     func outputSettings() -> [String: Any] {
@@ -242,3 +248,5 @@ private extension WaveformAnalyzer {
         ]
     }
 }
+
+
