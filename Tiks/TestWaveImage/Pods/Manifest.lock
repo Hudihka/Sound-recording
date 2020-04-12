@@ -1,0 +1,16 @@
+PODS:
+  - DSWaveformImage (6.1.0)
+
+DEPENDENCIES:
+  - DSWaveformImage (~> 6.1)
+
+SPEC REPOS:
+  trunk:
+    - DSWaveformImage
+
+SPEC CHECKSUMS:
+  DSWaveformImage: 1c0041e8413a0bc25f73955211e5b73c9f35812d
+
+PODFILE CHECKSUM: 94921d88259538f43b070af2ab3003819440d3c4
+
+COCOAPODS: 1.8.4
