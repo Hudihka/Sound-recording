@@ -11,7 +11,7 @@ import UIKit
 class TickCell: UICollectionViewCell {
 	
 	@IBOutlet weak var constreint: NSLayoutConstraint!
-	var procent: CGFloat = 2 {
+	var procent: CGFloat = 0 {
 		didSet{
 			addHold()
 		}
@@ -21,7 +21,7 @@ class TickCell: UICollectionViewCell {
 	private func addHold(){
 		self.backgroundColor = UIColor.clear
 		
-		let value = procent <= 5 ? 5 : procent
+		let value = procent <= 1 ? 1 : procent
 		
 		constreint.constant = self.frame.height * value / 100
 	}

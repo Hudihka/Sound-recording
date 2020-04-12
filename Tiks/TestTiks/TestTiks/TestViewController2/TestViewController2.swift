@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import DSWaveformImage
 
 class TestViewController2: UIViewController {
 	
@@ -20,10 +21,10 @@ class TestViewController2: UIViewController {
 	private var meterTimer:Timer!
     private var startTime: Double = 0
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
-//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
+		//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
 		
 		self.view.backgroundColor = UIColor.blue
 		
@@ -31,37 +32,27 @@ class TestViewController2: UIViewController {
 		viewProgress.clipsToBounds = true
 		
 		
-        guard let path = Bundle.main.path(forResource: "test2", ofType:"mp3"), let url = URL(string: path) else {
-			fatalError("Couldn't find the file path")
+		guard let audioURL = Bundle.main.url(forResource: "Тони Раут & Иван Рейс - Шот", withExtension: "mp3"),
+			let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: audioURL) else {
+				fatalError("Couldn't find the file path")
 		}
 		
+		//ТО ЧТО ИСКАЛ!!!!
+		waveformAnalyzer.samples(count: count) { samples in
+			if let samples = samples?.invertProcent {
+				DispatchQueue.main.async {
+					self.viewProgress.dataArray = samples
+					print("sampled down to 10, results are \(samples)")
+					
+					DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+						self.playFile(url: audioURL)
+					}
+					
+				}
+			}
+		}
 		
-		
-    }
-	
-	
-//	private func oldRender(path: URL){
-//		let render = Render()
-//
-//		let url = URL(fileURLWithPath: path)
-//		var outputArray : [Float] = []
-//
-//
-//		AudioContext.load(fromAudioURL: url, completionHandler: { audioContext in
-//
-//			guard let audioContext = audioContext else {
-//				fatalError("Couldn't create the audioContext")
-//			}
-//
-//			outputArray = render.render(audioContext: audioContext, targetSamples: count).invertProcent
-//
-//			DispatchQueue.main.async {
-//				self.viewProgress.dataArray = outputArray
-//				self.playFile(url: url)
-//			}
-//		})
-//
-//	}
+	}
     
 	private func playFile(url: URL){
 		
@@ -104,7 +95,7 @@ extension Array where Element == Float {
 		
 		if let max = self.max(by: {abs($0) < abs($1)}) {
 			let hunder = abs(max/100)
-			return self.map({abs($0) / hunder})
+			return self.map({100 - (abs($0) / hunder)})
 		}
 		
 		return []

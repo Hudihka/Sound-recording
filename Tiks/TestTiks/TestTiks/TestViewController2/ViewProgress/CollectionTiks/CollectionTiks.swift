@@ -41,18 +41,26 @@ class CollectionTiks: UICollectionView, UICollectionViewDataSource, UICollection
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return self.dataArray.count
+		//добавляем 2 ячейки что бы перекрыть прогресс вью
+		return self.dataArray.count + 2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TickCell", for: indexPath) as! TickCell
 		
-		let value = CGFloat(dataArray[indexPath.row])
-		cell.procent = value
-
+		if let value = dataArray[safe: indexPath.row]{
+			cell.procent = CGFloat(value)
+		}
+		
         return cell
     }
 
 
 }
 
+
+extension Collection {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}

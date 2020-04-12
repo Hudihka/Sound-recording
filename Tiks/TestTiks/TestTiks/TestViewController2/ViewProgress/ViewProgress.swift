@@ -62,11 +62,6 @@ class ViewProgress: UIView {
 	}
 	
 	
-	
-	
-	
-	
-
 
     deinit {
         NotificationCenter.default.removeObserver(self)
