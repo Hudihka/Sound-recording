@@ -6,7 +6,7 @@
 //
 // FFT done using: https://github.com/jscalo/tempi-fft
 //
-//		https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
+//https://stackoverflow.com/questions/54152300/how-to-make-waveform-for-my-recorded-audio
 
 
 
@@ -213,7 +213,7 @@ fileprivate extension WaveformAnalyzer {
         return samples.map { $0 / silenceDbThreshold }
     }
 
-    // swiftlint:disable force_cast
+// swiftlint:disable force_cast
     private func totalSamplesOfTrack() -> Int {
         var totalSamples = 0
 
