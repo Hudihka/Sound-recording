@@ -16,10 +16,12 @@ class DrawWaveform: UIView {
 	
     private var arrayFloatValues:[Float] = []
 	private var points:[CGFloat] = []
+	private var countTiks = 0
 	
-	convenience init(frame: CGRect, file: AVAudioFile?) {
+	convenience init(frame: CGRect, file: AVAudioFile?, countTiks: Int) {
 		self.init(frame: frame)
 		
+		self.countTiks = countTiks
 		self.arrayFloatValues = createArray(file: file)
 		
 	}
@@ -109,25 +111,26 @@ class DrawWaveform: UIView {
         let sampleCount = vDSP_Length(arrayFloatValues.count)
         //print(sampleCount)
         vDSP_vabs(arrayFloatValues, 1, &processingBuffer, 1, sampleCount);
-
-	
-        var multiplier = 1.0
+        
+//         сделать настройку этого параметра
+        let samplesPerPixel = 5000
 		
-        if multiplier < 1{
-            multiplier = 1.0
-            
-        }
-        
-        
-        let samplesPerPixel = Int(150 * multiplier)
+		
+		
         let filter = [Float](repeating: 1.0 / Float(samplesPerPixel),
-                             count: Int(samplesPerPixel))
+                             count: samplesPerPixel)
+		
+		
         let downSampledLength = Int(arrayFloatValues.count / samplesPerPixel)
+		
         var downSampledData = [Float](repeating:0.0,
                                       count:downSampledLength)
+		
+		
         vDSP_desamp(processingBuffer,
                     vDSP_Stride(samplesPerPixel),
-                    filter, &downSampledData,
+                    filter,
+					&downSampledData,
                     vDSP_Length(downSampledLength),
                     vDSP_Length(samplesPerPixel))
         

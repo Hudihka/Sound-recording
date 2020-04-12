@@ -20,10 +20,10 @@ class ViewController: UIViewController {
 		// ...
 		
 		
-		if let file = createBuffer(name: "piano", extensionName: "caf"){
+		if let file = createBuffer(name: "test", extensionName: "mp3"){
 			
 			let rect = CGRect(x: 0, y: 20, width: 667, height: 100)
-			let viewDraw = DrawWaveform(frame: rect, file: file)
+			let viewDraw = DrawWaveform(frame: rect, file: file, countTiks: 200)
 			viewDraw.backgroundColor = UIColor.brown
 			
 			self.view.addSubview(viewDraw)
