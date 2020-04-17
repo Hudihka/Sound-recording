@@ -19,6 +19,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		passwordTextField.delegate = self
 		
 		avatarImageView.isUserInteractionEnabled = true
+		avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
+		avatarImageView.layer.masksToBounds = true
+		
 		
 		let tabGestureRecogizer = UITapGestureRecognizer(target: self,
 														 action: #selector(ViewController.addPulse))
@@ -27,11 +30,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	@objc func addPulse(){
-		let pulse = Pulse(numberPulses: 1,
-						  radius: 110,
-						  position: avatarImageView.center)
+		let pulse = Pulse(view: avatarImageView)
 		
-		pulse.backgroundColor = UIColor.blue.cgColor
 		self.view.layer.insertSublayer(pulse, below: avatarImageView.layer)
 	}
 

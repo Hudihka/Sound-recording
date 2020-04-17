@@ -11,11 +11,9 @@ import UIKit
 class Pulse: CALayer {
 	
 	var animateGroup = CAAnimationGroup()
-	var initPulseScale: Float = 0
-	var nextPulseAfter: TimeInterval = 0
-	var animateDuration: TimeInterval = 1.5
-	var radius: CGFloat = 200
-	var numberOfPulses: Float = Float.infinity
+	var initPulseScale: Float = 1
+//	var animateDuration: TimeInterval = 0.049
+	var animateDuration: TimeInterval = 0.5
 	
 	
 	
@@ -27,64 +25,42 @@ class Pulse: CALayer {
 		super.init(coder: coder)
 	}
 	
-	init(numberPulses: Float = Float.infinity,
-		 radius: CGFloat,
-		 position: CGPoint){
+	init(view: UIView){
 		
 		super.init()
 		
 		
-		self.backgroundColor = UIColor.blue.cgColor
-		self.contentsScale = UIScreen.main.scale
-		self.opacity = 0
-		self.radius = radius
-		self.numberOfPulses = numberPulses
-		self.position = position
+		let animation = CABasicAnimation(keyPath: "transform.scale.xy")
+		animation.duration = animateDuration
+		animation.repeatCount = 1
+		animation.autoreverses = false
 		
-		self.bounds = CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2)
-		self.cornerRadius = radius
+		let frame = view.frame
 		
-		DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-			self.setupAnimationGroup()
-			
-			DispatchQueue.main.async {
-				self.add(self.animateGroup, forKey: "pulse")
-			}
-		}
+		self.frame = CGRect(origin: CGPoint(x: 100, y: 100), size: frame.size)
+//		self.frame = CGRect(origin: frame.origin, size: frame.size)
+		self.cornerRadius = frame.size.width / 2
+		
+		self.backgroundColor = UIColor(red: 122/255, green: 131/255, blue: 1, alpha: 0.5).cgColor
+		
+		self.add(animation, forKey: "position")
+		
+		createScaleAnimmation()
 	}
 	
 	
-	func createScaleAnimmation() -> CABasicAnimation{
+	func createScaleAnimmation() {
 		let scaleanimation = CABasicAnimation(keyPath: "transform.scale.xy")
+		
 		scaleanimation.fromValue = NSNumber(value: initPulseScale)
-		scaleanimation.toValue = NSNumber(value: 1)
+		scaleanimation.toValue = NSNumber(value: 2.5)
 		scaleanimation.duration = animateDuration
 		
-		return scaleanimation
+		scaleanimation.fillMode = .forwards
+		scaleanimation.isRemovedOnCompletion = false
+		
+		self.add(scaleanimation, forKey: "transform.scale.xy")
 	}
 	
-	func createOpasityAnimmation() -> CAKeyframeAnimation {
-		
-		let opasityAnimmation = CAKeyframeAnimation(keyPath: "opacity")
-		opasityAnimmation.duration = animateDuration
-		
-		opasityAnimmation.values = [0.4, 0.8, 1]
-		opasityAnimmation.keyTimes = [0, 0.2, 1]
-		
-		
-		return opasityAnimmation
-	}
-	
-	func setupAnimationGroup(){
-		self.animateGroup = CAAnimationGroup()
-		self.animateGroup.duration = animateDuration + nextPulseAfter
-		self.animateGroup.repeatCount = numberOfPulses
-		
-		let defaultCurve = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
-		self.animateGroup.timingFunction = defaultCurve
-		
-		
-		self.animateGroup.animations = [createScaleAnimmation(), createOpasityAnimmation()]
-	}
 	
 }
