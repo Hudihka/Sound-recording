@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet weak var avatarImageView: UIImageView!
 	
+	var pulse: Pulse?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		passwordTextField.delegate = self
@@ -30,9 +32,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	@objc func addPulse(){
-		let pulse = Pulse(view: avatarImageView)
-		
-		self.view.layer.insertSublayer(pulse, below: avatarImageView.layer)
+		if pulse == nil {
+			self.pulse = Pulse(view: avatarImageView)
+			self.view.layer.insertSublayer(pulse!, below: avatarImageView.layer)
+		} else {
+			let value = Float(arc4random_uniform(15000) + 10000) / 10000.0
+			self.pulse!.createScaleAnimmation(endValue: value)
+		}
 	}
 
 

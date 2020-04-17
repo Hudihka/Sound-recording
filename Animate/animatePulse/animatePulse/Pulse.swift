@@ -13,7 +13,7 @@ class Pulse: CALayer {
 	var animateGroup = CAAnimationGroup()
 	var initPulseScale: Float = 1
 //	var animateDuration: TimeInterval = 0.049
-	var animateDuration: TimeInterval = 0.5
+	var animateDuration: TimeInterval = 0.1
 	
 	
 	
@@ -45,16 +45,21 @@ class Pulse: CALayer {
 		
 		self.add(animation, forKey: "position")
 		
-		createScaleAnimmation()
 	}
 	
 	
-	func createScaleAnimmation() {
+	func createScaleAnimmation(endValue: Float) {
 		let scaleanimation = CABasicAnimation(keyPath: "transform.scale.xy")
 		
 		scaleanimation.fromValue = NSNumber(value: initPulseScale)
-		scaleanimation.toValue = NSNumber(value: 2.5)
+		scaleanimation.toValue = NSNumber(value: endValue)
 		scaleanimation.duration = animateDuration
+		if endValue > initPulseScale {
+			scaleanimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+		}
+		
+		initPulseScale = endValue
+		
 		
 		scaleanimation.fillMode = .forwards
 		scaleanimation.isRemovedOnCompletion = false
