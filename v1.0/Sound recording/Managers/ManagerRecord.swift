@@ -143,21 +143,19 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     }
 	
-	private func maxPoverVolue(isBig: Bool) -> Float{
+	private func maxPoverVolue() -> Float{
 		let power = abs(audioRecorder.averagePower(forChannel: 0) + audioRecorder.averagePower(forChannel: 1))
 		print("power \(power)")
 		
 		let procent = max(0, (maxValue - power)/100)
 		
 		if procent == 0 {
-			return 1
+			return 0
 		} else {
-			
 			/*1,5 это значение которое будет говорит на сколько
 			полученный будет больше фрейма к которому применяется */
-			let k: Float = 1.5 * (isBig ? 1 : 0.33333)
 			
-			return k * procent
+			return 1.5 * procent
 		}
 		
 	}

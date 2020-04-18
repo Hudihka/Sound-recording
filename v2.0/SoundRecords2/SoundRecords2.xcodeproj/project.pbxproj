@@ -45,6 +45,8 @@
 		52B5973B244B2F7900DD66C0 /* TickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B59735244B2F7900DD66C0 /* TickCell.xib */; };
 		52B5973C244B2F7900DD66C0 /* TickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B59736244B2F7900DD66C0 /* TickCell.swift */; };
 		52B5973D244B2F7900DD66C0 /* ViewProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B59737244B2F7900DD66C0 /* ViewProgress.swift */; };
+		52B59740244B326600DD66C0 /* ViewButtonRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B5973F244B326600DD66C0 /* ViewButtonRecord.swift */; };
+		52B59742244B331300DD66C0 /* Pulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B59741244B331300DD66C0 /* Pulse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		52B59735244B2F7900DD66C0 /* TickCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TickCell.xib; sourceTree = "<group>"; };
 		52B59736244B2F7900DD66C0 /* TickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickCell.swift; sourceTree = "<group>"; };
 		52B59737244B2F7900DD66C0 /* ViewProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewProgress.swift; sourceTree = "<group>"; };
+		52B5973F244B326600DD66C0 /* ViewButtonRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewButtonRecord.swift; sourceTree = "<group>"; };
+		52B59741244B331300DD66C0 /* Pulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 		52B5972E244B2F6500DD66C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				52B5973E244B324C00DD66C0 /* ButtonRecord */,
 				52B5972F244B2F7900DD66C0 /* ViewProgress */,
 			);
 			path = Views;
@@ -249,6 +254,15 @@
 				52B59736244B2F7900DD66C0 /* TickCell.swift */,
 			);
 			path = CollectionTiks;
+			sourceTree = "<group>";
+		};
+		52B5973E244B324C00DD66C0 /* ButtonRecord */ = {
+			isa = PBXGroup;
+			children = (
+				52B5973F244B326600DD66C0 /* ViewButtonRecord.swift */,
+				52B59741244B331300DD66C0 /* Pulse.swift */,
+			);
+			path = ButtonRecord;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +344,7 @@
 				52B59713244B2EE800DD66C0 /* Constats.swift in Sources */,
 				52B5972B244B2EE800DD66C0 /* AudioFile.swift in Sources */,
 				52B59717244B2EE800DD66C0 /* CALayer.swift in Sources */,
+				52B59740244B326600DD66C0 /* ViewButtonRecord.swift in Sources */,
 				52B59729244B2EE800DD66C0 /* Utils.swift in Sources */,
 				52B59716244B2EE800DD66C0 /* UIWindows.swift in Sources */,
 				52B59712244B2EE800DD66C0 /* SupportNotification.swift in Sources */,
@@ -349,6 +364,7 @@
 				52B5972A244B2EE800DD66C0 /* ManagerFiles.swift in Sources */,
 				52B5973C244B2F7900DD66C0 /* TickCell.swift in Sources */,
 				52B59738244B2F7900DD66C0 /* TempiFFT.swift in Sources */,
+				52B59742244B331300DD66C0 /* Pulse.swift in Sources */,
 				52B59718244B2EE800DD66C0 /* UIView.swift in Sources */,
 				52B5973D244B2F7900DD66C0 /* ViewProgress.swift in Sources */,
 				52B59722244B2EE800DD66C0 /* Date.swift in Sources */,
