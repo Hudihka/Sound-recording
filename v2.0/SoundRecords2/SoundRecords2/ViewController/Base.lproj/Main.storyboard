@@ -54,6 +54,7 @@
                     </view>
                     <connections>
                         <outlet property="labelTime" destination="2TH-pA-zDU" id="1Mu-d6-pam"/>
+                        <outlet property="tableView" destination="sRd-GY-B0x" id="Zra-y0-Mug"/>
                         <outlet property="viewButton" destination="5nP-87-EJY" id="M3Z-TU-BQ8"/>
                     </connections>
                 </viewController>

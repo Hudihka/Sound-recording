@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52985825244B706500A74D94 /* CellAudio.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52985823244B706500A74D94 /* CellAudio.xib */; };
+		52985826244B706500A74D94 /* CellAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52985824244B706500A74D94 /* CellAudio.swift */; };
 		52B596DE244B28AB00DD66C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B596DD244B28AB00DD66C0 /* AppDelegate.swift */; };
 		52B596E2244B28AB00DD66C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B596E1244B28AB00DD66C0 /* ViewController.swift */; };
 		52B596E5244B28AB00DD66C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B596E3244B28AB00DD66C0 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52985823244B706500A74D94 /* CellAudio.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellAudio.xib; sourceTree = "<group>"; };
+		52985824244B706500A74D94 /* CellAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAudio.swift; sourceTree = "<group>"; };
 		52B596DA244B28AB00DD66C0 /* SoundRecords2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundRecords2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B596DD244B28AB00DD66C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B596E1244B28AB00DD66C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52985822244B706500A74D94 /* CellAudio */ = {
+			isa = PBXGroup;
+			children = (
+				52985823244B706500A74D94 /* CellAudio.xib */,
+				52985824244B706500A74D94 /* CellAudio.swift */,
+			);
+			path = CellAudio;
+			sourceTree = "<group>";
+		};
 		52B596D1244B28AB00DD66C0 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				52B596E1244B28AB00DD66C0 /* ViewController.swift */,
+				52985822244B706500A74D94 /* CellAudio */,
 				52B596E3244B28AB00DD66C0 /* Main.storyboard */,
 			);
 			path = ViewController;
@@ -326,6 +340,7 @@
 				52B5973B244B2F7900DD66C0 /* TickCell.xib in Resources */,
 				52B596EA244B28AC00DD66C0 /* LaunchScreen.storyboard in Resources */,
 				52B596E7244B28AC00DD66C0 /* Assets.xcassets in Resources */,
+				52985825244B706500A74D94 /* CellAudio.xib in Resources */,
 				52B596E5244B28AB00DD66C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +361,7 @@
 				52B59717244B2EE800DD66C0 /* CALayer.swift in Sources */,
 				52B59740244B326600DD66C0 /* ViewButtonRecord.swift in Sources */,
 				52B59729244B2EE800DD66C0 /* Utils.swift in Sources */,
+				52985826244B706500A74D94 /* CellAudio.swift in Sources */,
 				52B59716244B2EE800DD66C0 /* UIWindows.swift in Sources */,
 				52B59712244B2EE800DD66C0 /* SupportNotification.swift in Sources */,
 				52B59724244B2EE800DD66C0 /* FloatAbdDouble.swift in Sources */,

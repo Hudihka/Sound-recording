@@ -17,6 +17,10 @@ let expansionAudio = ".m4a"
 /*методом проб и ошибок было полученно что при полной тишине уровень громкости -98 дб и ниже*/
 let maxValue: Float = 105
 
+let tickWidth: CGFloat = 5
+
+let minRecordTimeInterval: TimeInterval = 0.075
+
 
 var getHKey: Int {
 
@@ -66,10 +70,6 @@ let navigBarHeight: CGFloat = 44
 var heightTabBar: CGFloat {
     return isIPhoneXorXmax ? 84 : 58
 }
-
-let tickWidth: CGFloat = 5
-
-let minRecordTimeInterval: TimeInterval = 0.075
 
 let colorTabBar           = UIColor(red: 17/255, green: 41/255, blue: 87/255, alpha: 1)
 

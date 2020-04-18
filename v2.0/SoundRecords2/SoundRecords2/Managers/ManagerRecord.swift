@@ -37,7 +37,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 	var getFileUrl: URL {
 	
-		let date = Date().printDate(format: "HH:mm d MMMM yy")
+		let date = Date().printDate(format: "HH:mm_d.MM.yy")
 		let filename = "\(date)\(expansionAudio)"
 		let filePath = getDocumentsDirectory().appendingPathComponent(filename)
 		return filePath

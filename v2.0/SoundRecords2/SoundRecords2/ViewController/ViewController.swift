@@ -10,14 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	let managerRecord = ManagerRecord.shared
+	fileprivate let managerRecord = ManagerRecord.shared
+	fileprivate let managerFile = ManagerFiles.shared
+	
+	fileprivate var dataArray = [AudioFile]()
 
 	@IBOutlet weak var viewButton: ViewButtonRecord!
 	@IBOutlet weak var labelTime: UILabel!
 	
+	@IBOutlet weak var tableView: UITableView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		dataArray = managerFile.initData
+		
+		settingsTV()
 		settingsViewRecord()
 	}
 
@@ -43,5 +51,35 @@ class ViewController: UIViewController {
 		
 	}
 
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+	
+	fileprivate func settingsTV(){
+		
+		tableView.baseSettingsTV(obj: self,
+								 heghtCell: nil,
+								 arrayNameCell: ["CellAudio"],
+								 completion: nil)
+		
+	}
+	
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return dataArray.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "CellAudio", for: indexPath) as! CellAudio
+		cell.file = dataArray[indexPath.row]
+		
+		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 70
+	}
+	
+	
 }
 

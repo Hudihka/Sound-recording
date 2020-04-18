@@ -14,10 +14,12 @@ struct AudioFile {
 
 	var audioPlayerStruct: AVAudioPlayer?
     var name: String = ""
+	var url: URL?
 
     init?(url: URL) {
 		
 		if let audioPlayer = try? AVAudioPlayer(contentsOf: url){
+			self.url = url
 			self.audioPlayerStruct = audioPlayer
 			self.name = url.absoluteString.components(separatedBy: "/").last ?? ""
 		}

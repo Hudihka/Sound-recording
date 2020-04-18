@@ -21,17 +21,15 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
 	var timer: Timer?
 	
-    func initData() -> [AudioFile]{
+	var initData: [AudioFile]{
 		
 		arraySrtuct = []
-
-        for link in FileManager.default.linksAudio {
+		
+		for link in FileManager.default.linksAudio {
 			if let file = AudioFile(url: link){
 				arraySrtuct.append(file)
 			}
         }
-
-        arraySrtuct = arraySrtuct.sorted(by: {$0.name < $1.name})
 
 		return arraySrtuct
     }
@@ -164,18 +162,33 @@ class ManagerFiles: NSObject, AVAudioPlayerDelegate{
 
 
 extension FileManager {
+	
     private func urls(skipsHiddenFiles: Bool = false ) -> [URL]? {
         let documentsURL = urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fileURLs = try? contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil, options: skipsHiddenFiles ? .skipsHiddenFiles : [] )
-        return fileURLs
+		
+		return fileURLs
     }
 
     var linksAudio: [URL]{
 
-        guard let array = self.urls()?.filter({$0.absoluteString.contains(expansionAudio)}) else {return []}
-
+        guard var array = self.urls()?.filter({$0.absoluteString.contains(expansionAudio)}) else {return []}
+		
+		array = array.sorted(by: {date(url: $0) > date(url: $1)})
+		
         return array
 
     }
+	
+	private func date(url: URL) -> Date{
+		
+		if let attributes = try? FileManager.default.attributesOfItem(atPath: url.path) as [FileAttributeKey: Any],
+		   let creationDate = attributes[FileAttributeKey.creationDate] as? Date {
+			return creationDate
+		}
+		
+		return Date(timeIntervalSinceNow: 0)
+	}
+	
 }
 
