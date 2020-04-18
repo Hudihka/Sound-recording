@@ -90,6 +90,8 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             audioRecorder.prepareToRecord()
 
             audioRecorder.record()
+			
+//			audioRecorder.averagePower(forChannel: 1)
 
             isRecording = true
             startTime = Date().timeIntervalSinceReferenceDate
@@ -123,6 +125,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
             //если нужны только секунды
 //            let time = Int(audioRecorder.currentTime).timerValue
+//			print(maxPoverVolue(frame: 100))
 
             delegate?.updateLabelTimer(text: startTime.countMS)
             audioRecorder.updateMeters()
@@ -139,6 +142,25 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         isRecording = false
 
     }
+	
+	private func maxPoverVolue(isBig: Bool) -> Float{
+		let power = abs(audioRecorder.averagePower(forChannel: 0) + audioRecorder.averagePower(forChannel: 1))
+		print("power \(power)")
+		
+		let procent = max(0, (maxValue - power)/100)
+		
+		if procent == 0 {
+			return 1
+		} else {
+			
+			/*1,5 это значение которое будет говорит на сколько
+			полученный будет больше фрейма к которому применяется */
+			let k: Float = 1.5 * (isBig ? 1 : 0.33333)
+			
+			return k * procent
+		}
+		
+	}
 
 	
 }
