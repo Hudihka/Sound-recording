@@ -14,6 +14,9 @@ let wDdevice = UIScreen.main.bounds.size.width
 
 let expansionAudio = "itMS.Sound-recording.m4a"
 
+/*методом проб и ошибок было полученно что при полной тишине уровень громкости -98 дб и ниже*/
+let maxValue: Float = 98
+
 
 var getHKey: Int {
 
