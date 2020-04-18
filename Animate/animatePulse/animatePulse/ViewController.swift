@@ -15,6 +15,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var avatarImageView: UIImageView!
 	
 	var pulse: Pulse?
+	var pulseSmall: Pulse?
+	
+	private var meterTimer:Timer!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,21 +27,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
 		avatarImageView.layer.masksToBounds = true
 		
+		self.pulse = Pulse(view: avatarImageView)
+		self.pulseSmall = Pulse(view: avatarImageView)
+		self.view.layer.insertSublayer(pulseSmall!, below: avatarImageView.layer)
+		self.view.layer.insertSublayer(pulse!, below: avatarImageView.layer)
 		
-		let tabGestureRecogizer = UITapGestureRecognizer(target: self,
-														 action: #selector(ViewController.addPulse))
 		
-		avatarImageView.addGestureRecognizer(tabGestureRecogizer)
+		meterTimer = Timer.scheduledTimer(timeInterval: 0.075,
+										  target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
+		
+		
+//		let tabGestureRecogizer = UITapGestureRecognizer(target: self,
+//														 action: #selector(ViewController.addPulse))
+//
+//		avatarImageView.addGestureRecognizer(tabGestureRecogizer)
 	}
 	
-	@objc func addPulse(){
-		if pulse == nil {
-			self.pulse = Pulse(view: avatarImageView)
-			self.view.layer.insertSublayer(pulse!, below: avatarImageView.layer)
-		} else {
-			let value = Float(arc4random_uniform(15000) + 10000) / 10000.0
-			self.pulse!.createScaleAnimmation(endValue: value)
+	
+	@objc func updateAudioMeter(timer: Timer){
+		if pulse != nil, pulseSmall != nil {
+			
+			let randomValue = Float(arc4random_uniform(15000))
+			
+			let bigValue = generateValueLauer(startValue: randomValue, isBig: true)
+			let small = generateValueLauer(startValue: randomValue, isBig: false)
+			
+			self.pulse!.createScaleAnimmation(endValue: bigValue)
+			self.pulseSmall!.createScaleAnimmation(endValue: small)
 		}
+	}
+	
+	
+	private func generateValueLauer(startValue: Float, isBig: Bool) -> Float{
+		let koef: Float = isBig ? 1 : 0.33333
+		let generikCoef = startValue * koef
+		
+		return (generikCoef + 10000.0) / 10000.0
 	}
 
 

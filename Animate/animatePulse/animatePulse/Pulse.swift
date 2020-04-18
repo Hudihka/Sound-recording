@@ -10,10 +10,8 @@ import UIKit
 
 class Pulse: CALayer {
 	
-	var animateGroup = CAAnimationGroup()
 	var initPulseScale: Float = 1
-//	var animateDuration: TimeInterval = 0.049
-	var animateDuration: TimeInterval = 0.1
+	var animateDuration: TimeInterval = 0.074
 	
 	
 	

@@ -125,7 +125,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
             //если нужны только секунды
 //            let time = Int(audioRecorder.currentTime).timerValue
-			print(maxPoverVolue(frame: 100))
+//			print(maxPoverVolue(frame: 100))
 
             delegate?.updateLabelTimer(text: startTime.countMS)
             audioRecorder.updateMeters()
@@ -143,21 +143,21 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     }
 	
-	private func maxPoverVolue(frame: CGFloat) -> CGFloat{
+	private func maxPoverVolue(isBig: Bool) -> Float{
 		let power = abs(audioRecorder.averagePower(forChannel: 0) + audioRecorder.averagePower(forChannel: 1))
 		print("power \(power)")
 		
-		/*методом проб и ошибок было полученно что при полной тишине уровень громкости -98 дб и ниже*/
-		let maxValue: Float = 98
-		
-		let procent = max(0, maxValue - power)
+		let procent = max(0, (maxValue - power)/100)
 		
 		if procent == 0 {
-			return frame
+			return 1
 		} else {
-			let k = procent / maxValue
 			
-			return frame + CGFloat(k * 3 * maxValue / 2)
+			/*1,5 это значение которое будет говорит на сколько
+			полученный будет больше фрейма к которому применяется */
+			let k: Float = 1.5 * (isBig ? 1 : 0.33333)
+			
+			return k * procent
 		}
 		
 	}
