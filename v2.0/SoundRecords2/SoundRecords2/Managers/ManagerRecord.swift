@@ -37,7 +37,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
 	var getFileUrl: URL {
 	
-		let date = Date().timeIntervalSince1970
+		let date = Date().printDate(format: "HH:mm d MMMM yy")
 		let filename = "\(date)\(expansionAudio)"
 		let filePath = getDocumentsDirectory().appendingPathComponent(filename)
 		return filePath
@@ -137,6 +137,11 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     }
 
     func finishAudioRecording(){
+		if audioRecorder == nil{
+			//для первого запуска
+			return
+		}
+		
         audioRecorder.stop()
         audioRecorder = nil
         meterTimer.invalidate()

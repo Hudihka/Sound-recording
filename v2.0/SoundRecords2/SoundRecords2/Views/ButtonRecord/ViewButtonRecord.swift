@@ -151,7 +151,7 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 		//1 это размер вью, максималный для isBig  1 + 1,5
 //										для !isBig 1 + 0,5
 		
-		return generikCoef + 1
+		return 50//generikCoef + 1
 	}
 
 }
