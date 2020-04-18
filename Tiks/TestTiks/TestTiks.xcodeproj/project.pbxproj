@@ -23,8 +23,6 @@
 		52FC94292440E6D800993D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC94272440E6D800993D5C /* Main.storyboard */; };
 		52FC942B2440E6D900993D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FC942A2440E6D900993D5C /* Assets.xcassets */; };
 		52FC942E2440E6D900993D5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52FC942C2440E6D900993D5C /* LaunchScreen.storyboard */; };
-		52FC943A2440E79F00993D5C /* CellTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52FC94362440E79F00993D5C /* CellTest.xib */; };
-		52FC943B2440E79F00993D5C /* CellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94372440E79F00993D5C /* CellTest.swift */; };
 		52FC943C2440E79F00993D5C /* TestViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FC94382440E79F00993D5C /* TestViewController2.swift */; };
 		52FC94402440E83F00993D5C /* test2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52FC943E2440E83F00993D5C /* test2.mp3 */; };
 		52FC94412440E83F00993D5C /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52FC943F2440E83F00993D5C /* test.mp3 */; };
@@ -50,8 +48,6 @@
 		52FC942A2440E6D900993D5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52FC942D2440E6D900993D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52FC942F2440E6D900993D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52FC94362440E79F00993D5C /* CellTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTest.xib; sourceTree = "<group>"; };
-		52FC94372440E79F00993D5C /* CellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTest.swift; sourceTree = "<group>"; };
 		52FC94382440E79F00993D5C /* TestViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController2.swift; sourceTree = "<group>"; };
 		52FC943E2440E83F00993D5C /* test2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test2.mp3; sourceTree = "<group>"; };
 		52FC943F2440E83F00993D5C /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
@@ -148,8 +144,6 @@
 		52FC94352440E79F00993D5C /* TestViewController2 */ = {
 			isa = PBXGroup;
 			children = (
-				52FC94362440E79F00993D5C /* CellTest.xib */,
-				52FC94372440E79F00993D5C /* CellTest.swift */,
 				52FC94382440E79F00993D5C /* TestViewController2.swift */,
 				52D8039F2440F24F00D68A4A /* ViewProgress */,
 			);
@@ -225,7 +219,6 @@
 				52D803942440EF3C00D68A4A /* TickCell.xib in Resources */,
 				52FC94402440E83F00993D5C /* test2.mp3 in Resources */,
 				52FC94412440E83F00993D5C /* test.mp3 in Resources */,
-				52FC943A2440E79F00993D5C /* CellTest.xib in Resources */,
 				52FC942B2440E6D900993D5C /* Assets.xcassets in Resources */,
 				52FC94292440E6D800993D5C /* Main.storyboard in Resources */,
 				5236AF8A244305C2007DBE96 /* Тони Раут & Иван Рейс - Шот.mp3 in Resources */,
@@ -241,7 +234,6 @@
 			files = (
 				52D57B402443814B001C2186 /* TempiFFT.swift in Sources */,
 				52D8039B2440F0AD00D68A4A /* UICollectionView.swift in Sources */,
-				52FC943B2440E79F00993D5C /* CellTest.swift in Sources */,
 				52D803932440EF3C00D68A4A /* CollectionTiks.swift in Sources */,
 				52D8039E2440F0DD00D68A4A /* UIView.swift in Sources */,
 				52FC943C2440E79F00993D5C /* TestViewController2.swift in Sources */,
