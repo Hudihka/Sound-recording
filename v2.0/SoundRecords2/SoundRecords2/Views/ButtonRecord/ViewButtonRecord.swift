@@ -115,11 +115,14 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 	
 	private func createLayerPulse(){
 		
-		self.pulse = Pulse(view: self)
-		self.pulseSmall = Pulse(view: self)
+		if let SV = self.superview{
 		
-		self.layer.insertSublayer(pulseSmall!, below: self.layer)
-		self.layer.insertSublayer(pulse!, below: self.layer)
+		pulse = Pulse(view: self)
+		pulseSmall = Pulse(view: self)
+		
+		SV.layer.insertSublayer(pulseSmall!, below: self.layer)
+		SV.layer.insertSublayer(pulse!, below: self.layer)
+		}
 	}
 	
 	private func dismisPulseLayer(){
@@ -151,7 +154,7 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 		//1 это размер вью, максималный для isBig  1 + 1,5
 //										для !isBig 1 + 0,5
 		
-		return 50//generikCoef + 1
+		return generikCoef + 1
 	}
 
 }
