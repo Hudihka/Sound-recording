@@ -116,12 +116,12 @@ class ViewButtonRecord: UIView, UIGestureRecognizerDelegate {
 	private func createLayerPulse(){
 		
 		if let SV = self.superview{
-		
-		pulse = Pulse(view: self)
-		pulseSmall = Pulse(view: self)
-		
-		SV.layer.insertSublayer(pulseSmall!, below: self.layer)
-		SV.layer.insertSublayer(pulse!, below: self.layer)
+			
+			pulse = Pulse(view: self)
+			pulseSmall = Pulse(view: self)
+			
+			SV.layer.insertSublayer(pulseSmall!, below: self.layer)
+			SV.layer.insertSublayer(pulse!, below: self.layer)
 		}
 	}
 	

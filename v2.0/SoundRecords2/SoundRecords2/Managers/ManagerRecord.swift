@@ -126,7 +126,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
             //если нужны только секунды
 //            let time = Int(audioRecorder.currentTime).timerValue
-//			print(maxPoverVolue(frame: 100))
+
 			
 			blockUpdateTimmer(startTime.countMS)
 			blockUpdatePulse(maxPoverVolue)
@@ -152,18 +152,20 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     }
 	
 	private var maxPoverVolue: Float{
-		let power = abs(audioRecorder.averagePower(forChannel: 0) + audioRecorder.averagePower(forChannel: 1))
+		let power = abs(audioRecorder.averagePower(forChannel: 0) + 		  		  			audioRecorder.averagePower(forChannel: 1))
 		
-		let procent = max(0, (maxValue - power)/100)
+		//чем ближе к 0 тем громче
 		
-		if procent == 0 {
-			return 1
-		} else {
-			
-			/*1,5 это значение которое будет говорит на сколько
-			полученный будет больше фрейма к которому применяется */
-			return 1.5 * procent
-		}
+		let procent = max(0, (maxValue - power))
+		
+		/*какая громкость относительно максимальной*/
+		let procOTNMax = procent / maxValue
+		
+		/*2,5 это значение которое будет говорит на сколько
+		полученный будет больше фрейма к которому применяется */
+		
+		return 2.5 * procOTNMax
+		
 		
 	}
 
