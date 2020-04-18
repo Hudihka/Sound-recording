@@ -35,8 +35,7 @@ class Pulse: CALayer {
 		
 		let frame = view.frame
 		
-		self.frame = CGRect(origin: CGPoint(x: 100, y: 100), size: frame.size)
-//		self.frame = CGRect(origin: frame.origin, size: frame.size)
+		self.frame = CGRect(origin: frame.origin, size: frame.size)
 		self.cornerRadius = frame.size.width / 2
 		
 		self.backgroundColor = UIColor(red: 122/255, green: 131/255, blue: 1, alpha: 0.5).cgColor
@@ -47,6 +46,29 @@ class Pulse: CALayer {
 	
 	
 	func createScaleAnimmation(endValue: Float) {
+		let scaleanimation = createAnimate(endValue: endValue)
+		self.add(scaleanimation, forKey: "transform.scale.xy")
+	}
+	
+	func createScaleAnimmationFinal(completionBlock:@escaping(() -> Void )) {
+		
+		CATransaction.begin()
+		
+		let scaleanimation = createAnimate(endValue: 1)
+		self.add(scaleanimation, forKey: "transform.scale.xy")
+		
+		CATransaction.setCompletionBlock {
+			completionBlock()
+		}
+		
+		self.add(scaleanimation, forKey: "transform.scale.xy")
+		
+		CATransaction.commit()
+	}
+	
+	
+	
+	private func createAnimate(endValue: Float) -> CABasicAnimation{
 		let scaleanimation = CABasicAnimation(keyPath: "transform.scale.xy")
 		
 		scaleanimation.fromValue = NSNumber(value: initPulseScale)
@@ -58,12 +80,13 @@ class Pulse: CALayer {
 		
 		initPulseScale = endValue
 		
-		
 		scaleanimation.fillMode = .forwards
 		scaleanimation.isRemovedOnCompletion = false
 		
-		self.add(scaleanimation, forKey: "transform.scale.xy")
+		return scaleanimation
 	}
+	
+	
 	
 	
 }

@@ -27,20 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		avatarImageView.layer.cornerRadius = avatarImageView.frame.width / 2
 		avatarImageView.layer.masksToBounds = true
 		
-		self.pulse = Pulse(view: avatarImageView)
-		self.pulseSmall = Pulse(view: avatarImageView)
-		self.view.layer.insertSublayer(pulseSmall!, below: avatarImageView.layer)
-		self.view.layer.insertSublayer(pulse!, below: avatarImageView.layer)
 		
-		
-		meterTimer = Timer.scheduledTimer(timeInterval: 0.075,
-										  target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
-		
-		
-//		let tabGestureRecogizer = UITapGestureRecognizer(target: self,
-//														 action: #selector(ViewController.addPulse))
-//
-//		avatarImageView.addGestureRecognizer(tabGestureRecogizer)
 	}
 	
 	
@@ -55,6 +42,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
 			self.pulse!.createScaleAnimmation(endValue: bigValue)
 			self.pulseSmall!.createScaleAnimmation(endValue: small)
 		}
+	}
+	
+	
+	@IBAction func record(_ sender: Any) {
+		
+		self.pulse = Pulse(view: avatarImageView)
+		self.pulseSmall = Pulse(view: avatarImageView)
+		self.view.layer.insertSublayer(pulseSmall!, below: avatarImageView.layer)
+		self.view.layer.insertSublayer(pulse!, below: avatarImageView.layer)
+		
+		
+		meterTimer = Timer.scheduledTimer(timeInterval: 0.075,
+										  target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
+		
+	}
+	
+	@IBAction func stopRecord(_ sender: Any) {
+		
+		if pulse != nil, pulseSmall != nil {
+			
+			meterTimer.invalidate()
+			
+			self.pulse?.createScaleAnimmationFinal {
+				self.pulse?.removeFromSuperlayer()
+			}
+			
+			self.pulseSmall?.createScaleAnimmationFinal {
+				self.pulseSmall?.removeFromSuperlayer()
+			}
+			
+		}
+		
 	}
 	
 	
