@@ -69,7 +69,7 @@ var heightTabBar: CGFloat {
 
 let tickWidth: CGFloat = 5
 
-
+let minRecordTimeInterval: TimeInterval = 0.075
 
 let colorTabBar           = UIColor(red: 17/255, green: 41/255, blue: 87/255, alpha: 1)
 

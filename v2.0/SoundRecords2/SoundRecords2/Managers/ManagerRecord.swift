@@ -9,10 +9,6 @@
 import Foundation
 import AVFoundation
 
-protocol AudioRecordProtocol: class {
-    func updateLabelTimer(text: String)
-}
-
 
 class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 	
@@ -20,14 +16,15 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     static let shared = ManagerRecord()
 	
-	var audioRecorder: AVAudioRecorder!
+	private var audioRecorder: AVAudioRecorder!
 
 	private var meterTimer:Timer!
     private var startTime: Double = 0
 
-	var isRecording = false
+	private var isRecording = false
 
-    weak var delegate: AudioRecordProtocol?
+	var blockUpdateTimmer: (String)->() = {_ in }
+	var blockUpdatePulse: (Float)->() = {_ in }
 
 	//сохранение запииси
 	
@@ -38,7 +35,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 		return documentsDirectory
 	}
 
-	func getFileUrl() -> URL {
+	var getFileUrl: URL {
 	
 		let date = Date().timeIntervalSince1970
 		let filename = "\(date)\(expansionAudio)"
@@ -74,6 +71,8 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
         let session = AVAudioSession.sharedInstance()
         do{
+			
+			//останавливыаем воспроизведение аудио
             try session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try session.setActive(true)
 
@@ -84,20 +83,22 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
                 AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
             ]
 
-            audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
+			audioRecorder = try AVAudioRecorder(url: getFileUrl, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.isMeteringEnabled = true
             audioRecorder.prepareToRecord()
 
             audioRecorder.record()
-			
-//			audioRecorder.averagePower(forChannel: 1)
 
             isRecording = true
             startTime = Date().timeIntervalSinceReferenceDate
 
             print("пишем")
-            meterTimer = Timer.scheduledTimer(timeInterval: 0.05, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
+            meterTimer = Timer.scheduledTimer(timeInterval: minRecordTimeInterval,
+											  target:self,
+											  selector:#selector(self.updateAudioMeter(timer:)),
+											  userInfo:nil,
+											  repeats:true)
 
         } catch let error {
             print("косяк")
@@ -126,8 +127,10 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
             //если нужны только секунды
 //            let time = Int(audioRecorder.currentTime).timerValue
 //			print(maxPoverVolue(frame: 100))
+			
+			blockUpdateTimmer(startTime.countMS)
+			blockUpdatePulse(maxPoverVolue)
 
-            delegate?.updateLabelTimer(text: startTime.countMS)
             audioRecorder.updateMeters()
         }
 
@@ -143,9 +146,8 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
     }
 	
-	private func maxPoverVolue(isBig: Bool) -> Float{
+	private var maxPoverVolue: Float{
 		let power = abs(audioRecorder.averagePower(forChannel: 0) + audioRecorder.averagePower(forChannel: 1))
-		print("power \(power)")
 		
 		let procent = max(0, (maxValue - power)/100)
 		
@@ -155,9 +157,7 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 			
 			/*1,5 это значение которое будет говорит на сколько
 			полученный будет больше фрейма к которому применяется */
-			let k: Float = 1.5 * (isBig ? 1 : 0.33333)
-			
-			return k * procent
+			return 1.5 * procent
 		}
 		
 	}
