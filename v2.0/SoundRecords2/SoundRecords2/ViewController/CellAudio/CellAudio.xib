@@ -50,6 +50,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70p-5Z-Mdg" customClass="ViewProgress" customModule="SoundRecords2" customModuleProvider="target">
                         <rect key="frame" x="68" y="18" width="297" height="22"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="297" id="s8l-hW-1RS"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,7 +61,6 @@
                     <constraint firstItem="9L9-Xj-6kj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="W6o-IT-Jhk"/>
                     <constraint firstItem="70p-5Z-Mdg" firstAttribute="leading" secondItem="9L9-Xj-6kj" secondAttribute="trailing" constant="8" id="Y34-2p-eWZ"/>
                     <constraint firstItem="0N3-IQ-cq8" firstAttribute="top" secondItem="70p-5Z-Mdg" secondAttribute="bottom" constant="8" id="bLc-Pu-Q6Z"/>
-                    <constraint firstAttribute="trailing" secondItem="70p-5Z-Mdg" secondAttribute="trailing" constant="10" id="frn-3T-hNC"/>
                     <constraint firstItem="BUT-Ii-lFU" firstAttribute="leading" secondItem="0N3-IQ-cq8" secondAttribute="trailing" constant="10" id="gnU-fQ-3uo"/>
                     <constraint firstItem="0N3-IQ-cq8" firstAttribute="leading" secondItem="9L9-Xj-6kj" secondAttribute="trailing" constant="8" id="grn-PT-iHa"/>
                     <constraint firstAttribute="bottom" secondItem="0N3-IQ-cq8" secondAttribute="bottom" constant="10" id="rje-qO-r56"/>
@@ -72,6 +74,8 @@
                 <outlet property="butonPlay" destination="9L9-Xj-6kj" id="3q1-qR-RPd"/>
                 <outlet property="dateLabel" destination="BUT-Ii-lFU" id="Wyh-q7-Ibd"/>
                 <outlet property="progressLabel" destination="0N3-IQ-cq8" id="az6-DQ-Qwf"/>
+                <outlet property="viewProgress" destination="70p-5Z-Mdg" id="bbn-lp-MH5"/>
+                <outlet property="withViewProgress" destination="s8l-hW-1RS" id="hTg-xA-j0H"/>
             </connections>
             <point key="canvasLocation" x="177.536231884058" y="124.55357142857142"/>
         </tableViewCell>

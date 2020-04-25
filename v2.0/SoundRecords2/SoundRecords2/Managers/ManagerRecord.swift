@@ -164,7 +164,9 @@ class ManagerRecord: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 		/*2,5 это значение которое будет говорит на сколько
 		полученный будет больше фрейма к которому применяется */
 		
-		return 2.5 * procOTNMax
+//		return 2.5 * procOTNMax
+		
+		return 8 * procOTNMax
 		
 		
 	}

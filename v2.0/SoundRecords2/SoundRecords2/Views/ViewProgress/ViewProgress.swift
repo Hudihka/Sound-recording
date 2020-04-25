@@ -11,7 +11,6 @@ import UIKit
 class ViewProgress: UIView {
 	var progressView = UIProgressView()
 //
-//	@IBOutlet weak var progressView: UIProgressView!
 	
 	var dataArray: [Float] = [] {
 		didSet{

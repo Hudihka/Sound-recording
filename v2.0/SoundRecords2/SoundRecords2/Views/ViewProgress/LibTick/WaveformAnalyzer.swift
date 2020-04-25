@@ -23,8 +23,11 @@ struct WaveformAnalysis {
 public class WaveformAnalyzer {
     private let assetReader: AVAssetReader
     private let audioAssetTrack: AVAssetTrack
+	private let name: String
 
-    public init?(audioAssetURL: URL) {
+    public init?(audioAssetURL: URL, name: String) {
+		self.name = name
+		
         let audioAsset = AVURLAsset(url: audioAssetURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
 
         guard
@@ -39,13 +42,43 @@ public class WaveformAnalyzer {
     }
     
     /// Returns the calculated waveform of the initialized asset URL.
-    public func samples(count: Int, qos: DispatchQoS.QoSClass = .userInitiated, completionHandler: @escaping (_ amplitudes: [Float]?) -> ()) {
+    public func samples(count: Int,
+						qos: DispatchQoS.QoSClass = .userInitiated,
+						completionHandler: @escaping (_ amplitudes: [Float]?) -> ()) {
+		
+		
+		if let array = getArraySamples(countSamples: count){
+			completionHandler(array)
+//			print(array)
+			return
+		}
+			
         waveformSamples(count: count, qos: qos, fftBands: nil) { analysis in
 			DispatchQueue.main.async {
-				completionHandler(analysis?.amplitudes)
+				let array = analysis?.amplitudes
+				self.saveArraySamples(amplitudes: array)
+				completionHandler(array)
 			}
         }
     }
+	
+	
+	private func saveArraySamples(amplitudes: [Float]?){
+		guard let amplitudes = amplitudes else {return}
+		
+		let key = "count:_\(amplitudes.count)_name:_\(self.name)"
+		
+		UserDefaults.standard.set(amplitudes, forKey: key)
+	}
+	
+	private func getArraySamples(countSamples: Int) -> [Float]? {
+		
+		let key = "count:_\(countSamples)_name:_\(self.name)"
+		
+		let array = UserDefaults.standard.array(forKey: key)  as? [Float]
+		
+		return array
+	}
 }
 
 // MARK: - Private

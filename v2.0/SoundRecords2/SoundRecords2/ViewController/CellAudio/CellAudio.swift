@@ -16,6 +16,8 @@ class CellAudio: UITableViewCell {
 	@IBOutlet weak var progressLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
 	
+	@IBOutlet weak var viewProgress: ViewProgress!
+	@IBOutlet weak var withViewProgress: NSLayoutConstraint!
 	
 	let manager = ManagerFiles.shared
 	
@@ -28,6 +30,9 @@ class CellAudio: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		
+		withViewProgress.constant = wDdevice - 78
+		viewProgress.clipsToBounds = true
+		
 		butonPlay.cirkleView()
 	
     }
@@ -37,21 +42,41 @@ class CellAudio: UITableViewCell {
 	private func desingView(){
 		guard let file = file else {return}
 		
-		let tuplData = manager.baseDesingCell(file: file)
-		
-		progressLabel.text = tuplData.labelTime
-		
 		dateLabel.text = file.name
+		progressLabel.text = file.durationStruct
 		
 		desingButton()
+	
+		desingProgressView(url: file.url, name: file.name)
+		
 	}
 	
-	func desingButton(){
+	private func desingButton(){
 		guard let file = file else {return}
 		
 		let imageName = manager.isPlay(file: file) ? "pauseButton" : "play"
 		butonPlay.setImage(UIImage(named: imageName), for: .normal)
 	}
+	
+	private func desingProgressView(url: URL?, name: String){
+		
+		if let audioURL = url, let waveformAnalyzer = WaveformAnalyzer(audioAssetURL: audioURL, name: name) {
+			
+//			let countSamples = Int(viewProgress.countFullTiks)
+			let countSamples = Int(self.withViewProgress.constant / tickWidth)
+			
+			waveformAnalyzer.samples(count: countSamples) { samples in
+				if let samples = samples?.invertProcent {
+					self.viewProgress.dataArray = samples
+				}
+			}
+			
+		} else {
+			viewProgress.isHidden = true
+		}
+		
+	}
+	
 	
 	@IBAction func playButton(_ sender: Any) {
 		
@@ -66,6 +91,32 @@ class CellAudio: UITableViewCell {
 	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
+	
+}
+
+extension Array where Element == Float {
+	var reloadProcent: [Float]{
+		
+		if let max = self.max(by: {$0 < $1}) {
+			return self.map({$0 / max})
+		}
+		
+		return []
+		
+	}
+	
+	
+	var invertProcent: [Float]{
+		
+		if let max = self.max(by: {abs($0) < abs($1)}) {
+			let hunder = abs(max/100)
+			return self.map({100 - (abs($0) / hunder)})
+		}
+		
+		return []
+		
+	}
+	
 	
 }
 

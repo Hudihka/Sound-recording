@@ -26,6 +26,7 @@ class ViewController: UIViewController {
 		dataArray = managerFile.initData
 		
 		settingsTV()
+		self.tableView.reloadData()
 		settingsViewRecord()
 	}
 
