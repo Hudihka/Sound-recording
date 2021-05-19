@@ -36,10 +36,7 @@ class ViewProgress: UIView {
 		
 		let y = self.frame.height / 2
 		
-		self.progressView.frame = CGRect(x: 0,
-										 y: y,
-										 width: self.countFullTiks * tickWidth,
-										 height: 1.0)
+		self.progressView.frame = self.frame
 		
 		progressView.trackTintColor = UIColor.yellow
 		progressView.progressTintColor = UIColor.red
