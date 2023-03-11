@@ -8,11 +8,16 @@
 
 import UIKit
 
-class Pulse: CALayer {
+final class Pulse: CALayer {
 	
-	var initPulseScale: Float = 1
-	var animateDuration: TimeInterval = 0.074
-	
+	private var initPulseScale: Float = 1
+	private var animateDuration: TimeInterval = 0.49
+    
+    private var flagBigValue = true
+    private var meterTimer:Timer?
+    
+    private var bigScale: Float?
+    private var endScale: Float?
 	
 	
 	override init(layer: Any) {
@@ -23,50 +28,60 @@ class Pulse: CALayer {
 		super.init(coder: coder)
 	}
 	
-	init(view: UIView){
-		
+    init(
+        postion: CGPoint,
+        width: CGFloat,
+        alpha: CGFloat,
+        bigScale: Float,
+        endScale: Float
+    ){
 		super.init()
-		
-		
+        
 		let animation = CABasicAnimation(keyPath: "transform.scale.xy")
 		animation.duration = animateDuration
 		animation.repeatCount = 1
 		animation.autoreverses = false
-		
-		let frame = view.frame
-		
-		self.frame = CGRect(origin: frame.origin, size: frame.size)
-		self.cornerRadius = frame.size.width / 2
-		
-		self.backgroundColor = UIColor(red: 122/255, green: 131/255, blue: 1, alpha: 0.5).cgColor
-		
+        
+        self.bigScale = bigScale
+        self.endScale = endScale
+        
+        self.position = postion
+        self.backgroundColor = UIColor.green.withAlphaComponent(alpha).cgColor
+        
+        self.bounds = CGRect(x: 0, y: 0, width: width, height: width)
+        self.cornerRadius = width / 2
+        
 		self.add(animation, forKey: "position")
 		
 	}
+    
+    func activateTimer() {
+        guard self.meterTimer == nil else {
+            return
+        }
+        
+        meterTimer = Timer.scheduledTimer(
+            timeInterval: 0.5,
+            target:self,
+            selector:#selector(self.updateAudioMeter(timer:)),
+            userInfo:nil,
+            repeats:true
+        )
+    }
 	
-	
-	func createScaleAnimmation(endValue: Float) {
+    @objc
+    func updateAudioMeter(timer: Timer){
+        let scale: Float = flagBigValue ? (bigScale ?? 1) : (endScale ?? 1)
+        
+        createScaleAnimmation(endValue: scale)
+        
+        flagBigValue = !flagBigValue
+    }
+    
+	private func createScaleAnimmation(endValue: Float) {
 		let scaleanimation = createAnimate(endValue: endValue)
 		self.add(scaleanimation, forKey: "transform.scale.xy")
 	}
-	
-	func createScaleAnimmationFinal(completionBlock:@escaping(() -> Void )) {
-		
-		CATransaction.begin()
-		
-		let scaleanimation = createAnimate(endValue: 1)
-		self.add(scaleanimation, forKey: "transform.scale.xy")
-		
-		CATransaction.setCompletionBlock {
-			completionBlock()
-		}
-		
-		self.add(scaleanimation, forKey: "transform.scale.xy")
-		
-		CATransaction.commit()
-	}
-	
-	
 	
 	private func createAnimate(endValue: Float) -> CABasicAnimation{
 		let scaleanimation = CABasicAnimation(keyPath: "transform.scale.xy")
@@ -87,6 +102,7 @@ class Pulse: CALayer {
 	}
 	
 	
-	
-	
+    deinit {
+        meterTimer = nil
+    }
 }
